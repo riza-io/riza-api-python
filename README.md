@@ -1,6 +1,6 @@
 # Riza Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/riza.svg)](https://pypi.org/project/riza/)
+[![PyPI version](https://img.shields.io/pypi/v/rizaio.svg)](https://pypi.org/project/rizaio/)
 
 The Riza Python library provides convenient access to the Riza REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
@@ -16,7 +16,7 @@ The REST API documentation can be found [on docs.riza.io](https://docs.riza.io).
 
 ```sh
 # install from PyPI
-pip install --pre riza
+pip install --pre rizaio
 ```
 
 ## Usage
