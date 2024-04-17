@@ -1,7 +1,7 @@
 [project]
 name = "TEMP_riza-api"
 version = "0.0.1-alpha.0"
-description = "The official Python library for the Riza API"
+description = "The official Python library for the riza API"
 dynamic = ["readme"]
 license = "Apache-2.0"
 authors = [

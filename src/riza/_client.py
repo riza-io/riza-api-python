@@ -76,7 +76,7 @@ class Riza(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous Riza client instance.
+        """Construct a new synchronous riza client instance.
 
         This automatically infers the `auth_token` argument from the `RIZA_AUTH_TOKEN` environment variable if it is not provided.
         """
@@ -244,7 +244,7 @@ class AsyncRiza(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async Riza client instance.
+        """Construct a new async riza client instance.
 
         This automatically infers the `auth_token` argument from the `RIZA_AUTH_TOKEN` environment variable if it is not provided.
         """
