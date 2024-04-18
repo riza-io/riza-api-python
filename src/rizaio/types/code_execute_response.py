@@ -6,10 +6,10 @@ from pydantic import Field as FieldInfo
 
 from .._models import BaseModel
 
-__all__ = ["TopLevelExecuteResponse"]
+__all__ = ["CodeExecuteResponse"]
 
 
-class TopLevelExecuteResponse(BaseModel):
+class CodeExecuteResponse(BaseModel):
     exit_code: Optional[str] = FieldInfo(alias="exitCode", default=None)
 
     stderr: Optional[str] = None
