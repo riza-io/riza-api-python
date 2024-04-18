@@ -46,7 +46,7 @@ __all__ = [
 
 
 class Riza(SyncAPIClient):
-    top_level: resources.TopLevel
+    code: resources.Code
     with_raw_response: RizaWithRawResponse
     with_streaming_response: RizaWithStreamedResponse
 
@@ -104,7 +104,7 @@ class Riza(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.top_level = resources.TopLevel(self)
+        self.code = resources.Code(self)
         self.with_raw_response = RizaWithRawResponse(self)
         self.with_streaming_response = RizaWithStreamedResponse(self)
 
@@ -214,7 +214,7 @@ class Riza(SyncAPIClient):
 
 
 class AsyncRiza(AsyncAPIClient):
-    top_level: resources.AsyncTopLevel
+    code: resources.AsyncCode
     with_raw_response: AsyncRizaWithRawResponse
     with_streaming_response: AsyncRizaWithStreamedResponse
 
@@ -272,7 +272,7 @@ class AsyncRiza(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.top_level = resources.AsyncTopLevel(self)
+        self.code = resources.AsyncCode(self)
         self.with_raw_response = AsyncRizaWithRawResponse(self)
         self.with_streaming_response = AsyncRizaWithStreamedResponse(self)
 
@@ -383,22 +383,22 @@ class AsyncRiza(AsyncAPIClient):
 
 class RizaWithRawResponse:
     def __init__(self, client: Riza) -> None:
-        self.top_level = resources.TopLevelWithRawResponse(client.top_level)
+        self.code = resources.CodeWithRawResponse(client.code)
 
 
 class AsyncRizaWithRawResponse:
     def __init__(self, client: AsyncRiza) -> None:
-        self.top_level = resources.AsyncTopLevelWithRawResponse(client.top_level)
+        self.code = resources.AsyncCodeWithRawResponse(client.code)
 
 
 class RizaWithStreamedResponse:
     def __init__(self, client: Riza) -> None:
-        self.top_level = resources.TopLevelWithStreamingResponse(client.top_level)
+        self.code = resources.CodeWithStreamingResponse(client.code)
 
 
 class AsyncRizaWithStreamedResponse:
     def __init__(self, client: AsyncRiza) -> None:
-        self.top_level = resources.AsyncTopLevelWithStreamingResponse(client.top_level)
+        self.code = resources.AsyncCodeWithStreamingResponse(client.code)
 
 
 Client = Riza
