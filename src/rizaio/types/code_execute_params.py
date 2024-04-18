@@ -5,10 +5,10 @@ from __future__ import annotations
 from typing import Dict, List
 from typing_extensions import Literal, TypedDict
 
-__all__ = ["TopLevelExecuteParams"]
+__all__ = ["CodeExecuteParams"]
 
 
-class TopLevelExecuteParams(TypedDict, total=False):
+class CodeExecuteParams(TypedDict, total=False):
     args: List[str]
 
     code: str
