@@ -61,6 +61,6 @@
   ],
   "release-type": "python",
   "extra-files": [
-    "src/riza/_version.py"
+    "src/rizaio/_version.py"
   ]
 }

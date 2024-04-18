@@ -7,9 +7,9 @@ from typing import Any, cast
 
 import pytest
 
-from riza import Riza, AsyncRiza
-from riza.types import V1ExecuteResponse
+from rizaio import Riza, AsyncRiza
 from tests.utils import assert_matches_type
+from rizaio.types import V1ExecuteResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
