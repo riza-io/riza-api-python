@@ -29,17 +29,17 @@ from rizaio import Riza
 
 client = Riza(
     # This is the default and can be omitted
-    auth_token=os.environ.get("RIZA_AUTH_TOKEN"),
+    api_key=os.environ.get("RIZA_API_KEY"),
 )
 
 code_execute_response = client.code.execute()
 print(code_execute_response.exit_code)
 ```
 
-While you can provide a `auth_token` keyword argument,
+While you can provide an `api_key` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `RIZA_AUTH_TOKEN="My Auth Token"` to your `.env` file
-so that your Auth Token is not stored in source control.
+to add `RIZA_API_KEY="My API Key"` to your `.env` file
+so that your API Key is not stored in source control.
 
 ## Async usage
 
@@ -52,7 +52,7 @@ from rizaio import AsyncRiza
 
 client = AsyncRiza(
     # This is the default and can be omitted
-    auth_token=os.environ.get("RIZA_AUTH_TOKEN"),
+    api_key=os.environ.get("RIZA_API_KEY"),
 )
 
 
