@@ -46,7 +46,7 @@ __all__ = [
 
 
 class Riza(SyncAPIClient):
-    code: resources.Code
+    sandbox: resources.Sandbox
     with_raw_response: RizaWithRawResponse
     with_streaming_response: RizaWithStreamedResponse
 
@@ -104,7 +104,7 @@ class Riza(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.code = resources.Code(self)
+        self.sandbox = resources.Sandbox(self)
         self.with_raw_response = RizaWithRawResponse(self)
         self.with_streaming_response = RizaWithStreamedResponse(self)
 
@@ -214,7 +214,7 @@ class Riza(SyncAPIClient):
 
 
 class AsyncRiza(AsyncAPIClient):
-    code: resources.AsyncCode
+    sandbox: resources.AsyncSandbox
     with_raw_response: AsyncRizaWithRawResponse
     with_streaming_response: AsyncRizaWithStreamedResponse
 
@@ -272,7 +272,7 @@ class AsyncRiza(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.code = resources.AsyncCode(self)
+        self.sandbox = resources.AsyncSandbox(self)
         self.with_raw_response = AsyncRizaWithRawResponse(self)
         self.with_streaming_response = AsyncRizaWithStreamedResponse(self)
 
@@ -383,22 +383,22 @@ class AsyncRiza(AsyncAPIClient):
 
 class RizaWithRawResponse:
     def __init__(self, client: Riza) -> None:
-        self.code = resources.CodeWithRawResponse(client.code)
+        self.sandbox = resources.SandboxWithRawResponse(client.sandbox)
 
 
 class AsyncRizaWithRawResponse:
     def __init__(self, client: AsyncRiza) -> None:
-        self.code = resources.AsyncCodeWithRawResponse(client.code)
+        self.sandbox = resources.AsyncSandboxWithRawResponse(client.sandbox)
 
 
 class RizaWithStreamedResponse:
     def __init__(self, client: Riza) -> None:
-        self.code = resources.CodeWithStreamingResponse(client.code)
+        self.sandbox = resources.SandboxWithStreamingResponse(client.sandbox)
 
 
 class AsyncRizaWithStreamedResponse:
     def __init__(self, client: AsyncRiza) -> None:
-        self.code = resources.AsyncCodeWithStreamingResponse(client.code)
+        self.sandbox = resources.AsyncSandboxWithStreamingResponse(client.sandbox)
 
 
 Client = Riza
