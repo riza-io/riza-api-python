@@ -16,12 +16,12 @@ import pytest
 from respx import MockRouter
 from pydantic import ValidationError
 
-from riza import Riza, AsyncRiza, APIResponseValidationError
-from riza._client import Riza, AsyncRiza
-from riza._models import BaseModel, FinalRequestOptions
-from riza._constants import RAW_RESPONSE_HEADER
-from riza._exceptions import RizaError, APIStatusError, APITimeoutError, APIResponseValidationError
-from riza._base_client import DEFAULT_TIMEOUT, HTTPX_DEFAULT_TIMEOUT, BaseClient, make_request_options
+from rizaio import Riza, AsyncRiza, APIResponseValidationError
+from rizaio._client import Riza, AsyncRiza
+from rizaio._models import BaseModel, FinalRequestOptions
+from rizaio._constants import RAW_RESPONSE_HEADER
+from rizaio._exceptions import RizaError, APIStatusError, APITimeoutError, APIResponseValidationError
+from rizaio._base_client import DEFAULT_TIMEOUT, HTTPX_DEFAULT_TIMEOUT, BaseClient, make_request_options
 
 from .utils import update_env
 
@@ -47,7 +47,7 @@ def _get_open_connections(client: Riza | AsyncRiza) -> int:
     return len(pool._requests)
 
 
-class TestRiza:
+class TestRizaio:
     client = Riza(base_url=base_url, auth_token=auth_token, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
@@ -220,10 +220,10 @@ class TestRiza:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "riza/_legacy_response.py",
-                        "riza/_response.py",
+                        "rizaio/_legacy_response.py",
+                        "rizaio/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "riza/_compat.py",
+                        "rizaio/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -708,7 +708,7 @@ class TestRiza:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("riza._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
         respx_mock.post("/v1/execute").mock(side_effect=httpx.TimeoutException("Test timeout error"))
@@ -723,7 +723,7 @@ class TestRiza:
 
         assert _get_open_connections(self.client) == 0
 
-    @mock.patch("riza._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
         respx_mock.post("/v1/execute").mock(return_value=httpx.Response(500))
@@ -739,7 +739,7 @@ class TestRiza:
         assert _get_open_connections(self.client) == 0
 
 
-class TestAsyncRiza:
+class TestAsyncRizaio:
     client = AsyncRiza(base_url=base_url, auth_token=auth_token, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
@@ -914,10 +914,10 @@ class TestAsyncRiza:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "riza/_legacy_response.py",
-                        "riza/_response.py",
+                        "rizaio/_legacy_response.py",
+                        "rizaio/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "riza/_compat.py",
+                        "rizaio/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -1408,7 +1408,7 @@ class TestAsyncRiza:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("riza._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
         respx_mock.post("/v1/execute").mock(side_effect=httpx.TimeoutException("Test timeout error"))
@@ -1423,7 +1423,7 @@ class TestAsyncRiza:
 
         assert _get_open_connections(self.client) == 0
 
-    @mock.patch("riza._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
         respx_mock.post("/v1/execute").mock(return_value=httpx.Response(500))

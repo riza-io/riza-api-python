@@ -7,9 +7,9 @@ import pytest
 import pydantic
 from pydantic import Field
 
-from riza._utils import PropertyInfo
-from riza._compat import PYDANTIC_V2, parse_obj, model_dump, model_json
-from riza._models import BaseModel, construct_type
+from rizaio._utils import PropertyInfo
+from rizaio._compat import PYDANTIC_V2, parse_obj, model_dump, model_json
+from rizaio._models import BaseModel, construct_type
 
 
 class BasicModel(BaseModel):

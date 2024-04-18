@@ -8,15 +8,15 @@ from typing_extensions import Required, Annotated, TypedDict
 
 import pytest
 
-from riza._types import Base64FileInput
-from riza._utils import (
+from rizaio._types import Base64FileInput
+from rizaio._utils import (
     PropertyInfo,
     transform as _transform,
     parse_datetime,
     async_transform as _async_transform,
 )
-from riza._compat import PYDANTIC_V2
-from riza._models import BaseModel
+from rizaio._compat import PYDANTIC_V2
+from rizaio._models import BaseModel
 
 _T = TypeVar("_T")
 
