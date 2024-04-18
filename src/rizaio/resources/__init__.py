@@ -1,19 +1,19 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from .code import (
-    Code,
-    AsyncCode,
-    CodeWithRawResponse,
-    AsyncCodeWithRawResponse,
-    CodeWithStreamingResponse,
-    AsyncCodeWithStreamingResponse,
+from .sandbox import (
+    Sandbox,
+    AsyncSandbox,
+    SandboxWithRawResponse,
+    AsyncSandboxWithRawResponse,
+    SandboxWithStreamingResponse,
+    AsyncSandboxWithStreamingResponse,
 )
 
 __all__ = [
-    "Code",
-    "AsyncCode",
-    "CodeWithRawResponse",
-    "AsyncCodeWithRawResponse",
-    "CodeWithStreamingResponse",
-    "AsyncCodeWithStreamingResponse",
+    "Sandbox",
+    "AsyncSandbox",
+    "SandboxWithRawResponse",
+    "AsyncSandboxWithRawResponse",
+    "SandboxWithStreamingResponse",
+    "AsyncSandboxWithStreamingResponse",
 ]

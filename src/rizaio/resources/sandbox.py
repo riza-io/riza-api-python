@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..types import CodeExecuteResponse, code_execute_params
+from ..types import SandboxExecuteResponse, sandbox_execute_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from .._utils import (
     maybe_transform,
@@ -25,17 +25,17 @@ from .._base_client import (
     make_request_options,
 )
 
-__all__ = ["Code", "AsyncCode"]
+__all__ = ["Sandbox", "AsyncSandbox"]
 
 
-class Code(SyncAPIResource):
+class Sandbox(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> CodeWithRawResponse:
-        return CodeWithRawResponse(self)
+    def with_raw_response(self) -> SandboxWithRawResponse:
+        return SandboxWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> CodeWithStreamingResponse:
-        return CodeWithStreamingResponse(self)
+    def with_streaming_response(self) -> SandboxWithStreamingResponse:
+        return SandboxWithStreamingResponse(self)
 
     def execute(
         self,
@@ -51,7 +51,7 @@ class Code(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> CodeExecuteResponse:
+    ) -> SandboxExecuteResponse:
         """
         Args:
           extra_headers: Send extra headers
@@ -72,23 +72,23 @@ class Code(SyncAPIResource):
                     "language": language,
                     "stdin": stdin,
                 },
-                code_execute_params.CodeExecuteParams,
+                sandbox_execute_params.SandboxExecuteParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=CodeExecuteResponse,
+            cast_to=SandboxExecuteResponse,
         )
 
 
-class AsyncCode(AsyncAPIResource):
+class AsyncSandbox(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncCodeWithRawResponse:
-        return AsyncCodeWithRawResponse(self)
+    def with_raw_response(self) -> AsyncSandboxWithRawResponse:
+        return AsyncSandboxWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncCodeWithStreamingResponse:
-        return AsyncCodeWithStreamingResponse(self)
+    def with_streaming_response(self) -> AsyncSandboxWithStreamingResponse:
+        return AsyncSandboxWithStreamingResponse(self)
 
     async def execute(
         self,
@@ -104,7 +104,7 @@ class AsyncCode(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> CodeExecuteResponse:
+    ) -> SandboxExecuteResponse:
         """
         Args:
           extra_headers: Send extra headers
@@ -125,46 +125,46 @@ class AsyncCode(AsyncAPIResource):
                     "language": language,
                     "stdin": stdin,
                 },
-                code_execute_params.CodeExecuteParams,
+                sandbox_execute_params.SandboxExecuteParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=CodeExecuteResponse,
+            cast_to=SandboxExecuteResponse,
         )
 
 
-class CodeWithRawResponse:
-    def __init__(self, code: Code) -> None:
-        self._code = code
+class SandboxWithRawResponse:
+    def __init__(self, sandbox: Sandbox) -> None:
+        self._sandbox = sandbox
 
         self.execute = to_raw_response_wrapper(
-            code.execute,
+            sandbox.execute,
         )
 
 
-class AsyncCodeWithRawResponse:
-    def __init__(self, code: AsyncCode) -> None:
-        self._code = code
+class AsyncSandboxWithRawResponse:
+    def __init__(self, sandbox: AsyncSandbox) -> None:
+        self._sandbox = sandbox
 
         self.execute = async_to_raw_response_wrapper(
-            code.execute,
+            sandbox.execute,
         )
 
 
-class CodeWithStreamingResponse:
-    def __init__(self, code: Code) -> None:
-        self._code = code
+class SandboxWithStreamingResponse:
+    def __init__(self, sandbox: Sandbox) -> None:
+        self._sandbox = sandbox
 
         self.execute = to_streamed_response_wrapper(
-            code.execute,
+            sandbox.execute,
         )
 
 
-class AsyncCodeWithStreamingResponse:
-    def __init__(self, code: AsyncCode) -> None:
-        self._code = code
+class AsyncSandboxWithStreamingResponse:
+    def __init__(self, sandbox: AsyncSandbox) -> None:
+        self._sandbox = sandbox
 
         self.execute = async_to_streamed_response_wrapper(
-            code.execute,
+            sandbox.execute,
         )
