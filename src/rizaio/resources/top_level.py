@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..types import V1ExecuteResponse, v1_execute_params
+from ..types import TopLevelExecuteResponse, top_level_execute_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from .._utils import (
     maybe_transform,
@@ -25,17 +25,17 @@ from .._base_client import (
     make_request_options,
 )
 
-__all__ = ["V1", "AsyncV1"]
+__all__ = ["TopLevel", "AsyncTopLevel"]
 
 
-class V1(SyncAPIResource):
+class TopLevel(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> V1WithRawResponse:
-        return V1WithRawResponse(self)
+    def with_raw_response(self) -> TopLevelWithRawResponse:
+        return TopLevelWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> V1WithStreamingResponse:
-        return V1WithStreamingResponse(self)
+    def with_streaming_response(self) -> TopLevelWithStreamingResponse:
+        return TopLevelWithStreamingResponse(self)
 
     def execute(
         self,
@@ -51,7 +51,7 @@ class V1(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> V1ExecuteResponse:
+    ) -> TopLevelExecuteResponse:
         """
         Args:
           extra_headers: Send extra headers
@@ -72,23 +72,23 @@ class V1(SyncAPIResource):
                     "language": language,
                     "stdin": stdin,
                 },
-                v1_execute_params.V1ExecuteParams,
+                top_level_execute_params.TopLevelExecuteParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=V1ExecuteResponse,
+            cast_to=TopLevelExecuteResponse,
         )
 
 
-class AsyncV1(AsyncAPIResource):
+class AsyncTopLevel(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncV1WithRawResponse:
-        return AsyncV1WithRawResponse(self)
+    def with_raw_response(self) -> AsyncTopLevelWithRawResponse:
+        return AsyncTopLevelWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncV1WithStreamingResponse:
-        return AsyncV1WithStreamingResponse(self)
+    def with_streaming_response(self) -> AsyncTopLevelWithStreamingResponse:
+        return AsyncTopLevelWithStreamingResponse(self)
 
     async def execute(
         self,
@@ -104,7 +104,7 @@ class AsyncV1(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> V1ExecuteResponse:
+    ) -> TopLevelExecuteResponse:
         """
         Args:
           extra_headers: Send extra headers
@@ -125,46 +125,46 @@ class AsyncV1(AsyncAPIResource):
                     "language": language,
                     "stdin": stdin,
                 },
-                v1_execute_params.V1ExecuteParams,
+                top_level_execute_params.TopLevelExecuteParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=V1ExecuteResponse,
+            cast_to=TopLevelExecuteResponse,
         )
 
 
-class V1WithRawResponse:
-    def __init__(self, v1: V1) -> None:
-        self._v1 = v1
+class TopLevelWithRawResponse:
+    def __init__(self, top_level: TopLevel) -> None:
+        self._top_level = top_level
 
         self.execute = to_raw_response_wrapper(
-            v1.execute,
+            top_level.execute,
         )
 
 
-class AsyncV1WithRawResponse:
-    def __init__(self, v1: AsyncV1) -> None:
-        self._v1 = v1
+class AsyncTopLevelWithRawResponse:
+    def __init__(self, top_level: AsyncTopLevel) -> None:
+        self._top_level = top_level
 
         self.execute = async_to_raw_response_wrapper(
-            v1.execute,
+            top_level.execute,
         )
 
 
-class V1WithStreamingResponse:
-    def __init__(self, v1: V1) -> None:
-        self._v1 = v1
+class TopLevelWithStreamingResponse:
+    def __init__(self, top_level: TopLevel) -> None:
+        self._top_level = top_level
 
         self.execute = to_streamed_response_wrapper(
-            v1.execute,
+            top_level.execute,
         )
 
 
-class AsyncV1WithStreamingResponse:
-    def __init__(self, v1: AsyncV1) -> None:
-        self._v1 = v1
+class AsyncTopLevelWithStreamingResponse:
+    def __init__(self, top_level: AsyncTopLevel) -> None:
+        self._top_level = top_level
 
         self.execute = async_to_streamed_response_wrapper(
-            v1.execute,
+            top_level.execute,
         )
