@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2024-04-18)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** update via SDK Studio ([#13](https://github.com/riza-io/riza-api-python/issues/13)) ([b8df108](https://github.com/riza-io/riza-api-python/commit/b8df10863e947363a911582eeee371f67db20ca0))
+
 ## 0.1.0-alpha.3 (2024-04-18)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)

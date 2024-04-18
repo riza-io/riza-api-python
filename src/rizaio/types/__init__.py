@@ -2,5 +2,5 @@
 
 from __future__ import annotations
 
-from .code_execute_params import CodeExecuteParams as CodeExecuteParams
-from .code_execute_response import CodeExecuteResponse as CodeExecuteResponse
+from .sandbox_execute_params import SandboxExecuteParams as SandboxExecuteParams
+from .sandbox_execute_response import SandboxExecuteResponse as SandboxExecuteResponse
