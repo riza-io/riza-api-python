@@ -8,8 +8,8 @@ from typing import Any, TypeVar, Iterator, cast
 from datetime import date, datetime
 from typing_extensions import Literal, get_args, get_origin, assert_type
 
-from riza._types import NoneType
-from riza._utils import (
+from rizaio._types import NoneType
+from rizaio._utils import (
     is_dict,
     is_list,
     is_list_type,
@@ -17,8 +17,8 @@ from riza._utils import (
     extract_type_arg,
     is_annotated_type,
 )
-from riza._compat import PYDANTIC_V2, field_outer_type, get_model_fields
-from riza._models import BaseModel
+from rizaio._compat import PYDANTIC_V2, field_outer_type, get_model_fields
+from rizaio._models import BaseModel
 
 BaseModelT = TypeVar("BaseModelT", bound=BaseModel)
 

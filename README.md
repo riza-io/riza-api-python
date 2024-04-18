@@ -25,21 +25,21 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
-from riza import Riza
+from rizaio import Riza
 
 client = Riza(
     # This is the default and can be omitted
-    auth_token=os.environ.get("RIZA_AUTH_TOKEN"),
+    api_key=os.environ.get("RIZA_API_KEY"),
 )
 
-v1_execute_response = client.v1.execute()
-print(v1_execute_response.exit_code)
+code_execute_response = client.code.execute()
+print(code_execute_response.exit_code)
 ```
 
-While you can provide a `auth_token` keyword argument,
+While you can provide an `api_key` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `RIZA_AUTH_TOKEN="My Auth Token"` to your `.env` file
-so that your Auth Token is not stored in source control.
+to add `RIZA_API_KEY="My API Key"` to your `.env` file
+so that your API Key is not stored in source control.
 
 ## Async usage
 
@@ -48,17 +48,17 @@ Simply import `AsyncRiza` instead of `Riza` and use `await` with each API call:
 ```python
 import os
 import asyncio
-from riza import AsyncRiza
+from rizaio import AsyncRiza
 
 client = AsyncRiza(
     # This is the default and can be omitted
-    auth_token=os.environ.get("RIZA_AUTH_TOKEN"),
+    api_key=os.environ.get("RIZA_API_KEY"),
 )
 
 
 async def main() -> None:
-    v1_execute_response = await client.v1.execute()
-    print(v1_execute_response.exit_code)
+    code_execute_response = await client.code.execute()
+    print(code_execute_response.exit_code)
 
 
 asyncio.run(main())
@@ -77,27 +77,27 @@ Typed requests and responses provide autocomplete and documentation within your 
 
 ## Handling errors
 
-When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `riza.APIConnectionError` is raised.
+When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `rizaio.APIConnectionError` is raised.
 
 When the API returns a non-success status code (that is, 4xx or 5xx
-response), a subclass of `riza.APIStatusError` is raised, containing `status_code` and `response` properties.
+response), a subclass of `rizaio.APIStatusError` is raised, containing `status_code` and `response` properties.
 
-All errors inherit from `riza.APIError`.
+All errors inherit from `rizaio.APIError`.
 
 ```python
-import riza
-from riza import Riza
+import rizaio
+from rizaio import Riza
 
 client = Riza()
 
 try:
-    client.v1.execute()
-except riza.APIConnectionError as e:
+    client.code.execute()
+except rizaio.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
-except riza.RateLimitError as e:
+except rizaio.RateLimitError as e:
     print("A 429 status code was received; we should back off a bit.")
-except riza.APIStatusError as e:
+except rizaio.APIStatusError as e:
     print("Another non-200-range status code was received")
     print(e.status_code)
     print(e.response)
@@ -125,7 +125,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from riza import Riza
+from rizaio import Riza
 
 # Configure the default for all requests:
 client = Riza(
@@ -134,7 +134,7 @@ client = Riza(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).v1.execute()
+client.with_options(max_retries=5).code.execute()
 ```
 
 ### Timeouts
@@ -143,7 +143,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from riza import Riza
+from rizaio import Riza
 
 # Configure the default for all requests:
 client = Riza(
@@ -157,7 +157,7 @@ client = Riza(
 )
 
 # Override per-request:
-client.with_options(timeout=5 * 1000).v1.execute()
+client.with_options(timeout=5 * 1000).code.execute()
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -193,19 +193,19 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from riza import Riza
+from rizaio import Riza
 
 client = Riza()
-response = client.v1.with_raw_response.execute()
+response = client.code.with_raw_response.execute()
 print(response.headers.get('X-My-Header'))
 
-v1 = response.parse()  # get the object that `v1.execute()` would have returned
-print(v1.exit_code)
+code = response.parse()  # get the object that `code.execute()` would have returned
+print(code.exit_code)
 ```
 
-These methods return an [`APIResponse`](https://github.com/riza-io/riza-api-python/tree/main/src/riza/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/riza-io/riza-api-python/tree/main/src/rizaio/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/riza-io/riza-api-python/tree/main/src/riza/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/riza-io/riza-api-python/tree/main/src/rizaio/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -214,7 +214,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.v1.with_streaming_response.execute() as response:
+with client.code.with_streaming_response.execute() as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
@@ -267,7 +267,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 - Additional [advanced](https://www.python-httpx.org/advanced/#client-instances) functionality
 
 ```python
-from riza import Riza, DefaultHttpxClient
+from rizaio import Riza, DefaultHttpxClient
 
 client = Riza(
     # Or use the `RIZA_BASE_URL` env var
