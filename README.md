@@ -32,8 +32,8 @@ client = Riza(
     auth_token=os.environ.get("RIZA_AUTH_TOKEN"),
 )
 
-v1_execute_response = client.v1.execute()
-print(v1_execute_response.exit_code)
+top_level_execute_response = client.top_level.execute()
+print(top_level_execute_response.exit_code)
 ```
 
 While you can provide a `auth_token` keyword argument,
@@ -57,8 +57,8 @@ client = AsyncRiza(
 
 
 async def main() -> None:
-    v1_execute_response = await client.v1.execute()
-    print(v1_execute_response.exit_code)
+    top_level_execute_response = await client.top_level.execute()
+    print(top_level_execute_response.exit_code)
 
 
 asyncio.run(main())
@@ -91,7 +91,7 @@ from rizaio import Riza
 client = Riza()
 
 try:
-    client.v1.execute()
+    client.top_level.execute()
 except rizaio.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -134,7 +134,7 @@ client = Riza(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).v1.execute()
+client.with_options(max_retries=5).top_level.execute()
 ```
 
 ### Timeouts
@@ -157,7 +157,7 @@ client = Riza(
 )
 
 # Override per-request:
-client.with_options(timeout=5 * 1000).v1.execute()
+client.with_options(timeout=5 * 1000).top_level.execute()
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -196,11 +196,11 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from rizaio import Riza
 
 client = Riza()
-response = client.v1.with_raw_response.execute()
+response = client.top_level.with_raw_response.execute()
 print(response.headers.get('X-My-Header'))
 
-v1 = response.parse()  # get the object that `v1.execute()` would have returned
-print(v1.exit_code)
+top_level = response.parse()  # get the object that `top_level.execute()` would have returned
+print(top_level.exit_code)
 ```
 
 These methods return an [`APIResponse`](https://github.com/riza-io/riza-api-python/tree/main/src/rizaio/_response.py) object.
@@ -214,7 +214,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.v1.with_streaming_response.execute() as response:
+with client.top_level.with_streaming_response.execute() as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
