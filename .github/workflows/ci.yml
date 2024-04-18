@@ -38,6 +38,6 @@ jobs:
 
       - name: Ensure importable
         run: |
-          rye run python -c 'import riza'
+          rye run python -c 'import rizaio'
 
   

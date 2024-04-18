@@ -5,8 +5,8 @@ from typing import Iterator, AsyncIterator
 import httpx
 import pytest
 
-from riza import Riza, AsyncRiza
-from riza._streaming import Stream, AsyncStream, ServerSentEvent
+from rizaio import Riza, AsyncRiza
+from rizaio._streaming import Stream, AsyncStream, ServerSentEvent
 
 
 @pytest.mark.asyncio
