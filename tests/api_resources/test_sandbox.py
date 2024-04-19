@@ -19,23 +19,29 @@ class TestSandbox:
 
     @parametrize
     def test_method_execute(self, client: Riza) -> None:
-        sandbox = client.sandbox.execute()
+        sandbox = client.sandbox.execute(
+            code='print("Hello world!")',
+            language="PYTHON",
+        )
         assert_matches_type(SandboxExecuteResponse, sandbox, path=["response"])
 
     @parametrize
     def test_method_execute_with_all_params(self, client: Riza) -> None:
         sandbox = client.sandbox.execute(
+            code='print("Hello world!")',
+            language="PYTHON",
             args=["string", "string", "string"],
-            code="string",
             env={"foo": "string"},
-            language="UNSPECIFIED",
             stdin="string",
         )
         assert_matches_type(SandboxExecuteResponse, sandbox, path=["response"])
 
     @parametrize
     def test_raw_response_execute(self, client: Riza) -> None:
-        response = client.sandbox.with_raw_response.execute()
+        response = client.sandbox.with_raw_response.execute(
+            code='print("Hello world!")',
+            language="PYTHON",
+        )
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -44,7 +50,10 @@ class TestSandbox:
 
     @parametrize
     def test_streaming_response_execute(self, client: Riza) -> None:
-        with client.sandbox.with_streaming_response.execute() as response:
+        with client.sandbox.with_streaming_response.execute(
+            code='print("Hello world!")',
+            language="PYTHON",
+        ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
@@ -59,23 +68,29 @@ class TestAsyncSandbox:
 
     @parametrize
     async def test_method_execute(self, async_client: AsyncRiza) -> None:
-        sandbox = await async_client.sandbox.execute()
+        sandbox = await async_client.sandbox.execute(
+            code='print("Hello world!")',
+            language="PYTHON",
+        )
         assert_matches_type(SandboxExecuteResponse, sandbox, path=["response"])
 
     @parametrize
     async def test_method_execute_with_all_params(self, async_client: AsyncRiza) -> None:
         sandbox = await async_client.sandbox.execute(
+            code='print("Hello world!")',
+            language="PYTHON",
             args=["string", "string", "string"],
-            code="string",
             env={"foo": "string"},
-            language="UNSPECIFIED",
             stdin="string",
         )
         assert_matches_type(SandboxExecuteResponse, sandbox, path=["response"])
 
     @parametrize
     async def test_raw_response_execute(self, async_client: AsyncRiza) -> None:
-        response = await async_client.sandbox.with_raw_response.execute()
+        response = await async_client.sandbox.with_raw_response.execute(
+            code='print("Hello world!")',
+            language="PYTHON",
+        )
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -84,7 +99,10 @@ class TestAsyncSandbox:
 
     @parametrize
     async def test_streaming_response_execute(self, async_client: AsyncRiza) -> None:
-        async with async_client.sandbox.with_streaming_response.execute() as response:
+        async with async_client.sandbox.with_streaming_response.execute(
+            code='print("Hello world!")',
+            language="PYTHON",
+        ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
