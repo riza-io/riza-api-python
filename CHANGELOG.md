@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2024-04-19)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#15](https://github.com/riza-io/riza-api-python/issues/15)) ([cce36c0](https://github.com/riza-io/riza-api-python/commit/cce36c0b4cb84cf1ba6fe91c77df4117833dcea3))
+
 ## 0.1.0-alpha.4 (2024-04-18)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)

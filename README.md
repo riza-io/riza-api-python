@@ -32,7 +32,10 @@ client = Riza(
     api_key=os.environ.get("RIZA_API_KEY"),
 )
 
-sandbox_execute_response = client.sandbox.execute()
+sandbox_execute_response = client.sandbox.execute(
+    code='print("Hello world!")',
+    language="PYTHON",
+)
 print(sandbox_execute_response.exit_code)
 ```
 
@@ -57,7 +60,10 @@ client = AsyncRiza(
 
 
 async def main() -> None:
-    sandbox_execute_response = await client.sandbox.execute()
+    sandbox_execute_response = await client.sandbox.execute(
+        code='print("Hello world!")',
+        language="PYTHON",
+    )
     print(sandbox_execute_response.exit_code)
 
 
@@ -91,7 +97,10 @@ from rizaio import Riza
 client = Riza()
 
 try:
-    client.sandbox.execute()
+    client.sandbox.execute(
+        code='print("Hello world!")',
+        language="PYTHON",
+    )
 except rizaio.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -134,7 +143,10 @@ client = Riza(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).sandbox.execute()
+client.with_options(max_retries=5).sandbox.execute(
+    code='print("Hello world!")',
+    language="PYTHON",
+)
 ```
 
 ### Timeouts
@@ -157,7 +169,10 @@ client = Riza(
 )
 
 # Override per-request:
-client.with_options(timeout=5 * 1000).sandbox.execute()
+client.with_options(timeout=5 * 1000).sandbox.execute(
+    code='print("Hello world!")',
+    language="PYTHON",
+)
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -196,7 +211,10 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from rizaio import Riza
 
 client = Riza()
-response = client.sandbox.with_raw_response.execute()
+response = client.sandbox.with_raw_response.execute(
+    code="print(\"Hello world!\")",
+    language="PYTHON",
+)
 print(response.headers.get('X-My-Header'))
 
 sandbox = response.parse()  # get the object that `sandbox.execute()` would have returned
@@ -214,7 +232,10 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.sandbox.with_streaming_response.execute() as response:
+with client.sandbox.with_streaming_response.execute(
+    code='print("Hello world!")',
+    language="PYTHON",
+) as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
