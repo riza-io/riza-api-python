@@ -9,7 +9,13 @@ __all__ = ["SandboxExecuteResponse"]
 
 class SandboxExecuteResponse(BaseModel):
     exit_code: Optional[int] = None
+    """The exit code returned by the script.
+
+    Will be `0` on success and non-zero on failure.
+    """
 
     stderr: Optional[str] = None
+    """The contents of `stderr` after executing the script."""
 
     stdout: Optional[str] = None
+    """The contents of `stdout` after executing the script."""
