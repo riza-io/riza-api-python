@@ -697,7 +697,7 @@ class TestRizaio:
         with pytest.raises(APITimeoutError):
             self.client.post(
                 "/v1/execute",
-                body=cast(object, dict()),
+                body=cast(object, dict(code='print("Hello world!")', language="PYTHON")),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -712,7 +712,7 @@ class TestRizaio:
         with pytest.raises(APIStatusError):
             self.client.post(
                 "/v1/execute",
-                body=cast(object, dict()),
+                body=cast(object, dict(code='print("Hello world!")', language="PYTHON")),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1384,7 +1384,7 @@ class TestAsyncRizaio:
         with pytest.raises(APITimeoutError):
             await self.client.post(
                 "/v1/execute",
-                body=cast(object, dict()),
+                body=cast(object, dict(code='print("Hello world!")', language="PYTHON")),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1399,7 +1399,7 @@ class TestAsyncRizaio:
         with pytest.raises(APIStatusError):
             await self.client.post(
                 "/v1/execute",
-                body=cast(object, dict()),
+                body=cast(object, dict(code='print("Hello world!")', language="PYTHON")),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )

@@ -3,18 +3,23 @@
 from __future__ import annotations
 
 from typing import Dict, List
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal, Required, TypedDict
 
 __all__ = ["SandboxExecuteParams"]
 
 
 class SandboxExecuteParams(TypedDict, total=False):
-    args: List[str]
+    code: Required[str]
+    """The code to execute in the sandbox."""
 
-    code: str
+    language: Required[Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]]
+    """The interpreter to use when executing code."""
+
+    args: List[str]
+    """List of command line arguments to pass to the script."""
 
     env: Dict[str, str]
-
-    language: Literal["UNSPECIFIED", "PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]
+    """Set of key-value pairs to add to the script's execution environment."""
 
     stdin: str
+    """Input to pass to the script via `stdin`."""
