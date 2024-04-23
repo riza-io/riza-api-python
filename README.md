@@ -32,11 +32,11 @@ client = Riza(
     api_key=os.environ.get("RIZA_API_KEY"),
 )
 
-sandbox_execute_response = client.sandbox.execute(
+command_exec_response = client.command.exec(
     code='print("Hello world!")',
     language="PYTHON",
 )
-print(sandbox_execute_response.exit_code)
+print(command_exec_response.exit_code)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -60,11 +60,11 @@ client = AsyncRiza(
 
 
 async def main() -> None:
-    sandbox_execute_response = await client.sandbox.execute(
+    command_exec_response = await client.command.exec(
         code='print("Hello world!")',
         language="PYTHON",
     )
-    print(sandbox_execute_response.exit_code)
+    print(command_exec_response.exit_code)
 
 
 asyncio.run(main())
@@ -97,7 +97,7 @@ from rizaio import Riza
 client = Riza()
 
 try:
-    client.sandbox.execute(
+    client.command.exec(
         code='print("Hello world!")',
         language="PYTHON",
     )
@@ -143,7 +143,7 @@ client = Riza(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).sandbox.execute(
+client.with_options(max_retries=5).command.exec(
     code='print("Hello world!")',
     language="PYTHON",
 )
@@ -169,7 +169,7 @@ client = Riza(
 )
 
 # Override per-request:
-client.with_options(timeout=5 * 1000).sandbox.execute(
+client.with_options(timeout=5 * 1000).command.exec(
     code='print("Hello world!")',
     language="PYTHON",
 )
@@ -211,14 +211,14 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from rizaio import Riza
 
 client = Riza()
-response = client.sandbox.with_raw_response.execute(
+response = client.command.with_raw_response.exec(
     code="print(\"Hello world!\")",
     language="PYTHON",
 )
 print(response.headers.get('X-My-Header'))
 
-sandbox = response.parse()  # get the object that `sandbox.execute()` would have returned
-print(sandbox.exit_code)
+command = response.parse()  # get the object that `command.exec()` would have returned
+print(command.exit_code)
 ```
 
 These methods return an [`APIResponse`](https://github.com/riza-io/riza-api-python/tree/main/src/rizaio/_response.py) object.
@@ -232,7 +232,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.sandbox.with_streaming_response.execute(
+with client.command.with_streaming_response.exec(
     code='print("Hello world!")',
     language="PYTHON",
 ) as response:
