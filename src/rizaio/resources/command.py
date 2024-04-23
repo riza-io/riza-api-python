@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..types import SandboxExecuteResponse, sandbox_execute_params
+from ..types import CommandExecResponse, command_exec_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from .._utils import (
     maybe_transform,
@@ -25,19 +25,19 @@ from .._base_client import (
     make_request_options,
 )
 
-__all__ = ["Sandbox", "AsyncSandbox"]
+__all__ = ["Command", "AsyncCommand"]
 
 
-class Sandbox(SyncAPIResource):
+class Command(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> SandboxWithRawResponse:
-        return SandboxWithRawResponse(self)
+    def with_raw_response(self) -> CommandWithRawResponse:
+        return CommandWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> SandboxWithStreamingResponse:
-        return SandboxWithStreamingResponse(self)
+    def with_streaming_response(self) -> CommandWithStreamingResponse:
+        return CommandWithStreamingResponse(self)
 
-    def execute(
+    def exec(
         self,
         *,
         code: str,
@@ -51,7 +51,7 @@ class Sandbox(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SandboxExecuteResponse:
+    ) -> CommandExecResponse:
         """Run a script in a secure, isolated sandbox.
 
         Scripts can read from stdin and
@@ -87,25 +87,25 @@ class Sandbox(SyncAPIResource):
                     "env": env,
                     "stdin": stdin,
                 },
-                sandbox_execute_params.SandboxExecuteParams,
+                command_exec_params.CommandExecParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=SandboxExecuteResponse,
+            cast_to=CommandExecResponse,
         )
 
 
-class AsyncSandbox(AsyncAPIResource):
+class AsyncCommand(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncSandboxWithRawResponse:
-        return AsyncSandboxWithRawResponse(self)
+    def with_raw_response(self) -> AsyncCommandWithRawResponse:
+        return AsyncCommandWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncSandboxWithStreamingResponse:
-        return AsyncSandboxWithStreamingResponse(self)
+    def with_streaming_response(self) -> AsyncCommandWithStreamingResponse:
+        return AsyncCommandWithStreamingResponse(self)
 
-    async def execute(
+    async def exec(
         self,
         *,
         code: str,
@@ -119,7 +119,7 @@ class AsyncSandbox(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SandboxExecuteResponse:
+    ) -> CommandExecResponse:
         """Run a script in a secure, isolated sandbox.
 
         Scripts can read from stdin and
@@ -155,46 +155,46 @@ class AsyncSandbox(AsyncAPIResource):
                     "env": env,
                     "stdin": stdin,
                 },
-                sandbox_execute_params.SandboxExecuteParams,
+                command_exec_params.CommandExecParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=SandboxExecuteResponse,
+            cast_to=CommandExecResponse,
         )
 
 
-class SandboxWithRawResponse:
-    def __init__(self, sandbox: Sandbox) -> None:
-        self._sandbox = sandbox
+class CommandWithRawResponse:
+    def __init__(self, command: Command) -> None:
+        self._command = command
 
-        self.execute = to_raw_response_wrapper(
-            sandbox.execute,
+        self.exec = to_raw_response_wrapper(
+            command.exec,
         )
 
 
-class AsyncSandboxWithRawResponse:
-    def __init__(self, sandbox: AsyncSandbox) -> None:
-        self._sandbox = sandbox
+class AsyncCommandWithRawResponse:
+    def __init__(self, command: AsyncCommand) -> None:
+        self._command = command
 
-        self.execute = async_to_raw_response_wrapper(
-            sandbox.execute,
+        self.exec = async_to_raw_response_wrapper(
+            command.exec,
         )
 
 
-class SandboxWithStreamingResponse:
-    def __init__(self, sandbox: Sandbox) -> None:
-        self._sandbox = sandbox
+class CommandWithStreamingResponse:
+    def __init__(self, command: Command) -> None:
+        self._command = command
 
-        self.execute = to_streamed_response_wrapper(
-            sandbox.execute,
+        self.exec = to_streamed_response_wrapper(
+            command.exec,
         )
 
 
-class AsyncSandboxWithStreamingResponse:
-    def __init__(self, sandbox: AsyncSandbox) -> None:
-        self._sandbox = sandbox
+class AsyncCommandWithStreamingResponse:
+    def __init__(self, command: AsyncCommand) -> None:
+        self._command = command
 
-        self.execute = async_to_streamed_response_wrapper(
-            sandbox.execute,
+        self.exec = async_to_streamed_response_wrapper(
+            command.exec,
         )

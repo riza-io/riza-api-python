@@ -2,5 +2,5 @@
 
 from __future__ import annotations
 
-from .sandbox_execute_params import SandboxExecuteParams as SandboxExecuteParams
-from .sandbox_execute_response import SandboxExecuteResponse as SandboxExecuteResponse
+from .command_exec_params import CommandExecParams as CommandExecParams
+from .command_exec_response import CommandExecResponse as CommandExecResponse
