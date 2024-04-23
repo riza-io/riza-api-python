@@ -4,10 +4,10 @@ from typing import Optional
 
 from .._models import BaseModel
 
-__all__ = ["SandboxExecuteResponse"]
+__all__ = ["CommandExecResponse"]
 
 
-class SandboxExecuteResponse(BaseModel):
+class CommandExecResponse(BaseModel):
     exit_code: Optional[int] = None
     """The exit code returned by the script.
 

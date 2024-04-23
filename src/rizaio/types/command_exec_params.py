@@ -5,10 +5,10 @@ from __future__ import annotations
 from typing import Dict, List
 from typing_extensions import Literal, Required, TypedDict
 
-__all__ = ["SandboxExecuteParams"]
+__all__ = ["CommandExecParams"]
 
 
-class SandboxExecuteParams(TypedDict, total=False):
+class CommandExecParams(TypedDict, total=False):
     code: Required[str]
     """The code to execute in the sandbox."""
 
