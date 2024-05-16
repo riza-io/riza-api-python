@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..types import CommandExecResponse, command_exec_params
+from ..types import command_exec_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from .._utils import (
     maybe_transform,
@@ -24,18 +24,19 @@ from .._response import (
 from .._base_client import (
     make_request_options,
 )
+from ..types.command_exec_response import CommandExecResponse
 
-__all__ = ["Command", "AsyncCommand"]
+__all__ = ["CommandResource", "AsyncCommandResource"]
 
 
-class Command(SyncAPIResource):
+class CommandResource(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> CommandWithRawResponse:
-        return CommandWithRawResponse(self)
+    def with_raw_response(self) -> CommandResourceWithRawResponse:
+        return CommandResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> CommandWithStreamingResponse:
-        return CommandWithStreamingResponse(self)
+    def with_streaming_response(self) -> CommandResourceWithStreamingResponse:
+        return CommandResourceWithStreamingResponse(self)
 
     def exec(
         self,
@@ -44,6 +45,7 @@ class Command(SyncAPIResource):
         language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"],
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
+        net: List[str] | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -66,6 +68,8 @@ class Command(SyncAPIResource):
           args: List of command line arguments to pass to the script.
 
           env: Set of key-value pairs to add to the script's execution environment.
+
+          net: List of allowed hosts for HTTP requests
 
           stdin: Input to pass to the script via `stdin`.
 
@@ -85,6 +89,7 @@ class Command(SyncAPIResource):
                     "language": language,
                     "args": args,
                     "env": env,
+                    "net": net,
                     "stdin": stdin,
                 },
                 command_exec_params.CommandExecParams,
@@ -96,14 +101,14 @@ class Command(SyncAPIResource):
         )
 
 
-class AsyncCommand(AsyncAPIResource):
+class AsyncCommandResource(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncCommandWithRawResponse:
-        return AsyncCommandWithRawResponse(self)
+    def with_raw_response(self) -> AsyncCommandResourceWithRawResponse:
+        return AsyncCommandResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncCommandWithStreamingResponse:
-        return AsyncCommandWithStreamingResponse(self)
+    def with_streaming_response(self) -> AsyncCommandResourceWithStreamingResponse:
+        return AsyncCommandResourceWithStreamingResponse(self)
 
     async def exec(
         self,
@@ -112,6 +117,7 @@ class AsyncCommand(AsyncAPIResource):
         language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"],
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
+        net: List[str] | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -135,6 +141,8 @@ class AsyncCommand(AsyncAPIResource):
 
           env: Set of key-value pairs to add to the script's execution environment.
 
+          net: List of allowed hosts for HTTP requests
+
           stdin: Input to pass to the script via `stdin`.
 
           extra_headers: Send extra headers
@@ -153,6 +161,7 @@ class AsyncCommand(AsyncAPIResource):
                     "language": language,
                     "args": args,
                     "env": env,
+                    "net": net,
                     "stdin": stdin,
                 },
                 command_exec_params.CommandExecParams,
@@ -164,8 +173,8 @@ class AsyncCommand(AsyncAPIResource):
         )
 
 
-class CommandWithRawResponse:
-    def __init__(self, command: Command) -> None:
+class CommandResourceWithRawResponse:
+    def __init__(self, command: CommandResource) -> None:
         self._command = command
 
         self.exec = to_raw_response_wrapper(
@@ -173,8 +182,8 @@ class CommandWithRawResponse:
         )
 
 
-class AsyncCommandWithRawResponse:
-    def __init__(self, command: AsyncCommand) -> None:
+class AsyncCommandResourceWithRawResponse:
+    def __init__(self, command: AsyncCommandResource) -> None:
         self._command = command
 
         self.exec = async_to_raw_response_wrapper(
@@ -182,8 +191,8 @@ class AsyncCommandWithRawResponse:
         )
 
 
-class CommandWithStreamingResponse:
-    def __init__(self, command: Command) -> None:
+class CommandResourceWithStreamingResponse:
+    def __init__(self, command: CommandResource) -> None:
         self._command = command
 
         self.exec = to_streamed_response_wrapper(
@@ -191,8 +200,8 @@ class CommandWithStreamingResponse:
         )
 
 
-class AsyncCommandWithStreamingResponse:
-    def __init__(self, command: AsyncCommand) -> None:
+class AsyncCommandResourceWithStreamingResponse:
+    def __init__(self, command: AsyncCommandResource) -> None:
         self._command = command
 
         self.exec = async_to_streamed_response_wrapper(
