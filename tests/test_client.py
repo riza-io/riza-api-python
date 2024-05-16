@@ -17,7 +17,6 @@ from respx import MockRouter
 from pydantic import ValidationError
 
 from rizaio import Riza, AsyncRiza, APIResponseValidationError
-from rizaio._client import Riza, AsyncRiza
 from rizaio._models import BaseModel, FinalRequestOptions
 from rizaio._constants import RAW_RESPONSE_HEADER
 from rizaio._exceptions import RizaError, APIStatusError, APITimeoutError, APIResponseValidationError
@@ -47,7 +46,7 @@ def _get_open_connections(client: Riza | AsyncRiza) -> int:
     return len(pool._requests)
 
 
-class TestRizaio:
+class TestRiza:
     client = Riza(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
@@ -720,7 +719,7 @@ class TestRizaio:
         assert _get_open_connections(self.client) == 0
 
 
-class TestAsyncRizaio:
+class TestAsyncRiza:
     client = AsyncRiza(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
