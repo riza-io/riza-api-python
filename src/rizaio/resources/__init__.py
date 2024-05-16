@@ -1,19 +1,19 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from .command import (
-    Command,
-    AsyncCommand,
-    CommandWithRawResponse,
-    AsyncCommandWithRawResponse,
-    CommandWithStreamingResponse,
-    AsyncCommandWithStreamingResponse,
+    CommandResource,
+    AsyncCommandResource,
+    CommandResourceWithRawResponse,
+    AsyncCommandResourceWithRawResponse,
+    CommandResourceWithStreamingResponse,
+    AsyncCommandResourceWithStreamingResponse,
 )
 
 __all__ = [
-    "Command",
-    "AsyncCommand",
-    "CommandWithRawResponse",
-    "AsyncCommandWithRawResponse",
-    "CommandWithStreamingResponse",
-    "AsyncCommandWithStreamingResponse",
+    "CommandResource",
+    "AsyncCommandResource",
+    "CommandResourceWithRawResponse",
+    "AsyncCommandResourceWithRawResponse",
+    "CommandResourceWithStreamingResponse",
+    "AsyncCommandResourceWithStreamingResponse",
 ]
