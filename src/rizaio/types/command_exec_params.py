@@ -15,14 +15,14 @@ class CommandExecParams(TypedDict, total=False):
     language: Required[Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]]
     """The interpreter to use when executing code."""
 
+    allow_http_hosts: List[str]
+    """List of allowed hosts for HTTP requests"""
+
     args: List[str]
     """List of command line arguments to pass to the script."""
 
     env: Dict[str, str]
     """Set of key-value pairs to add to the script's execution environment."""
-
-    net: List[str]
-    """List of allowed hosts for HTTP requests"""
 
     stdin: str
     """Input to pass to the script via `stdin`."""

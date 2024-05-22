@@ -43,9 +43,9 @@ class CommandResource(SyncAPIResource):
         *,
         code: str,
         language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"],
+        allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
-        net: List[str] | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -65,11 +65,11 @@ class CommandResource(SyncAPIResource):
 
           language: The interpreter to use when executing code.
 
+          allow_http_hosts: List of allowed hosts for HTTP requests
+
           args: List of command line arguments to pass to the script.
 
           env: Set of key-value pairs to add to the script's execution environment.
-
-          net: List of allowed hosts for HTTP requests
 
           stdin: Input to pass to the script via `stdin`.
 
@@ -87,9 +87,9 @@ class CommandResource(SyncAPIResource):
                 {
                     "code": code,
                     "language": language,
+                    "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
-                    "net": net,
                     "stdin": stdin,
                 },
                 command_exec_params.CommandExecParams,
@@ -115,9 +115,9 @@ class AsyncCommandResource(AsyncAPIResource):
         *,
         code: str,
         language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"],
+        allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
-        net: List[str] | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -137,11 +137,11 @@ class AsyncCommandResource(AsyncAPIResource):
 
           language: The interpreter to use when executing code.
 
+          allow_http_hosts: List of allowed hosts for HTTP requests
+
           args: List of command line arguments to pass to the script.
 
           env: Set of key-value pairs to add to the script's execution environment.
-
-          net: List of allowed hosts for HTTP requests
 
           stdin: Input to pass to the script via `stdin`.
 
@@ -159,9 +159,9 @@ class AsyncCommandResource(AsyncAPIResource):
                 {
                     "code": code,
                     "language": language,
+                    "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
-                    "net": net,
                     "stdin": stdin,
                 },
                 command_exec_params.CommandExecParams,
