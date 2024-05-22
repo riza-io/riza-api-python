@@ -30,6 +30,7 @@ class TestCommand:
         command = client.command.exec(
             code='print("Hello world!")',
             language="PYTHON",
+            allow_http_hosts=["string", "string", "string"],
             args=["string", "string", "string"],
             env={"foo": "string"},
             stdin="string",
@@ -79,6 +80,7 @@ class TestAsyncCommand:
         command = await async_client.command.exec(
             code='print("Hello world!")',
             language="PYTHON",
+            allow_http_hosts=["string", "string", "string"],
             args=["string", "string", "string"],
             env={"foo": "string"},
             stdin="string",

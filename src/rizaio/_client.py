@@ -46,7 +46,7 @@ __all__ = [
 
 
 class Riza(SyncAPIClient):
-    command: resources.Command
+    command: resources.CommandResource
     with_raw_response: RizaWithRawResponse
     with_streaming_response: RizaWithStreamedResponse
 
@@ -104,7 +104,7 @@ class Riza(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.command = resources.Command(self)
+        self.command = resources.CommandResource(self)
         self.with_raw_response = RizaWithRawResponse(self)
         self.with_streaming_response = RizaWithStreamedResponse(self)
 
@@ -214,7 +214,7 @@ class Riza(SyncAPIClient):
 
 
 class AsyncRiza(AsyncAPIClient):
-    command: resources.AsyncCommand
+    command: resources.AsyncCommandResource
     with_raw_response: AsyncRizaWithRawResponse
     with_streaming_response: AsyncRizaWithStreamedResponse
 
@@ -272,7 +272,7 @@ class AsyncRiza(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.command = resources.AsyncCommand(self)
+        self.command = resources.AsyncCommandResource(self)
         self.with_raw_response = AsyncRizaWithRawResponse(self)
         self.with_streaming_response = AsyncRizaWithStreamedResponse(self)
 
@@ -383,22 +383,22 @@ class AsyncRiza(AsyncAPIClient):
 
 class RizaWithRawResponse:
     def __init__(self, client: Riza) -> None:
-        self.command = resources.CommandWithRawResponse(client.command)
+        self.command = resources.CommandResourceWithRawResponse(client.command)
 
 
 class AsyncRizaWithRawResponse:
     def __init__(self, client: AsyncRiza) -> None:
-        self.command = resources.AsyncCommandWithRawResponse(client.command)
+        self.command = resources.AsyncCommandResourceWithRawResponse(client.command)
 
 
 class RizaWithStreamedResponse:
     def __init__(self, client: Riza) -> None:
-        self.command = resources.CommandWithStreamingResponse(client.command)
+        self.command = resources.CommandResourceWithStreamingResponse(client.command)
 
 
 class AsyncRizaWithStreamedResponse:
     def __init__(self, client: AsyncRiza) -> None:
-        self.command = resources.AsyncCommandWithStreamingResponse(client.command)
+        self.command = resources.AsyncCommandResourceWithStreamingResponse(client.command)
 
 
 Client = Riza

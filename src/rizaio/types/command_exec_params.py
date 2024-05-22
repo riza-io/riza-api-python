@@ -15,6 +15,9 @@ class CommandExecParams(TypedDict, total=False):
     language: Required[Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]]
     """The interpreter to use when executing code."""
 
+    allow_http_hosts: List[str]
+    """List of allowed hosts for HTTP requests"""
+
     args: List[str]
     """List of command line arguments to pass to the script."""
 
