@@ -30,9 +30,9 @@ class TestCommand:
         command = client.command.exec(
             code='print("Hello world!")',
             language="PYTHON",
+            allow_http_hosts=["string", "string", "string"],
             args=["string", "string", "string"],
             env={"foo": "string"},
-            net=["string", "string", "string"],
             stdin="string",
         )
         assert_matches_type(CommandExecResponse, command, path=["response"])
@@ -80,9 +80,9 @@ class TestAsyncCommand:
         command = await async_client.command.exec(
             code='print("Hello world!")',
             language="PYTHON",
+            allow_http_hosts=["string", "string", "string"],
             args=["string", "string", "string"],
             env={"foo": "string"},
-            net=["string", "string", "string"],
             stdin="string",
         )
         assert_matches_type(CommandExecResponse, command, path=["response"])
