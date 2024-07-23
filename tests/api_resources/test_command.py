@@ -32,8 +32,8 @@ class TestCommand:
             args=["string", "string", "string"],
             env={"foo": "string"},
             language="PYTHON",
-            runtime="string",
-            stdin="string",
+            runtime="runtime",
+            stdin="stdin",
         )
         assert_matches_type(CommandExecResponse, command, path=["response"])
 
@@ -80,8 +80,8 @@ class TestAsyncCommand:
             args=["string", "string", "string"],
             env={"foo": "string"},
             language="PYTHON",
-            runtime="string",
-            stdin="string",
+            runtime="runtime",
+            stdin="stdin",
         )
         assert_matches_type(CommandExecResponse, command, path=["response"])
 
