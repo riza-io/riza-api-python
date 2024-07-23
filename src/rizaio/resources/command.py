@@ -21,9 +21,7 @@ from .._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .._base_client import (
-    make_request_options,
-)
+from .._base_client import make_request_options
 from ..types.command_exec_response import CommandExecResponse
 
 __all__ = ["CommandResource", "AsyncCommandResource"]
@@ -42,10 +40,11 @@ class CommandResource(SyncAPIResource):
         self,
         *,
         code: str,
-        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"],
         allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
+        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        runtime: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -63,13 +62,15 @@ class CommandResource(SyncAPIResource):
         Args:
           code: The code to execute in the sandbox.
 
-          language: The interpreter to use when executing code.
-
           allow_http_hosts: List of allowed hosts for HTTP requests
 
           args: List of command line arguments to pass to the script.
 
           env: Set of key-value pairs to add to the script's execution environment.
+
+          language: The interpreter to use when executing code.
+
+          runtime: The runtime to use when executing code.
 
           stdin: Input to pass to the script via `stdin`.
 
@@ -86,10 +87,11 @@ class CommandResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "code": code,
-                    "language": language,
                     "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
+                    "language": language,
+                    "runtime": runtime,
                     "stdin": stdin,
                 },
                 command_exec_params.CommandExecParams,
@@ -114,10 +116,11 @@ class AsyncCommandResource(AsyncAPIResource):
         self,
         *,
         code: str,
-        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"],
         allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
+        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        runtime: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -135,13 +138,15 @@ class AsyncCommandResource(AsyncAPIResource):
         Args:
           code: The code to execute in the sandbox.
 
-          language: The interpreter to use when executing code.
-
           allow_http_hosts: List of allowed hosts for HTTP requests
 
           args: List of command line arguments to pass to the script.
 
           env: Set of key-value pairs to add to the script's execution environment.
+
+          language: The interpreter to use when executing code.
+
+          runtime: The runtime to use when executing code.
 
           stdin: Input to pass to the script via `stdin`.
 
@@ -158,10 +163,11 @@ class AsyncCommandResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "code": code,
-                    "language": language,
                     "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
+                    "language": language,
+                    "runtime": runtime,
                     "stdin": stdin,
                 },
                 command_exec_params.CommandExecParams,

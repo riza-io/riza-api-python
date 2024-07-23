@@ -10,7 +10,7 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Documentation
 
-The REST API documentation can be found [on docs.riza.io](https://docs.riza.io). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.riza.io](https://docs.riza.io). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
@@ -34,7 +34,6 @@ client = Riza(
 
 command_exec_response = client.command.exec(
     code='print("Hello world!")',
-    language="PYTHON",
 )
 print(command_exec_response.exit_code)
 ```
@@ -62,7 +61,6 @@ client = AsyncRiza(
 async def main() -> None:
     command_exec_response = await client.command.exec(
         code='print("Hello world!")',
-        language="PYTHON",
     )
     print(command_exec_response.exit_code)
 
@@ -99,7 +97,6 @@ client = Riza()
 try:
     client.command.exec(
         code='print("Hello world!")',
-        language="PYTHON",
     )
 except rizaio.APIConnectionError as e:
     print("The server could not be reached")
@@ -145,7 +142,6 @@ client = Riza(
 # Or, configure per-request:
 client.with_options(max_retries=5).command.exec(
     code='print("Hello world!")',
-    language="PYTHON",
 )
 ```
 
@@ -171,7 +167,6 @@ client = Riza(
 # Override per-request:
 client.with_options(timeout=5.0).command.exec(
     code='print("Hello world!")',
-    language="PYTHON",
 )
 ```
 
@@ -213,7 +208,6 @@ from rizaio import Riza
 client = Riza()
 response = client.command.with_raw_response.exec(
     code="print(\"Hello world!\")",
-    language="PYTHON",
 )
 print(response.headers.get('X-My-Header'))
 
@@ -234,7 +228,6 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 ```python
 with client.command.with_streaming_response.exec(
     code='print("Hello world!")',
-    language="PYTHON",
 ) as response:
     print(response.headers.get("X-My-Header"))
 
@@ -285,7 +278,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 
 - Support for proxies
 - Custom transports
-- Additional [advanced](https://www.python-httpx.org/advanced/#client-instances) functionality
+- Additional [advanced](https://www.python-httpx.org/advanced/clients/) functionality
 
 ```python
 from rizaio import Riza, DefaultHttpxClient

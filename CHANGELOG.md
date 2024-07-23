@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2024-07-23)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#23](https://github.com/riza-io/riza-api-python/issues/23)) ([2004d59](https://github.com/riza-io/riza-api-python/commit/2004d599a7d953a0525d9e178f64a90f5f818d64))
+
+
+### Chores
+
+* **docs:** minor update to formatting of API link in README ([#27](https://github.com/riza-io/riza-api-python/issues/27)) ([6d48304](https://github.com/riza-io/riza-api-python/commit/6d4830432b9ec27c7160a7a563317cc74eddcf18))
+* **internal:** codegen related update ([#24](https://github.com/riza-io/riza-api-python/issues/24)) ([216fe46](https://github.com/riza-io/riza-api-python/commit/216fe463845c8478895564cc052ae67c615e3c8f))
+* **internal:** minor options / compat functions updates ([#26](https://github.com/riza-io/riza-api-python/issues/26)) ([6daa3f5](https://github.com/riza-io/riza-api-python/commit/6daa3f5dec20cce35c769c830205100fe8296a90))
+
 ## 0.1.0-alpha.7 (2024-05-22)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
