@@ -12,9 +12,6 @@ class CommandExecParams(TypedDict, total=False):
     code: Required[str]
     """The code to execute in the sandbox."""
 
-    language: Required[Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]]
-    """The interpreter to use when executing code."""
-
     allow_http_hosts: List[str]
     """List of allowed hosts for HTTP requests"""
 
@@ -23,6 +20,12 @@ class CommandExecParams(TypedDict, total=False):
 
     env: Dict[str, str]
     """Set of key-value pairs to add to the script's execution environment."""
+
+    language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]
+    """The interpreter to use when executing code."""
+
+    runtime: str
+    """The runtime to use when executing code."""
 
     stdin: str
     """Input to pass to the script via `stdin`."""

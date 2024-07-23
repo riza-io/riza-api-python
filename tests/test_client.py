@@ -696,7 +696,7 @@ class TestRiza:
         with pytest.raises(APITimeoutError):
             self.client.post(
                 "/v1/execute",
-                body=cast(object, dict(code='print("Hello world!")', language="PYTHON")),
+                body=cast(object, dict(code='print("Hello world!")')),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -711,7 +711,7 @@ class TestRiza:
         with pytest.raises(APIStatusError):
             self.client.post(
                 "/v1/execute",
-                body=cast(object, dict(code='print("Hello world!")', language="PYTHON")),
+                body=cast(object, dict(code='print("Hello world!")')),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1383,7 +1383,7 @@ class TestAsyncRiza:
         with pytest.raises(APITimeoutError):
             await self.client.post(
                 "/v1/execute",
-                body=cast(object, dict(code='print("Hello world!")', language="PYTHON")),
+                body=cast(object, dict(code='print("Hello world!")')),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1398,7 +1398,7 @@ class TestAsyncRiza:
         with pytest.raises(APIStatusError):
             await self.client.post(
                 "/v1/execute",
-                body=cast(object, dict(code='print("Hello world!")', language="PYTHON")),
+                body=cast(object, dict(code='print("Hello world!")')),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
