@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0-alpha.9 (2024-07-23)
+
+Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
+
+### Chores
+
+* **ci:** limit release doctor target branches ([#29](https://github.com/riza-io/riza-api-python/issues/29)) ([4c0b46c](https://github.com/riza-io/riza-api-python/commit/4c0b46c06ba58f0d9b1c84bf338cb13b173c7b12))
+* **docs:** document how to do per-request http client customization ([#28](https://github.com/riza-io/riza-api-python/issues/28)) ([15f7718](https://github.com/riza-io/riza-api-python/commit/15f77183f7f8069f65f69f9bdbe87c6fdb501676))
+* **internal:** refactor release doctor script ([#31](https://github.com/riza-io/riza-api-python/issues/31)) ([afaf9cf](https://github.com/riza-io/riza-api-python/commit/afaf9cff9d0040728ec6ffc5b292bd0cdc53d439))
+* **tests:** update prism version ([#32](https://github.com/riza-io/riza-api-python/issues/32)) ([82c2c7d](https://github.com/riza-io/riza-api-python/commit/82c2c7daf2271cd2898346af14bd4988635b3de0))
+
 ## 0.1.0-alpha.8 (2024-07-23)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
