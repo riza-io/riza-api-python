@@ -17,6 +17,7 @@ from respx import MockRouter
 from pydantic import ValidationError
 
 from rizaio import Riza, AsyncRiza, APIResponseValidationError
+from rizaio._types import Omit
 from rizaio._models import BaseModel, FinalRequestOptions
 from rizaio._constants import RAW_RESPONSE_HEADER
 from rizaio._exceptions import RizaError, APIStatusError, APITimeoutError, APIResponseValidationError
@@ -321,7 +322,8 @@ class TestRiza:
         assert request.headers.get("Authorization") == f"Bearer {api_key}"
 
         with pytest.raises(RizaError):
-            client2 = Riza(base_url=base_url, api_key=None, _strict_response_validation=True)
+            with update_env(**{"RIZA_API_KEY": Omit()}):
+                client2 = Riza(base_url=base_url, api_key=None, _strict_response_validation=True)
             _ = client2
 
     def test_default_query_option(self) -> None:
@@ -718,6 +720,27 @@ class TestRiza:
 
         assert _get_open_connections(self.client) == 0
 
+    @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
+    @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @pytest.mark.respx(base_url=base_url)
+    def test_retries_taken(self, client: Riza, failures_before_success: int, respx_mock: MockRouter) -> None:
+        client = client.with_options(max_retries=4)
+
+        nb_retries = 0
+
+        def retry_handler(_request: httpx.Request) -> httpx.Response:
+            nonlocal nb_retries
+            if nb_retries < failures_before_success:
+                nb_retries += 1
+                return httpx.Response(500)
+            return httpx.Response(200)
+
+        respx_mock.post("/v1/execute").mock(side_effect=retry_handler)
+
+        response = client.command.with_raw_response.exec(code='print("Hello world!")')
+
+        assert response.retries_taken == failures_before_success
+
 
 class TestAsyncRiza:
     client = AsyncRiza(base_url=base_url, api_key=api_key, _strict_response_validation=True)
@@ -1004,7 +1027,8 @@ class TestAsyncRiza:
         assert request.headers.get("Authorization") == f"Bearer {api_key}"
 
         with pytest.raises(RizaError):
-            client2 = AsyncRiza(base_url=base_url, api_key=None, _strict_response_validation=True)
+            with update_env(**{"RIZA_API_KEY": Omit()}):
+                client2 = AsyncRiza(base_url=base_url, api_key=None, _strict_response_validation=True)
             _ = client2
 
     def test_default_query_option(self) -> None:
@@ -1404,3 +1428,27 @@ class TestAsyncRiza:
             )
 
         assert _get_open_connections(self.client) == 0
+
+    @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
+    @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @pytest.mark.respx(base_url=base_url)
+    @pytest.mark.asyncio
+    async def test_retries_taken(
+        self, async_client: AsyncRiza, failures_before_success: int, respx_mock: MockRouter
+    ) -> None:
+        client = async_client.with_options(max_retries=4)
+
+        nb_retries = 0
+
+        def retry_handler(_request: httpx.Request) -> httpx.Response:
+            nonlocal nb_retries
+            if nb_retries < failures_before_success:
+                nb_retries += 1
+                return httpx.Response(500)
+            return httpx.Response(200)
+
+        respx_mock.post("/v1/execute").mock(side_effect=retry_handler)
+
+        response = await client.command.with_raw_response.exec(code='print("Hello world!")')
+
+        assert response.retries_taken == failures_before_success
