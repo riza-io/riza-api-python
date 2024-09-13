@@ -32,10 +32,10 @@ client = Riza(
     api_key=os.environ.get("RIZA_API_KEY"),
 )
 
-command_exec_response = client.command.exec(
+response = client.command.exec(
     code='print("Hello world!")',
 )
-print(command_exec_response.exit_code)
+print(response.exit_code)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -59,10 +59,10 @@ client = AsyncRiza(
 
 
 async def main() -> None:
-    command_exec_response = await client.command.exec(
+    response = await client.command.exec(
         code='print("Hello world!")',
     )
-    print(command_exec_response.exit_code)
+    print(response.exit_code)
 
 
 asyncio.run(main())
