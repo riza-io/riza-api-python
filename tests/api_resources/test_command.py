@@ -33,31 +33,31 @@ class TestCommand:
             env={"foo": "string"},
             files=[
                 {
-                    "path": "path",
                     "content": "content",
+                    "path": "path",
                 },
                 {
-                    "path": "path",
                     "content": "content",
+                    "path": "path",
                 },
                 {
-                    "path": "path",
                     "content": "content",
+                    "path": "path",
                 },
             ],
             http={
                 "allow": [
                     {
-                        "host": "host",
                         "auth": {"bearer": {"token": "token"}},
+                        "host": "host",
                     },
                     {
-                        "host": "host",
                         "auth": {"bearer": {"token": "token"}},
+                        "host": "host",
                     },
                     {
-                        "host": "host",
                         "auth": {"bearer": {"token": "token"}},
+                        "host": "host",
                     },
                 ]
             },
@@ -115,31 +115,31 @@ class TestAsyncCommand:
             env={"foo": "string"},
             files=[
                 {
-                    "path": "path",
                     "content": "content",
+                    "path": "path",
                 },
                 {
-                    "path": "path",
                     "content": "content",
+                    "path": "path",
                 },
                 {
-                    "path": "path",
                     "content": "content",
+                    "path": "path",
                 },
             ],
             http={
                 "allow": [
                     {
-                        "host": "host",
                         "auth": {"bearer": {"token": "token"}},
+                        "host": "host",
                     },
                     {
-                        "host": "host",
                         "auth": {"bearer": {"token": "token"}},
+                        "host": "host",
                     },
                     {
-                        "host": "host",
                         "auth": {"bearer": {"token": "token"}},
+                        "host": "host",
                     },
                 ]
             },
