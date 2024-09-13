@@ -31,7 +31,41 @@ class TestCommand:
             allow_http_hosts=["string", "string", "string"],
             args=["string", "string", "string"],
             env={"foo": "string"},
+            files=[
+                {
+                    "path": "path",
+                    "content": "content",
+                },
+                {
+                    "path": "path",
+                    "content": "content",
+                },
+                {
+                    "path": "path",
+                    "content": "content",
+                },
+            ],
+            http={
+                "allow": [
+                    {
+                        "host": "host",
+                        "auth": {"bearer": {"token": "token"}},
+                    },
+                    {
+                        "host": "host",
+                        "auth": {"bearer": {"token": "token"}},
+                    },
+                    {
+                        "host": "host",
+                        "auth": {"bearer": {"token": "token"}},
+                    },
+                ]
+            },
             language="PYTHON",
+            limits={
+                "execution_timeout": 0,
+                "memory_size": 0,
+            },
             runtime="runtime",
             stdin="stdin",
         )
@@ -79,7 +113,41 @@ class TestAsyncCommand:
             allow_http_hosts=["string", "string", "string"],
             args=["string", "string", "string"],
             env={"foo": "string"},
+            files=[
+                {
+                    "path": "path",
+                    "content": "content",
+                },
+                {
+                    "path": "path",
+                    "content": "content",
+                },
+                {
+                    "path": "path",
+                    "content": "content",
+                },
+            ],
+            http={
+                "allow": [
+                    {
+                        "host": "host",
+                        "auth": {"bearer": {"token": "token"}},
+                    },
+                    {
+                        "host": "host",
+                        "auth": {"bearer": {"token": "token"}},
+                    },
+                    {
+                        "host": "host",
+                        "auth": {"bearer": {"token": "token"}},
+                    },
+                ]
+            },
             language="PYTHON",
+            limits={
+                "execution_timeout": 0,
+                "memory_size": 0,
+            },
             runtime="runtime",
             stdin="stdin",
         )
