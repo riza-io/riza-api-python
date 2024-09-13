@@ -11,7 +11,7 @@ class CommandExecResponse(BaseModel):
     exit_code: Optional[int] = None
     """The exit code returned by the script.
 
-    Will be `0` on success and non-zero on failure.
+    Will often be `0` on success and non-zero on failure.
     """
 
     stderr: Optional[str] = None

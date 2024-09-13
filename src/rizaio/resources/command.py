@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, List
+from typing import Dict, List, Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -43,7 +43,10 @@ class CommandResource(SyncAPIResource):
         allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
+        files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
+        http: command_exec_params.HTTP | NotGiven = NOT_GIVEN,
         language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        limits: command_exec_params.Limits | NotGiven = NOT_GIVEN,
         runtime: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -53,26 +56,32 @@ class CommandResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CommandExecResponse:
-        """Run a script in a secure, isolated sandbox.
+        """Run a script in a secure, isolated environment.
 
-        Scripts can read from stdin and
-        write to stdout or stderr. They can access environment variables and command
-        line arguments.
+        Scripts can read from `stdin`
+        and write to `stdout` or `stderr`. They can access input files, environment
+        variables and command line arguments.
 
         Args:
-          code: The code to execute in the sandbox.
+          code: The code to execute.
 
-          allow_http_hosts: List of allowed hosts for HTTP requests
+          allow_http_hosts: List of allowed hosts for HTTP requests.
 
           args: List of command line arguments to pass to the script.
 
           env: Set of key-value pairs to add to the script's execution environment.
 
+          files: List of input files.
+
+          http: Configuration for HTTP requests and authentication.
+
           language: The interpreter to use when executing code.
+
+          limits: Configuration for execution environment limits.
 
           runtime: The runtime to use when executing code.
 
-          stdin: Input to pass to the script via `stdin`.
+          stdin: Input made available to the script via `stdin`.
 
           extra_headers: Send extra headers
 
@@ -90,7 +99,10 @@ class CommandResource(SyncAPIResource):
                     "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
+                    "files": files,
+                    "http": http,
                     "language": language,
+                    "limits": limits,
                     "runtime": runtime,
                     "stdin": stdin,
                 },
@@ -119,7 +131,10 @@ class AsyncCommandResource(AsyncAPIResource):
         allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
+        files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
+        http: command_exec_params.HTTP | NotGiven = NOT_GIVEN,
         language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        limits: command_exec_params.Limits | NotGiven = NOT_GIVEN,
         runtime: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -129,26 +144,32 @@ class AsyncCommandResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CommandExecResponse:
-        """Run a script in a secure, isolated sandbox.
+        """Run a script in a secure, isolated environment.
 
-        Scripts can read from stdin and
-        write to stdout or stderr. They can access environment variables and command
-        line arguments.
+        Scripts can read from `stdin`
+        and write to `stdout` or `stderr`. They can access input files, environment
+        variables and command line arguments.
 
         Args:
-          code: The code to execute in the sandbox.
+          code: The code to execute.
 
-          allow_http_hosts: List of allowed hosts for HTTP requests
+          allow_http_hosts: List of allowed hosts for HTTP requests.
 
           args: List of command line arguments to pass to the script.
 
           env: Set of key-value pairs to add to the script's execution environment.
 
+          files: List of input files.
+
+          http: Configuration for HTTP requests and authentication.
+
           language: The interpreter to use when executing code.
+
+          limits: Configuration for execution environment limits.
 
           runtime: The runtime to use when executing code.
 
-          stdin: Input to pass to the script via `stdin`.
+          stdin: Input made available to the script via `stdin`.
 
           extra_headers: Send extra headers
 
@@ -166,7 +187,10 @@ class AsyncCommandResource(AsyncAPIResource):
                     "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
+                    "files": files,
+                    "http": http,
                     "language": language,
+                    "limits": limits,
                     "runtime": runtime,
                     "stdin": stdin,
                 },
