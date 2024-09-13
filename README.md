@@ -32,10 +32,10 @@ client = Riza(
     api_key=os.environ.get("RIZA_API_KEY"),
 )
 
-command_exec_response = client.command.exec(
+response = client.command.exec(
     code='print("Hello world!")',
 )
-print(command_exec_response.exit_code)
+print(response.exit_code)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -59,10 +59,10 @@ client = AsyncRiza(
 
 
 async def main() -> None:
-    command_exec_response = await client.command.exec(
+    response = await client.command.exec(
         code='print("Hello world!")',
     )
-    print(command_exec_response.exit_code)
+    print(response.exit_code)
 
 
 asyncio.run(main())
@@ -293,6 +293,12 @@ client = Riza(
 )
 ```
 
+You can also customize the client on a per-request basis by using `with_options()`:
+
+```python
+client.with_options(http_client=DefaultHttpxClient(...))
+```
+
 ### Managing HTTP resources
 
 By default the library closes underlying HTTP connections whenever the client is [garbage collected](https://docs.python.org/3/reference/datamodel.html#object.__del__). You can manually close the client using the `.close()` method if desired, or with a context manager that closes when exiting.
@@ -308,6 +314,17 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
 We are keen for your feedback; please open an [issue](https://www.github.com/riza-io/riza-api-python/issues) with questions, bugs, or suggestions.
+
+### Determining the installed version
+
+If you've upgraded to the latest version but aren't seeing any new features you were expecting then your python environment is likely still using an older version.
+
+You can determine the version that is being used at runtime with:
+
+```py
+import rizaio
+print(rizaio.__version__)
+```
 
 ## Requirements
 
