@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2024-09-18)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Chores
+
+* clean up dangling file ([fe7c4c9](https://github.com/riza-io/riza-api-python/commit/fe7c4c9c52e85961e0ccb20f3bc1655369997600))
+* update SDK settings ([#41](https://github.com/riza-io/riza-api-python/issues/41)) ([9fdf24a](https://github.com/riza-io/riza-api-python/commit/9fdf24a229393691a08dd2c4ad2bbfdfbc98c13f))
+
 ## 0.1.0-alpha.9 (2024-09-13)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
