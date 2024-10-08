@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2024-10-08)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Bug Fixes
+
+* **client:** avoid OverflowError with very large retry counts ([#46](https://github.com/riza-io/riza-api-python/issues/46)) ([4c7fd4f](https://github.com/riza-io/riza-api-python/commit/4c7fd4f2bcaf887fee0b364dca19ed7721781b61))
+
+
+### Chores
+
+* add repr to PageInfo class ([#47](https://github.com/riza-io/riza-api-python/issues/47)) ([67459c0](https://github.com/riza-io/riza-api-python/commit/67459c06bf0664e183acad544e9f8696acef6032))
+* **internal:** add support for parsing bool response content ([#44](https://github.com/riza-io/riza-api-python/issues/44)) ([d908040](https://github.com/riza-io/riza-api-python/commit/d9080404367104b245c60255b7288e8941044850))
+* **internal:** codegen related update ([#43](https://github.com/riza-io/riza-api-python/issues/43)) ([aa685cb](https://github.com/riza-io/riza-api-python/commit/aa685cb665ddebbfcfa97ce11124d29970571f29))
+
 ## 0.1.0-alpha.10 (2024-09-18)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
