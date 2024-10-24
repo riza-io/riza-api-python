@@ -33,31 +33,49 @@ class TestCommand:
             env={"foo": "string"},
             files=[
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
             ],
             http={
                 "allow": [
                     {
-                        "auth": {"bearer": {"token": "token"}},
-                        "host": "host",
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                        },
+                        "host_desc": "host desc:",
                     },
                     {
-                        "auth": {"bearer": {"token": "token"}},
-                        "host": "host",
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                        },
+                        "host_desc": "host desc:",
                     },
                     {
-                        "auth": {"bearer": {"token": "token"}},
-                        "host": "host",
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                        },
+                        "host_desc": "host desc:",
                     },
                 ]
             },
@@ -66,6 +84,7 @@ class TestCommand:
                 "execution_timeout": 0,
                 "memory_size": 0,
             },
+            revision="revision",
             runtime="runtime",
             stdin="stdin",
         )
@@ -115,31 +134,49 @@ class TestAsyncCommand:
             env={"foo": "string"},
             files=[
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
             ],
             http={
                 "allow": [
                     {
-                        "auth": {"bearer": {"token": "token"}},
-                        "host": "host",
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                        },
+                        "host_desc": "host desc:",
                     },
                     {
-                        "auth": {"bearer": {"token": "token"}},
-                        "host": "host",
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                        },
+                        "host_desc": "host desc:",
                     },
                     {
-                        "auth": {"bearer": {"token": "token"}},
-                        "host": "host",
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                        },
+                        "host_desc": "host desc:",
                     },
                 ]
             },
@@ -148,6 +185,7 @@ class TestAsyncCommand:
                 "execution_timeout": 0,
                 "memory_size": 0,
             },
+            revision="revision",
             runtime="runtime",
             stdin="stdin",
         )

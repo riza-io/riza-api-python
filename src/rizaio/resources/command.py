@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, List, Iterable
+from typing import Dict, List, Iterable, Optional
 from typing_extensions import Literal
 
 import httpx
@@ -55,9 +55,10 @@ class CommandResource(SyncAPIResource):
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
-        http: command_exec_params.HTTP | NotGiven = NOT_GIVEN,
+        http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
         language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
-        limits: command_exec_params.Limits | NotGiven = NOT_GIVEN,
+        limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
+        revision: str | NotGiven = NOT_GIVEN,
         runtime: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -92,7 +93,7 @@ class CommandResource(SyncAPIResource):
 
           runtime: The runtime to use when executing code.
 
-          stdin: Input made available to the script via `stdin`.
+          stdin: Input made available to the script via 'stdin'.
 
           extra_headers: Send extra headers
 
@@ -114,6 +115,7 @@ class CommandResource(SyncAPIResource):
                     "http": http,
                     "language": language,
                     "limits": limits,
+                    "revision": revision,
                     "runtime": runtime,
                     "stdin": stdin,
                 },
@@ -154,9 +156,10 @@ class AsyncCommandResource(AsyncAPIResource):
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
-        http: command_exec_params.HTTP | NotGiven = NOT_GIVEN,
+        http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
         language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
-        limits: command_exec_params.Limits | NotGiven = NOT_GIVEN,
+        limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
+        revision: str | NotGiven = NOT_GIVEN,
         runtime: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -191,7 +194,7 @@ class AsyncCommandResource(AsyncAPIResource):
 
           runtime: The runtime to use when executing code.
 
-          stdin: Input made available to the script via `stdin`.
+          stdin: Input made available to the script via 'stdin'.
 
           extra_headers: Send extra headers
 
@@ -213,6 +216,7 @@ class AsyncCommandResource(AsyncAPIResource):
                     "http": http,
                     "language": language,
                     "limits": limits,
+                    "revision": revision,
                     "runtime": runtime,
                     "stdin": stdin,
                 },
