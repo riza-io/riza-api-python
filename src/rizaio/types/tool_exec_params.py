@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 from typing import Iterable, Optional
-from typing_extensions import Required, Annotated, TypedDict
-
-from .._utils import PropertyInfo
+from typing_extensions import Required, TypedDict
 
 __all__ = ["ToolExecParams", "Env", "HTTP", "HTTPAllow", "HTTPAllowAuth", "HTTPAllowAuthBasic", "HTTPAllowAuthBearer"]
 
@@ -54,7 +52,8 @@ class HTTPAllow(TypedDict, total=False):
     auth: HTTPAllowAuth
     """Authentication configuration for outbound requests to this host."""
 
-    host_desc: Annotated[str, PropertyInfo(alias="host desc:")]
+    host: str
+    """The hostname to allow."""
 
 
 class HTTP(TypedDict, total=False):

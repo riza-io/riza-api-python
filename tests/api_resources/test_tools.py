@@ -183,7 +183,7 @@ class TestTools:
                                 "secret_id": "secret_id",
                             },
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                     {
                         "auth": {
@@ -197,7 +197,7 @@ class TestTools:
                                 "secret_id": "secret_id",
                             },
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                     {
                         "auth": {
@@ -211,7 +211,7 @@ class TestTools:
                                 "secret_id": "secret_id",
                             },
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                 ]
             },
@@ -455,7 +455,7 @@ class TestAsyncTools:
                                 "secret_id": "secret_id",
                             },
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                     {
                         "auth": {
@@ -469,7 +469,7 @@ class TestAsyncTools:
                                 "secret_id": "secret_id",
                             },
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                     {
                         "auth": {
@@ -483,7 +483,7 @@ class TestAsyncTools:
                                 "secret_id": "secret_id",
                             },
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                 ]
             },
