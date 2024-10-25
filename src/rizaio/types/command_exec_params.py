@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 from typing import Dict, List, Iterable, Optional
-from typing_extensions import Literal, Required, Annotated, TypedDict
-
-from .._utils import PropertyInfo
+from typing_extensions import Literal, Required, TypedDict
 
 __all__ = [
     "CommandExecParams",
@@ -83,7 +81,8 @@ class HTTPAllow(TypedDict, total=False):
     auth: HTTPAllowAuth
     """Authentication configuration for outbound requests to this host."""
 
-    host_desc: Annotated[str, PropertyInfo(alias="host desc:")]
+    host: str
+    """The hostname to allow."""
 
 
 class HTTP(TypedDict, total=False):
