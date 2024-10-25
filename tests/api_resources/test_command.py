@@ -55,7 +55,7 @@ class TestCommand:
                             },
                             "bearer": {"token": "token"},
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                     {
                         "auth": {
@@ -65,7 +65,7 @@ class TestCommand:
                             },
                             "bearer": {"token": "token"},
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                     {
                         "auth": {
@@ -75,7 +75,7 @@ class TestCommand:
                             },
                             "bearer": {"token": "token"},
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                 ]
             },
@@ -156,7 +156,7 @@ class TestAsyncCommand:
                             },
                             "bearer": {"token": "token"},
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                     {
                         "auth": {
@@ -166,7 +166,7 @@ class TestAsyncCommand:
                             },
                             "bearer": {"token": "token"},
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                     {
                         "auth": {
@@ -176,7 +176,7 @@ class TestAsyncCommand:
                             },
                             "bearer": {"token": "token"},
                         },
-                        "host_desc": "host desc:",
+                        "host": "host",
                     },
                 ]
             },
