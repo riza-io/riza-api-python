@@ -182,19 +182,10 @@ class TestTools:
                                 "token": "token",
                                 "secret_id": "secret_id",
                             },
-                        },
-                        "host": "host",
-                    },
-                    {
-                        "auth": {
-                            "basic": {
-                                "password": "password",
+                            "query": {
+                                "key": "key",
                                 "secret_id": "secret_id",
-                                "user_id": "user_id",
-                            },
-                            "bearer": {
-                                "token": "token",
-                                "secret_id": "secret_id",
+                                "value": "value",
                             },
                         },
                         "host": "host",
@@ -209,6 +200,30 @@ class TestTools:
                             "bearer": {
                                 "token": "token",
                                 "secret_id": "secret_id",
+                            },
+                            "query": {
+                                "key": "key",
+                                "secret_id": "secret_id",
+                                "value": "value",
+                            },
+                        },
+                        "host": "host",
+                    },
+                    {
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "secret_id": "secret_id",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {
+                                "token": "token",
+                                "secret_id": "secret_id",
+                            },
+                            "query": {
+                                "key": "key",
+                                "secret_id": "secret_id",
+                                "value": "value",
                             },
                         },
                         "host": "host",
@@ -454,19 +469,10 @@ class TestAsyncTools:
                                 "token": "token",
                                 "secret_id": "secret_id",
                             },
-                        },
-                        "host": "host",
-                    },
-                    {
-                        "auth": {
-                            "basic": {
-                                "password": "password",
+                            "query": {
+                                "key": "key",
                                 "secret_id": "secret_id",
-                                "user_id": "user_id",
-                            },
-                            "bearer": {
-                                "token": "token",
-                                "secret_id": "secret_id",
+                                "value": "value",
                             },
                         },
                         "host": "host",
@@ -481,6 +487,30 @@ class TestAsyncTools:
                             "bearer": {
                                 "token": "token",
                                 "secret_id": "secret_id",
+                            },
+                            "query": {
+                                "key": "key",
+                                "secret_id": "secret_id",
+                                "value": "value",
+                            },
+                        },
+                        "host": "host",
+                    },
+                    {
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "secret_id": "secret_id",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {
+                                "token": "token",
+                                "secret_id": "secret_id",
+                            },
+                            "query": {
+                                "key": "key",
+                                "secret_id": "secret_id",
+                                "value": "value",
                             },
                         },
                         "host": "host",
