@@ -5,7 +5,16 @@ from __future__ import annotations
 from typing import Iterable, Optional
 from typing_extensions import Required, TypedDict
 
-__all__ = ["ToolExecParams", "Env", "HTTP", "HTTPAllow", "HTTPAllowAuth", "HTTPAllowAuthBasic", "HTTPAllowAuthBearer"]
+__all__ = [
+    "ToolExecParams",
+    "Env",
+    "HTTP",
+    "HTTPAllow",
+    "HTTPAllowAuth",
+    "HTTPAllowAuthBasic",
+    "HTTPAllowAuthBearer",
+    "HTTPAllowAuthQuery",
+]
 
 
 class ToolExecParams(TypedDict, total=False):
@@ -41,11 +50,21 @@ class HTTPAllowAuthBearer(TypedDict, total=False):
     secret_id: str
 
 
+class HTTPAllowAuthQuery(TypedDict, total=False):
+    key: str
+
+    secret_id: str
+
+    value: str
+
+
 class HTTPAllowAuth(TypedDict, total=False):
     basic: Optional[HTTPAllowAuthBasic]
 
     bearer: Optional[HTTPAllowAuthBearer]
     """Configuration to add an 'Authorization' header using the 'Bearer' scheme."""
+
+    query: Optional[HTTPAllowAuthQuery]
 
 
 class HTTPAllow(TypedDict, total=False):
