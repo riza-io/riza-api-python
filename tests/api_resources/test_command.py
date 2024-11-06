@@ -54,6 +54,10 @@ class TestCommand:
                                 "user_id": "user_id",
                             },
                             "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
                             "query": {
                                 "key": "key",
                                 "value": "value",
@@ -68,6 +72,10 @@ class TestCommand:
                                 "user_id": "user_id",
                             },
                             "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
                             "query": {
                                 "key": "key",
                                 "value": "value",
@@ -82,6 +90,10 @@ class TestCommand:
                                 "user_id": "user_id",
                             },
                             "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
                             "query": {
                                 "key": "key",
                                 "value": "value",
@@ -167,6 +179,10 @@ class TestAsyncCommand:
                                 "user_id": "user_id",
                             },
                             "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
                             "query": {
                                 "key": "key",
                                 "value": "value",
@@ -181,6 +197,10 @@ class TestAsyncCommand:
                                 "user_id": "user_id",
                             },
                             "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
                             "query": {
                                 "key": "key",
                                 "value": "value",
@@ -195,6 +215,10 @@ class TestAsyncCommand:
                                 "user_id": "user_id",
                             },
                             "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
                             "query": {
                                 "key": "key",
                                 "value": "value",
