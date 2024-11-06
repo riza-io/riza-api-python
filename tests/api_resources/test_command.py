@@ -33,30 +33,72 @@ class TestCommand:
             env={"foo": "string"},
             files=[
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
             ],
             http={
                 "allow": [
                     {
-                        "auth": {"bearer": {"token": "token"}},
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
+                            "query": {
+                                "key": "key",
+                                "value": "value",
+                            },
+                        },
                         "host": "host",
                     },
                     {
-                        "auth": {"bearer": {"token": "token"}},
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
+                            "query": {
+                                "key": "key",
+                                "value": "value",
+                            },
+                        },
                         "host": "host",
                     },
                     {
-                        "auth": {"bearer": {"token": "token"}},
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
+                            "query": {
+                                "key": "key",
+                                "value": "value",
+                            },
+                        },
                         "host": "host",
                     },
                 ]
@@ -66,6 +108,7 @@ class TestCommand:
                 "execution_timeout": 0,
                 "memory_size": 0,
             },
+            revision="revision",
             runtime="runtime",
             stdin="stdin",
         )
@@ -115,30 +158,72 @@ class TestAsyncCommand:
             env={"foo": "string"},
             files=[
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
                 {
-                    "content": "content",
+                    "contents": "contents",
                     "path": "path",
                 },
             ],
             http={
                 "allow": [
                     {
-                        "auth": {"bearer": {"token": "token"}},
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
+                            "query": {
+                                "key": "key",
+                                "value": "value",
+                            },
+                        },
                         "host": "host",
                     },
                     {
-                        "auth": {"bearer": {"token": "token"}},
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
+                            "query": {
+                                "key": "key",
+                                "value": "value",
+                            },
+                        },
                         "host": "host",
                     },
                     {
-                        "auth": {"bearer": {"token": "token"}},
+                        "auth": {
+                            "basic": {
+                                "password": "password",
+                                "user_id": "user_id",
+                            },
+                            "bearer": {"token": "token"},
+                            "header": {
+                                "name": "name",
+                                "value": "value",
+                            },
+                            "query": {
+                                "key": "key",
+                                "value": "value",
+                            },
+                        },
                         "host": "host",
                     },
                 ]
@@ -148,6 +233,7 @@ class TestAsyncCommand:
                 "execution_timeout": 0,
                 "memory_size": 0,
             },
+            revision="revision",
             runtime="runtime",
             stdin="stdin",
         )

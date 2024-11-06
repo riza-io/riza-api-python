@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.1.1 (2024-11-06)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.1](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.10...v0.1.1)
+
+### Features
+
+* **api:** api update ([#48](https://github.com/riza-io/riza-api-python/issues/48)) ([1745365](https://github.com/riza-io/riza-api-python/commit/1745365fe3277da2bd55a46b5a5f1dd0d24f12e4))
+* **api:** api update ([#50](https://github.com/riza-io/riza-api-python/issues/50)) ([8306dff](https://github.com/riza-io/riza-api-python/commit/8306dff6fc5dbcf7b1182d12789e2df7a03f87b9))
+* **api:** api update ([#51](https://github.com/riza-io/riza-api-python/issues/51)) ([653755c](https://github.com/riza-io/riza-api-python/commit/653755cf38b346d996c526b28cb735a19e070a66))
+* **api:** api update ([#53](https://github.com/riza-io/riza-api-python/issues/53)) ([314b137](https://github.com/riza-io/riza-api-python/commit/314b1375da1e8c34541d7ecbc6a3f119cb27636f))
+* **api:** api update ([#54](https://github.com/riza-io/riza-api-python/issues/54)) ([feb4f33](https://github.com/riza-io/riza-api-python/commit/feb4f33a6ff1f192aae704531e06b180719b2006))
+* **api:** api update ([#56](https://github.com/riza-io/riza-api-python/issues/56)) ([9285f7f](https://github.com/riza-io/riza-api-python/commit/9285f7f0ed4348d8445b75b7074cc4c87a906bac))
+* **api:** manual updates ([#49](https://github.com/riza-io/riza-api-python/issues/49)) ([96c290a](https://github.com/riza-io/riza-api-python/commit/96c290ac6e12be6143ba9b795b98bf940f207f62))
+
+
+### Bug Fixes
+
+* **client:** avoid OverflowError with very large retry counts ([#46](https://github.com/riza-io/riza-api-python/issues/46)) ([4c7fd4f](https://github.com/riza-io/riza-api-python/commit/4c7fd4f2bcaf887fee0b364dca19ed7721781b61))
+
+
+### Chores
+
+* add repr to PageInfo class ([#47](https://github.com/riza-io/riza-api-python/issues/47)) ([67459c0](https://github.com/riza-io/riza-api-python/commit/67459c06bf0664e183acad544e9f8696acef6032))
+* **internal:** add support for parsing bool response content ([#44](https://github.com/riza-io/riza-api-python/issues/44)) ([d908040](https://github.com/riza-io/riza-api-python/commit/d9080404367104b245c60255b7288e8941044850))
+* **internal:** codegen related update ([#43](https://github.com/riza-io/riza-api-python/issues/43)) ([aa685cb](https://github.com/riza-io/riza-api-python/commit/aa685cb665ddebbfcfa97ce11124d29970571f29))
+* rebuild project due to codegen change ([#52](https://github.com/riza-io/riza-api-python/issues/52)) ([c96d6bc](https://github.com/riza-io/riza-api-python/commit/c96d6bc5b781bc1a6ff18b1407247ddbfe89ffa9))
+* rebuild project due to codegen change ([#55](https://github.com/riza-io/riza-api-python/issues/55)) ([6a4c4a5](https://github.com/riza-io/riza-api-python/commit/6a4c4a574d5b0b8360d612ccbade12b0346f777b))
+
 ## 0.1.0-alpha.10 (2024-09-18)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/riza-io/riza-api-python/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)

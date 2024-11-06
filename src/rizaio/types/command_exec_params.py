@@ -2,10 +2,21 @@
 
 from __future__ import annotations
 
-from typing import Dict, List, Iterable
+from typing import Dict, List, Iterable, Optional
 from typing_extensions import Literal, Required, TypedDict
 
-__all__ = ["CommandExecParams", "File", "HTTP", "HTTPAllow", "HTTPAllowAuth", "HTTPAllowAuthBearer", "Limits"]
+__all__ = [
+    "CommandExecParams",
+    "File",
+    "HTTP",
+    "HTTPAllow",
+    "HTTPAllowAuth",
+    "HTTPAllowAuthBasic",
+    "HTTPAllowAuthBearer",
+    "HTTPAllowAuthHeader",
+    "HTTPAllowAuthQuery",
+    "Limits",
+]
 
 
 class CommandExecParams(TypedDict, total=False):
@@ -24,38 +35,64 @@ class CommandExecParams(TypedDict, total=False):
     files: Iterable[File]
     """List of input files."""
 
-    http: HTTP
+    http: Optional[HTTP]
     """Configuration for HTTP requests and authentication."""
 
     language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]
     """The interpreter to use when executing code."""
 
-    limits: Limits
+    limits: Optional[Limits]
     """Configuration for execution environment limits."""
+
+    revision: str
 
     runtime: str
     """The runtime to use when executing code."""
 
     stdin: str
-    """Input made available to the script via `stdin`."""
+    """Input made available to the script via 'stdin'."""
 
 
 class File(TypedDict, total=False):
-    content: str
+    contents: str
     """The contents of the file."""
 
     path: str
     """The relative path of the file."""
 
 
+class HTTPAllowAuthBasic(TypedDict, total=False):
+    password: str
+
+    user_id: str
+
+
 class HTTPAllowAuthBearer(TypedDict, total=False):
     token: str
-    """The token to set, e.g. `Authorization: Bearer <token>`."""
+    """The token to set, e.g. 'Authorization: Bearer <token>'."""
+
+
+class HTTPAllowAuthHeader(TypedDict, total=False):
+    name: str
+
+    value: str
+
+
+class HTTPAllowAuthQuery(TypedDict, total=False):
+    key: str
+
+    value: str
 
 
 class HTTPAllowAuth(TypedDict, total=False):
-    bearer: HTTPAllowAuthBearer
-    """Configuration to add an `Authorization` header using the `Bearer` scheme."""
+    basic: Optional[HTTPAllowAuthBasic]
+
+    bearer: Optional[HTTPAllowAuthBearer]
+    """Configuration to add an 'Authorization' header using the 'Bearer' scheme."""
+
+    header: Optional[HTTPAllowAuthHeader]
+
+    query: Optional[HTTPAllowAuthQuery]
 
 
 class HTTPAllow(TypedDict, total=False):
