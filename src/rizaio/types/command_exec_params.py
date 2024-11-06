@@ -13,6 +13,7 @@ __all__ = [
     "HTTPAllowAuth",
     "HTTPAllowAuthBasic",
     "HTTPAllowAuthBearer",
+    "HTTPAllowAuthHeader",
     "HTTPAllowAuthQuery",
     "Limits",
 ]
@@ -71,6 +72,12 @@ class HTTPAllowAuthBearer(TypedDict, total=False):
     """The token to set, e.g. 'Authorization: Bearer <token>'."""
 
 
+class HTTPAllowAuthHeader(TypedDict, total=False):
+    name: str
+
+    value: str
+
+
 class HTTPAllowAuthQuery(TypedDict, total=False):
     key: str
 
@@ -82,6 +89,8 @@ class HTTPAllowAuth(TypedDict, total=False):
 
     bearer: Optional[HTTPAllowAuthBearer]
     """Configuration to add an 'Authorization' header using the 'Bearer' scheme."""
+
+    header: Optional[HTTPAllowAuthHeader]
 
     query: Optional[HTTPAllowAuthQuery]
 
