@@ -49,6 +49,7 @@ class SecretsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SecretListResponse:
+        """Returns a list of secrets in your project."""
         return self._get(
             "/v1/secrets",
             options=make_request_options(
@@ -88,6 +89,7 @@ class AsyncSecretsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SecretListResponse:
+        """Returns a list of secrets in your project."""
         return await self._get(
             "/v1/secrets",
             options=make_request_options(
