@@ -16,7 +16,7 @@ The REST API documentation can be found on [docs.riza.io](https://docs.riza.io).
 
 ```sh
 # install from PyPI
-pip install --pre rizaio
+pip install rizaio
 ```
 
 ## Usage
