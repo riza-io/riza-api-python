@@ -65,6 +65,8 @@ class ToolsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
         """
+        Create a tool in your project.
+
         Args:
           extra_headers: Send extra headers
 
@@ -109,6 +111,8 @@ class ToolsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
         """
+        Update the source code and input schema of a tool.
+
         Args:
           extra_headers: Send extra headers
 
@@ -148,6 +152,7 @@ class ToolsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ToolListResponse:
+        """Returns a list of tools in your project."""
         return self._get(
             "/v1/tools",
             options=make_request_options(
@@ -171,7 +176,11 @@ class ToolsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ToolExecResponse:
-        """
+        """Execute a tool with a given input.
+
+        The input is validated against the tool's
+        input schema.
+
         Args:
           extra_headers: Send extra headers
 
@@ -212,6 +221,8 @@ class ToolsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
         """
+        Retrieves a tool.
+
         Args:
           extra_headers: Send extra headers
 
@@ -268,6 +279,8 @@ class AsyncToolsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
         """
+        Create a tool in your project.
+
         Args:
           extra_headers: Send extra headers
 
@@ -312,6 +325,8 @@ class AsyncToolsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
         """
+        Update the source code and input schema of a tool.
+
         Args:
           extra_headers: Send extra headers
 
@@ -351,6 +366,7 @@ class AsyncToolsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ToolListResponse:
+        """Returns a list of tools in your project."""
         return await self._get(
             "/v1/tools",
             options=make_request_options(
@@ -374,7 +390,11 @@ class AsyncToolsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ToolExecResponse:
-        """
+        """Execute a tool with a given input.
+
+        The input is validated against the tool's
+        input schema.
+
         Args:
           extra_headers: Send extra headers
 
@@ -415,6 +435,8 @@ class AsyncToolsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
         """
+        Retrieves a tool.
+
         Args:
           extra_headers: Send extra headers
 
