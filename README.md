@@ -33,7 +33,8 @@ client = Riza(
 )
 
 response = client.command.exec(
-    code='print("Hello world!")',
+    code="print('Hello, World!')",
+    language="python",
 )
 print(response.exit_code)
 ```
@@ -60,7 +61,8 @@ client = AsyncRiza(
 
 async def main() -> None:
     response = await client.command.exec(
-        code='print("Hello world!")',
+        code="print('Hello, World!')",
+        language="python",
     )
     print(response.exit_code)
 
@@ -96,7 +98,8 @@ client = Riza()
 
 try:
     client.command.exec(
-        code='print("Hello world!")',
+        code="print('Hello, World!')",
+        language="python",
     )
 except rizaio.APIConnectionError as e:
     print("The server could not be reached")
@@ -141,7 +144,8 @@ client = Riza(
 
 # Or, configure per-request:
 client.with_options(max_retries=5).command.exec(
-    code='print("Hello world!")',
+    code="print('Hello, World!')",
+    language="python",
 )
 ```
 
@@ -166,7 +170,8 @@ client = Riza(
 
 # Override per-request:
 client.with_options(timeout=5.0).command.exec(
-    code='print("Hello world!")',
+    code="print('Hello, World!')",
+    language="python",
 )
 ```
 
@@ -207,7 +212,8 @@ from rizaio import Riza
 
 client = Riza()
 response = client.command.with_raw_response.exec(
-    code="print(\"Hello world!\")",
+    code="print('Hello, World!')",
+    language="python",
 )
 print(response.headers.get('X-My-Header'))
 
@@ -227,7 +233,8 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 
 ```python
 with client.command.with_streaming_response.exec(
-    code='print("Hello world!")',
+    code="print('Hello, World!')",
+    language="python",
 ) as response:
     print(response.headers.get("X-My-Header"))
 
