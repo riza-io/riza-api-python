@@ -18,4 +18,4 @@ class Execution(BaseModel):
 class ToolExecResponse(BaseModel):
     execution: Execution
 
-    output: Optional[str] = None
+    output: Optional[object] = None
