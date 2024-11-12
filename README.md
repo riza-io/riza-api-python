@@ -28,8 +28,7 @@ import os
 from rizaio import Riza
 
 client = Riza(
-    # This is the default and can be omitted
-    api_key=os.environ.get("RIZA_API_KEY"),
+    api_key=os.environ.get("RIZA_API_KEY"),  # This is the default and can be omitted
 )
 
 response = client.command.exec(
@@ -54,8 +53,7 @@ import asyncio
 from rizaio import AsyncRiza
 
 client = AsyncRiza(
-    # This is the default and can be omitted
-    api_key=os.environ.get("RIZA_API_KEY"),
+    api_key=os.environ.get("RIZA_API_KEY"),  # This is the default and can be omitted
 )
 
 
