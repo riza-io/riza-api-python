@@ -56,7 +56,7 @@ class ToolsResource(SyncAPIResource):
         name: str,
         description: str | NotGiven = NOT_GIVEN,
         input_schema: object | NotGiven = NOT_GIVEN,
-        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -101,7 +101,7 @@ class ToolsResource(SyncAPIResource):
         code: Optional[str] | NotGiven = NOT_GIVEN,
         description: Optional[str] | NotGiven = NOT_GIVEN,
         input_schema: Optional[object] | NotGiven = NOT_GIVEN,
-        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT"] | NotGiven = NOT_GIVEN,
         name: Optional[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -270,7 +270,7 @@ class AsyncToolsResource(AsyncAPIResource):
         name: str,
         description: str | NotGiven = NOT_GIVEN,
         input_schema: object | NotGiven = NOT_GIVEN,
-        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -315,7 +315,7 @@ class AsyncToolsResource(AsyncAPIResource):
         code: Optional[str] | NotGiven = NOT_GIVEN,
         description: Optional[str] | NotGiven = NOT_GIVEN,
         input_schema: Optional[object] | NotGiven = NOT_GIVEN,
-        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT"] | NotGiven = NOT_GIVEN,
         name: Optional[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
