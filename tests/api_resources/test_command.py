@@ -28,22 +28,14 @@ class TestCommand:
     def test_method_exec_with_all_params(self, client: Riza) -> None:
         command = client.command.exec(
             code='print("Hello world!")',
-            allow_http_hosts=["string", "string", "string"],
-            args=["string", "string", "string"],
+            allow_http_hosts=["string"],
+            args=["string"],
             env={"foo": "string"},
             files=[
                 {
                     "contents": "contents",
                     "path": "path",
-                },
-                {
-                    "contents": "contents",
-                    "path": "path",
-                },
-                {
-                    "contents": "contents",
-                    "path": "path",
-                },
+                }
             ],
             http={
                 "allow": [
@@ -64,43 +56,7 @@ class TestCommand:
                             },
                         },
                         "host": "host",
-                    },
-                    {
-                        "auth": {
-                            "basic": {
-                                "password": "password",
-                                "user_id": "user_id",
-                            },
-                            "bearer": {"token": "token"},
-                            "header": {
-                                "name": "name",
-                                "value": "value",
-                            },
-                            "query": {
-                                "key": "key",
-                                "value": "value",
-                            },
-                        },
-                        "host": "host",
-                    },
-                    {
-                        "auth": {
-                            "basic": {
-                                "password": "password",
-                                "user_id": "user_id",
-                            },
-                            "bearer": {"token": "token"},
-                            "header": {
-                                "name": "name",
-                                "value": "value",
-                            },
-                            "query": {
-                                "key": "key",
-                                "value": "value",
-                            },
-                        },
-                        "host": "host",
-                    },
+                    }
                 ]
             },
             language="PYTHON",
@@ -153,22 +109,14 @@ class TestAsyncCommand:
     async def test_method_exec_with_all_params(self, async_client: AsyncRiza) -> None:
         command = await async_client.command.exec(
             code='print("Hello world!")',
-            allow_http_hosts=["string", "string", "string"],
-            args=["string", "string", "string"],
+            allow_http_hosts=["string"],
+            args=["string"],
             env={"foo": "string"},
             files=[
                 {
                     "contents": "contents",
                     "path": "path",
-                },
-                {
-                    "contents": "contents",
-                    "path": "path",
-                },
-                {
-                    "contents": "contents",
-                    "path": "path",
-                },
+                }
             ],
             http={
                 "allow": [
@@ -189,43 +137,7 @@ class TestAsyncCommand:
                             },
                         },
                         "host": "host",
-                    },
-                    {
-                        "auth": {
-                            "basic": {
-                                "password": "password",
-                                "user_id": "user_id",
-                            },
-                            "bearer": {"token": "token"},
-                            "header": {
-                                "name": "name",
-                                "value": "value",
-                            },
-                            "query": {
-                                "key": "key",
-                                "value": "value",
-                            },
-                        },
-                        "host": "host",
-                    },
-                    {
-                        "auth": {
-                            "basic": {
-                                "password": "password",
-                                "user_id": "user_id",
-                            },
-                            "bearer": {"token": "token"},
-                            "header": {
-                                "name": "name",
-                                "value": "value",
-                            },
-                            "query": {
-                                "key": "key",
-                                "value": "value",
-                            },
-                        },
-                        "host": "host",
-                    },
+                    }
                 ]
             },
             language="PYTHON",

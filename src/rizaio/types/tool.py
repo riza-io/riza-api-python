@@ -16,7 +16,7 @@ class Tool(BaseModel):
 
     input_schema: object
 
-    language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]
+    language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT"]
 
     name: str
 

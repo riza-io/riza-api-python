@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.3.0 (2024-12-04)
+
+Full Changelog: [v0.2.0...v0.3.0](https://github.com/riza-io/riza-api-python/compare/v0.2.0...v0.3.0)
+
+### Features
+
+* **api:** api update ([#65](https://github.com/riza-io/riza-api-python/issues/65)) ([eba3a1f](https://github.com/riza-io/riza-api-python/commit/eba3a1f7707ac227cb6aea17fa9a01eaf7a2ceb6))
+* **api:** api update ([#73](https://github.com/riza-io/riza-api-python/issues/73)) ([ed2dce2](https://github.com/riza-io/riza-api-python/commit/ed2dce226c51ad686d5ac3f16eb415219f49e3d8))
+
+
+### Bug Fixes
+
+* **asyncify:** avoid hanging process under certain conditions ([#67](https://github.com/riza-io/riza-api-python/issues/67)) ([21f1add](https://github.com/riza-io/riza-api-python/commit/21f1add3810506b951b26234794e2e9861de746a))
+* **client:** compat with new httpx 0.28.0 release ([#72](https://github.com/riza-io/riza-api-python/issues/72)) ([23c7fc1](https://github.com/riza-io/riza-api-python/commit/23c7fc19abd259d6079e21dc4bca7214e5b93eee))
+
+
+### Chores
+
+* **internal:** bump pyright ([#74](https://github.com/riza-io/riza-api-python/issues/74)) ([cf46ef4](https://github.com/riza-io/riza-api-python/commit/cf46ef43dbfef1afb9abd7187668b276b2b663f8))
+* **internal:** exclude mypy from running on tests ([#71](https://github.com/riza-io/riza-api-python/issues/71)) ([eb486dd](https://github.com/riza-io/riza-api-python/commit/eb486dd086c91bf95ed2a6832eee87814520bddb))
+* **internal:** fix compat model_dump method when warnings are passed ([#68](https://github.com/riza-io/riza-api-python/issues/68)) ([97dfabe](https://github.com/riza-io/riza-api-python/commit/97dfabe83694b0e25374bb4b092e3d4d9c8aa3d3))
+* make the `Omit` type public ([#75](https://github.com/riza-io/riza-api-python/issues/75)) ([fb119ae](https://github.com/riza-io/riza-api-python/commit/fb119aee18caca678e0d9b9ef0cb9d87e825e04c))
+* rebuild project due to codegen change ([#63](https://github.com/riza-io/riza-api-python/issues/63)) ([ddd46bc](https://github.com/riza-io/riza-api-python/commit/ddd46bc6dfb9e423aacc494b6a2a2205800d6ac5))
+* rebuild project due to codegen change ([#66](https://github.com/riza-io/riza-api-python/issues/66)) ([d9dc13d](https://github.com/riza-io/riza-api-python/commit/d9dc13d8e1f112c70ece5466346d3e0dfabe6a75))
+* remove now unused `cached-property` dep ([#70](https://github.com/riza-io/riza-api-python/issues/70)) ([767194b](https://github.com/riza-io/riza-api-python/commit/767194b1bf69905470c1d949118471f3fbca2934))
+
+
+### Documentation
+
+* add info log level to readme ([#69](https://github.com/riza-io/riza-api-python/issues/69)) ([0b9f395](https://github.com/riza-io/riza-api-python/commit/0b9f39590eb72bf13f56643f58a4b4059d2dbdd8))
+
 ## 0.2.0 (2024-11-07)
 
 Full Changelog: [v0.1.1...v0.2.0](https://github.com/riza-io/riza-api-python/compare/v0.1.1...v0.2.0)
