@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.1 (2024-12-10)
+
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/riza-io/riza-api-python/compare/v0.3.0...v0.3.1)
+
+### Chores
+
+* **internal:** bump pydantic dependency ([#77](https://github.com/riza-io/riza-api-python/issues/77)) ([d92850c](https://github.com/riza-io/riza-api-python/commit/d92850cae7dc78d920b5964987aa59101123694f))
+
+
+### Documentation
+
+* **readme:** fix http client proxies example ([#79](https://github.com/riza-io/riza-api-python/issues/79)) ([8f08d2b](https://github.com/riza-io/riza-api-python/commit/8f08d2bc7f92109d1445d159e1724198dc8b5770))
+
 ## 0.3.0 (2024-12-04)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/riza-io/riza-api-python/compare/v0.2.0...v0.3.0)
