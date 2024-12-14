@@ -8,7 +8,7 @@ from typing_extensions import Self, override
 
 import httpx
 
-from . import resources, _exceptions
+from . import _exceptions
 from ._qs import Querystring
 from ._types import (
     NOT_GIVEN,
@@ -24,6 +24,7 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
+from .resources import tools, command, secrets
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import RizaError, APIStatusError
 from ._base_client import (
@@ -32,23 +33,13 @@ from ._base_client import (
     AsyncAPIClient,
 )
 
-__all__ = [
-    "Timeout",
-    "Transport",
-    "ProxiesTypes",
-    "RequestOptions",
-    "resources",
-    "Riza",
-    "AsyncRiza",
-    "Client",
-    "AsyncClient",
-]
+__all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Riza", "AsyncRiza", "Client", "AsyncClient"]
 
 
 class Riza(SyncAPIClient):
-    secrets: resources.SecretsResource
-    tools: resources.ToolsResource
-    command: resources.CommandResource
+    secrets: secrets.SecretsResource
+    tools: tools.ToolsResource
+    command: command.CommandResource
     with_raw_response: RizaWithRawResponse
     with_streaming_response: RizaWithStreamedResponse
 
@@ -106,9 +97,9 @@ class Riza(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.secrets = resources.SecretsResource(self)
-        self.tools = resources.ToolsResource(self)
-        self.command = resources.CommandResource(self)
+        self.secrets = secrets.SecretsResource(self)
+        self.tools = tools.ToolsResource(self)
+        self.command = command.CommandResource(self)
         self.with_raw_response = RizaWithRawResponse(self)
         self.with_streaming_response = RizaWithStreamedResponse(self)
 
@@ -218,9 +209,9 @@ class Riza(SyncAPIClient):
 
 
 class AsyncRiza(AsyncAPIClient):
-    secrets: resources.AsyncSecretsResource
-    tools: resources.AsyncToolsResource
-    command: resources.AsyncCommandResource
+    secrets: secrets.AsyncSecretsResource
+    tools: tools.AsyncToolsResource
+    command: command.AsyncCommandResource
     with_raw_response: AsyncRizaWithRawResponse
     with_streaming_response: AsyncRizaWithStreamedResponse
 
@@ -278,9 +269,9 @@ class AsyncRiza(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.secrets = resources.AsyncSecretsResource(self)
-        self.tools = resources.AsyncToolsResource(self)
-        self.command = resources.AsyncCommandResource(self)
+        self.secrets = secrets.AsyncSecretsResource(self)
+        self.tools = tools.AsyncToolsResource(self)
+        self.command = command.AsyncCommandResource(self)
         self.with_raw_response = AsyncRizaWithRawResponse(self)
         self.with_streaming_response = AsyncRizaWithStreamedResponse(self)
 
@@ -391,30 +382,30 @@ class AsyncRiza(AsyncAPIClient):
 
 class RizaWithRawResponse:
     def __init__(self, client: Riza) -> None:
-        self.secrets = resources.SecretsResourceWithRawResponse(client.secrets)
-        self.tools = resources.ToolsResourceWithRawResponse(client.tools)
-        self.command = resources.CommandResourceWithRawResponse(client.command)
+        self.secrets = secrets.SecretsResourceWithRawResponse(client.secrets)
+        self.tools = tools.ToolsResourceWithRawResponse(client.tools)
+        self.command = command.CommandResourceWithRawResponse(client.command)
 
 
 class AsyncRizaWithRawResponse:
     def __init__(self, client: AsyncRiza) -> None:
-        self.secrets = resources.AsyncSecretsResourceWithRawResponse(client.secrets)
-        self.tools = resources.AsyncToolsResourceWithRawResponse(client.tools)
-        self.command = resources.AsyncCommandResourceWithRawResponse(client.command)
+        self.secrets = secrets.AsyncSecretsResourceWithRawResponse(client.secrets)
+        self.tools = tools.AsyncToolsResourceWithRawResponse(client.tools)
+        self.command = command.AsyncCommandResourceWithRawResponse(client.command)
 
 
 class RizaWithStreamedResponse:
     def __init__(self, client: Riza) -> None:
-        self.secrets = resources.SecretsResourceWithStreamingResponse(client.secrets)
-        self.tools = resources.ToolsResourceWithStreamingResponse(client.tools)
-        self.command = resources.CommandResourceWithStreamingResponse(client.command)
+        self.secrets = secrets.SecretsResourceWithStreamingResponse(client.secrets)
+        self.tools = tools.ToolsResourceWithStreamingResponse(client.tools)
+        self.command = command.CommandResourceWithStreamingResponse(client.command)
 
 
 class AsyncRizaWithStreamedResponse:
     def __init__(self, client: AsyncRiza) -> None:
-        self.secrets = resources.AsyncSecretsResourceWithStreamingResponse(client.secrets)
-        self.tools = resources.AsyncToolsResourceWithStreamingResponse(client.tools)
-        self.command = resources.AsyncCommandResourceWithStreamingResponse(client.command)
+        self.secrets = secrets.AsyncSecretsResourceWithStreamingResponse(client.secrets)
+        self.tools = tools.AsyncToolsResourceWithStreamingResponse(client.tools)
+        self.command = command.AsyncCommandResourceWithStreamingResponse(client.command)
 
 
 Client = Riza
