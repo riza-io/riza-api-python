@@ -342,11 +342,11 @@ class TestRiza:
             FinalRequestOptions(
                 method="get",
                 url="/foo",
-                params={"foo": "baz", "query_param": "overridden"},
+                params={"foo": "baz", "query_param": "overriden"},
             )
         )
         url = httpx.URL(request.url)
-        assert dict(url.params) == {"foo": "baz", "query_param": "overridden"}
+        assert dict(url.params) == {"foo": "baz", "query_param": "overriden"}
 
     def test_request_extra_json(self) -> None:
         request = self.client._build_request(
@@ -1106,11 +1106,11 @@ class TestAsyncRiza:
             FinalRequestOptions(
                 method="get",
                 url="/foo",
-                params={"foo": "baz", "query_param": "overridden"},
+                params={"foo": "baz", "query_param": "overriden"},
             )
         )
         url = httpx.URL(request.url)
-        assert dict(url.params) == {"foo": "baz", "query_param": "overridden"}
+        assert dict(url.params) == {"foo": "baz", "query_param": "overriden"}
 
     def test_request_extra_json(self) -> None:
         request = self.client._build_request(
