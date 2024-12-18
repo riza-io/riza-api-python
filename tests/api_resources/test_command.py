@@ -66,6 +66,7 @@ class TestCommand:
             },
             revision="revision",
             runtime="runtime",
+            runtime_revision_id="runtime_revision_id",
             stdin="stdin",
         )
         assert_matches_type(CommandExecResponse, command, path=["response"])
@@ -147,6 +148,7 @@ class TestAsyncCommand:
             },
             revision="revision",
             runtime="runtime",
+            runtime_revision_id="runtime_revision_id",
             stdin="stdin",
         )
         assert_matches_type(CommandExecResponse, command, path=["response"])
