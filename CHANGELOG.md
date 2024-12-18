@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.4.0 (2024-12-18)
+
+Full Changelog: [v0.3.0...v0.4.0](https://github.com/riza-io/riza-api-python/compare/v0.3.0...v0.4.0)
+
+### Features
+
+* **api:** api update ([#89](https://github.com/riza-io/riza-api-python/issues/89)) ([f1f8595](https://github.com/riza-io/riza-api-python/commit/f1f85956fa1cfc98b1e6086332fc95d256a7522a))
+* **api:** api update ([#90](https://github.com/riza-io/riza-api-python/issues/90)) ([12c11ca](https://github.com/riza-io/riza-api-python/commit/12c11cad4477f0e887adda5335303b22da5838de))
+* **api:** api update ([#91](https://github.com/riza-io/riza-api-python/issues/91)) ([d1474cb](https://github.com/riza-io/riza-api-python/commit/d1474cb5e34764f4de4355624f0dedf1d0682b9e))
+
+
+### Chores
+
+* **internal:** add support for TypeAliasType ([#81](https://github.com/riza-io/riza-api-python/issues/81)) ([0316272](https://github.com/riza-io/riza-api-python/commit/0316272914906914398463cd65121bf268187e33))
+* **internal:** bump pydantic dependency ([#77](https://github.com/riza-io/riza-api-python/issues/77)) ([d92850c](https://github.com/riza-io/riza-api-python/commit/d92850cae7dc78d920b5964987aa59101123694f))
+* **internal:** bump pyright ([#80](https://github.com/riza-io/riza-api-python/issues/80)) ([dc28972](https://github.com/riza-io/riza-api-python/commit/dc289729d0b73f6c5bd7b9486f2819fce8c025cb))
+* **internal:** codegen related update ([#82](https://github.com/riza-io/riza-api-python/issues/82)) ([0f68452](https://github.com/riza-io/riza-api-python/commit/0f68452524594780e233204ace148c6f7695392b))
+* **internal:** codegen related update ([#83](https://github.com/riza-io/riza-api-python/issues/83)) ([35024d0](https://github.com/riza-io/riza-api-python/commit/35024d0f2b31ff770555b545defa4a97f35c07aa))
+* **internal:** codegen related update ([#84](https://github.com/riza-io/riza-api-python/issues/84)) ([56c8c66](https://github.com/riza-io/riza-api-python/commit/56c8c6632af5028f0f68fa5ffdfb3e010c56e950))
+* **internal:** codegen related update ([#87](https://github.com/riza-io/riza-api-python/issues/87)) ([52e2d7c](https://github.com/riza-io/riza-api-python/commit/52e2d7cbf623e8fe04488a5869bbc9cefdafe730))
+* **internal:** fix some typos ([#86](https://github.com/riza-io/riza-api-python/issues/86)) ([1e56043](https://github.com/riza-io/riza-api-python/commit/1e560433b42a231cdd18721fb3fb7dd0f21c601f))
+* **internal:** fix some typos ([#88](https://github.com/riza-io/riza-api-python/issues/88)) ([75db94a](https://github.com/riza-io/riza-api-python/commit/75db94a3b5b7106e06bd2ecadb6ca6b657496b2c))
+
+
+### Documentation
+
+* **readme:** example snippet for client context manager ([#85](https://github.com/riza-io/riza-api-python/issues/85)) ([6154b28](https://github.com/riza-io/riza-api-python/commit/6154b2879402dfd19ff139bc99b77d486c8694dd))
+* **readme:** fix http client proxies example ([#79](https://github.com/riza-io/riza-api-python/issues/79)) ([8f08d2b](https://github.com/riza-io/riza-api-python/commit/8f08d2bc7f92109d1445d159e1724198dc8b5770))
+
 ## 0.3.0 (2024-12-04)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/riza-io/riza-api-python/compare/v0.2.0...v0.3.0)
