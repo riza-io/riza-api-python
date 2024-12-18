@@ -92,7 +92,7 @@ class CommandResource(SyncAPIResource):
 
           limits: Configuration for execution environment limits.
 
-          runtime: The runtime to use when executing code. Deprecated in favor of `runtime_id` and
+          runtime: The runtime to use when executing code. Deprecated in favor of
               `runtime_revision_id`.
 
           runtime_revision_id: The ID of the runtime revision to use when executing code.
@@ -198,7 +198,7 @@ class AsyncCommandResource(AsyncAPIResource):
 
           limits: Configuration for execution environment limits.
 
-          runtime: The runtime to use when executing code. Deprecated in favor of `runtime_id` and
+          runtime: The runtime to use when executing code. Deprecated in favor of
               `runtime_revision_id`.
 
           runtime_revision_id: The ID of the runtime revision to use when executing code.

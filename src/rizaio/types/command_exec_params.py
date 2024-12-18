@@ -49,7 +49,7 @@ class CommandExecParams(TypedDict, total=False):
     runtime: str
     """The runtime to use when executing code.
 
-    Deprecated in favor of `runtime_id` and `runtime_revision_id`.
+    Deprecated in favor of `runtime_revision_id`.
     """
 
     runtime_revision_id: str
