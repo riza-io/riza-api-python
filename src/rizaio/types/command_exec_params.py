@@ -47,7 +47,13 @@ class CommandExecParams(TypedDict, total=False):
     revision: str
 
     runtime: str
-    """The runtime to use when executing code."""
+    """The runtime to use when executing code.
+
+    Deprecated in favor of `runtime_revision_id`.
+    """
+
+    runtime_revision_id: str
+    """The ID of the runtime revision to use when executing code."""
 
     stdin: str
     """Input made available to the script via 'stdin'."""

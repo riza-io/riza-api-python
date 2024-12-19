@@ -60,6 +60,7 @@ class CommandResource(SyncAPIResource):
         limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
         revision: str | NotGiven = NOT_GIVEN,
         runtime: str | NotGiven = NOT_GIVEN,
+        runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -91,7 +92,10 @@ class CommandResource(SyncAPIResource):
 
           limits: Configuration for execution environment limits.
 
-          runtime: The runtime to use when executing code.
+          runtime: The runtime to use when executing code. Deprecated in favor of
+              `runtime_revision_id`.
+
+          runtime_revision_id: The ID of the runtime revision to use when executing code.
 
           stdin: Input made available to the script via 'stdin'.
 
@@ -117,6 +121,7 @@ class CommandResource(SyncAPIResource):
                     "limits": limits,
                     "revision": revision,
                     "runtime": runtime,
+                    "runtime_revision_id": runtime_revision_id,
                     "stdin": stdin,
                 },
                 command_exec_params.CommandExecParams,
@@ -161,6 +166,7 @@ class AsyncCommandResource(AsyncAPIResource):
         limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
         revision: str | NotGiven = NOT_GIVEN,
         runtime: str | NotGiven = NOT_GIVEN,
+        runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -192,7 +198,10 @@ class AsyncCommandResource(AsyncAPIResource):
 
           limits: Configuration for execution environment limits.
 
-          runtime: The runtime to use when executing code.
+          runtime: The runtime to use when executing code. Deprecated in favor of
+              `runtime_revision_id`.
+
+          runtime_revision_id: The ID of the runtime revision to use when executing code.
 
           stdin: Input made available to the script via 'stdin'.
 
@@ -218,6 +227,7 @@ class AsyncCommandResource(AsyncAPIResource):
                     "limits": limits,
                     "revision": revision,
                     "runtime": runtime,
+                    "runtime_revision_id": runtime_revision_id,
                     "stdin": stdin,
                 },
                 command_exec_params.CommandExecParams,
