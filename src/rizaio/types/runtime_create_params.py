@@ -20,4 +20,4 @@ class RuntimeCreateParams(TypedDict, total=False):
 class ManifestFile(TypedDict, total=False):
     contents: Required[str]
 
-    name: Required[Literal["requirements.txt"]]
+    name: Required[Literal["requirements.txt", "package.json"]]

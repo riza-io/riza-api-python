@@ -11,7 +11,7 @@ __all__ = ["Revision", "ManifestFile"]
 class ManifestFile(BaseModel):
     contents: str
 
-    name: Literal["requirements.txt"]
+    name: Literal["requirements.txt", "package.json"]
 
 
 class Revision(BaseModel):
