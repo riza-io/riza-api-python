@@ -16,4 +16,4 @@ class ToolCreateParams(TypedDict, total=False):
 
     input_schema: object
 
-    language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT"]
+    language: Literal["python", "javascript", "typescript"]
