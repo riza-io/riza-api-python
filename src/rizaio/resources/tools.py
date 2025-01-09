@@ -53,10 +53,10 @@ class ToolsResource(SyncAPIResource):
         self,
         *,
         code: str,
+        language: Literal["python", "javascript", "typescript"],
         name: str,
         description: str | NotGiven = NOT_GIVEN,
         input_schema: object | NotGiven = NOT_GIVEN,
-        language: Literal["python", "javascript", "typescript"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -81,10 +81,10 @@ class ToolsResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "code": code,
+                    "language": language,
                     "name": name,
                     "description": description,
                     "input_schema": input_schema,
-                    "language": language,
                 },
                 tool_create_params.ToolCreateParams,
             ),
@@ -267,10 +267,10 @@ class AsyncToolsResource(AsyncAPIResource):
         self,
         *,
         code: str,
+        language: Literal["python", "javascript", "typescript"],
         name: str,
         description: str | NotGiven = NOT_GIVEN,
         input_schema: object | NotGiven = NOT_GIVEN,
-        language: Literal["python", "javascript", "typescript"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -295,10 +295,10 @@ class AsyncToolsResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "code": code,
+                    "language": language,
                     "name": name,
                     "description": description,
                     "input_schema": input_schema,
-                    "language": language,
                 },
                 tool_create_params.ToolCreateParams,
             ),

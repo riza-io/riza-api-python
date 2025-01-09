@@ -25,6 +25,7 @@ class TestTools:
     def test_method_create(self, client: Riza) -> None:
         tool = client.tools.create(
             code="code",
+            language="python",
             name="name",
         )
         assert_matches_type(Tool, tool, path=["response"])
@@ -33,10 +34,10 @@ class TestTools:
     def test_method_create_with_all_params(self, client: Riza) -> None:
         tool = client.tools.create(
             code="code",
+            language="python",
             name="name",
             description="description",
             input_schema={},
-            language="python",
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -44,6 +45,7 @@ class TestTools:
     def test_raw_response_create(self, client: Riza) -> None:
         response = client.tools.with_raw_response.create(
             code="code",
+            language="python",
             name="name",
         )
 
@@ -56,6 +58,7 @@ class TestTools:
     def test_streaming_response_create(self, client: Riza) -> None:
         with client.tools.with_streaming_response.create(
             code="code",
+            language="python",
             name="name",
         ) as response:
             assert not response.is_closed
@@ -264,6 +267,7 @@ class TestAsyncTools:
     async def test_method_create(self, async_client: AsyncRiza) -> None:
         tool = await async_client.tools.create(
             code="code",
+            language="python",
             name="name",
         )
         assert_matches_type(Tool, tool, path=["response"])
@@ -272,10 +276,10 @@ class TestAsyncTools:
     async def test_method_create_with_all_params(self, async_client: AsyncRiza) -> None:
         tool = await async_client.tools.create(
             code="code",
+            language="python",
             name="name",
             description="description",
             input_schema={},
-            language="python",
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -283,6 +287,7 @@ class TestAsyncTools:
     async def test_raw_response_create(self, async_client: AsyncRiza) -> None:
         response = await async_client.tools.with_raw_response.create(
             code="code",
+            language="python",
             name="name",
         )
 
@@ -295,6 +300,7 @@ class TestAsyncTools:
     async def test_streaming_response_create(self, async_client: AsyncRiza) -> None:
         async with async_client.tools.with_streaming_response.create(
             code="code",
+            language="python",
             name="name",
         ) as response:
             assert not response.is_closed
