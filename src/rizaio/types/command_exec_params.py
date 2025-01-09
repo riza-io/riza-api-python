@@ -38,19 +38,11 @@ class CommandExecParams(TypedDict, total=False):
     http: Optional[HTTP]
     """Configuration for HTTP requests and authentication."""
 
-    language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"]
+    language: Literal["python", "javascript", "typescript", "ruby", "php"]
     """The interpreter to use when executing code."""
 
     limits: Optional[Limits]
     """Configuration for execution environment limits."""
-
-    revision: str
-
-    runtime: str
-    """The runtime to use when executing code.
-
-    Deprecated in favor of `runtime_revision_id`.
-    """
 
     runtime_revision_id: str
     """The ID of the runtime revision to use when executing code."""

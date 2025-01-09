@@ -20,7 +20,7 @@ class TestRuntimes:
     @parametrize
     def test_method_create(self, client: Riza) -> None:
         runtime = client.runtimes.create(
-            language="PYTHON",
+            language="python",
             manifest_file={
                 "contents": "contents",
                 "name": "requirements.txt",
@@ -32,7 +32,7 @@ class TestRuntimes:
     @parametrize
     def test_method_create_with_all_params(self, client: Riza) -> None:
         runtime = client.runtimes.create(
-            language="PYTHON",
+            language="python",
             manifest_file={
                 "contents": "contents",
                 "name": "requirements.txt",
@@ -45,7 +45,7 @@ class TestRuntimes:
     @parametrize
     def test_raw_response_create(self, client: Riza) -> None:
         response = client.runtimes.with_raw_response.create(
-            language="PYTHON",
+            language="python",
             manifest_file={
                 "contents": "contents",
                 "name": "requirements.txt",
@@ -61,7 +61,7 @@ class TestRuntimes:
     @parametrize
     def test_streaming_response_create(self, client: Riza) -> None:
         with client.runtimes.with_streaming_response.create(
-            language="PYTHON",
+            language="python",
             manifest_file={
                 "contents": "contents",
                 "name": "requirements.txt",
@@ -146,7 +146,7 @@ class TestAsyncRuntimes:
     @parametrize
     async def test_method_create(self, async_client: AsyncRiza) -> None:
         runtime = await async_client.runtimes.create(
-            language="PYTHON",
+            language="python",
             manifest_file={
                 "contents": "contents",
                 "name": "requirements.txt",
@@ -158,7 +158,7 @@ class TestAsyncRuntimes:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncRiza) -> None:
         runtime = await async_client.runtimes.create(
-            language="PYTHON",
+            language="python",
             manifest_file={
                 "contents": "contents",
                 "name": "requirements.txt",
@@ -171,7 +171,7 @@ class TestAsyncRuntimes:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncRiza) -> None:
         response = await async_client.runtimes.with_raw_response.create(
-            language="PYTHON",
+            language="python",
             manifest_file={
                 "contents": "contents",
                 "name": "requirements.txt",
@@ -187,7 +187,7 @@ class TestAsyncRuntimes:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncRiza) -> None:
         async with async_client.runtimes.with_streaming_response.create(
-            language="PYTHON",
+            language="python",
             manifest_file={
                 "contents": "contents",
                 "name": "requirements.txt",

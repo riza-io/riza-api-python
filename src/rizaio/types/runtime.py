@@ -17,7 +17,7 @@ class ManifestFile(BaseModel):
 class Runtime(BaseModel):
     id: str
 
-    language: Literal["PYTHON", "JAVASCRIPT"]
+    language: Literal["python", "javascript"]
 
     name: str
 
