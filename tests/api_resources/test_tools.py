@@ -36,7 +36,7 @@ class TestTools:
             name="name",
             description="description",
             input_schema={},
-            language="PYTHON",
+            language="python",
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -80,7 +80,7 @@ class TestTools:
             code="code",
             description="description",
             input_schema={},
-            language="PYTHON",
+            language="python",
             name="name",
         )
         assert_matches_type(Tool, tool, path=["response"])
@@ -275,7 +275,7 @@ class TestAsyncTools:
             name="name",
             description="description",
             input_schema={},
-            language="PYTHON",
+            language="python",
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -319,7 +319,7 @@ class TestAsyncTools:
             code="code",
             description="description",
             input_schema={},
-            language="PYTHON",
+            language="python",
             name="name",
         )
         assert_matches_type(Tool, tool, path=["response"])

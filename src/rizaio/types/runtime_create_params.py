@@ -8,7 +8,7 @@ __all__ = ["RuntimeCreateParams", "ManifestFile"]
 
 
 class RuntimeCreateParams(TypedDict, total=False):
-    language: Required[Literal["PYTHON", "JAVASCRIPT"]]
+    language: Required[Literal["python", "javascript"]]
 
     manifest_file: Required[ManifestFile]
 

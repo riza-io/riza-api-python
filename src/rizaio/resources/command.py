@@ -56,10 +56,8 @@ class CommandResource(SyncAPIResource):
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
         http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
-        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        language: Literal["python", "javascript", "typescript", "ruby", "php"] | NotGiven = NOT_GIVEN,
         limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
-        revision: str | NotGiven = NOT_GIVEN,
-        runtime: str | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -92,9 +90,6 @@ class CommandResource(SyncAPIResource):
 
           limits: Configuration for execution environment limits.
 
-          runtime: The runtime to use when executing code. Deprecated in favor of
-              `runtime_revision_id`.
-
           runtime_revision_id: The ID of the runtime revision to use when executing code.
 
           stdin: Input made available to the script via 'stdin'.
@@ -119,8 +114,6 @@ class CommandResource(SyncAPIResource):
                     "http": http,
                     "language": language,
                     "limits": limits,
-                    "revision": revision,
-                    "runtime": runtime,
                     "runtime_revision_id": runtime_revision_id,
                     "stdin": stdin,
                 },
@@ -162,10 +155,8 @@ class AsyncCommandResource(AsyncAPIResource):
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
         http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
-        language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "RUBY", "PHP"] | NotGiven = NOT_GIVEN,
+        language: Literal["python", "javascript", "typescript", "ruby", "php"] | NotGiven = NOT_GIVEN,
         limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
-        revision: str | NotGiven = NOT_GIVEN,
-        runtime: str | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -198,9 +189,6 @@ class AsyncCommandResource(AsyncAPIResource):
 
           limits: Configuration for execution environment limits.
 
-          runtime: The runtime to use when executing code. Deprecated in favor of
-              `runtime_revision_id`.
-
           runtime_revision_id: The ID of the runtime revision to use when executing code.
 
           stdin: Input made available to the script via 'stdin'.
@@ -225,8 +213,6 @@ class AsyncCommandResource(AsyncAPIResource):
                     "http": http,
                     "language": language,
                     "limits": limits,
-                    "revision": revision,
-                    "runtime": runtime,
                     "runtime_revision_id": runtime_revision_id,
                     "stdin": stdin,
                 },
