@@ -10,10 +10,10 @@ __all__ = ["ToolCreateParams"]
 class ToolCreateParams(TypedDict, total=False):
     code: Required[str]
 
+    language: Required[Literal["python", "javascript", "typescript"]]
+
     name: Required[str]
 
     description: str
 
     input_schema: object
-
-    language: Literal["python", "javascript", "typescript"]
