@@ -1,5 +1,35 @@
 # Changelog
 
+## 0.5.0 (2025-01-10)
+
+Full Changelog: [v0.4.0...v0.5.0](https://github.com/riza-io/riza-api-python/compare/v0.4.0...v0.5.0)
+
+### Features
+
+* **api:** api update ([#102](https://github.com/riza-io/riza-api-python/issues/102)) ([c8ea4ee](https://github.com/riza-io/riza-api-python/commit/c8ea4ee239378ce5b9da4d09632e92aa6888701b))
+* **api:** api update ([#103](https://github.com/riza-io/riza-api-python/issues/103)) ([dd6e86b](https://github.com/riza-io/riza-api-python/commit/dd6e86b17f2be98752d94f957416ceec9869eaed))
+* **api:** api update ([#98](https://github.com/riza-io/riza-api-python/issues/98)) ([f7f7d5f](https://github.com/riza-io/riza-api-python/commit/f7f7d5f97e98b6b6ab7c6f83322c76ba732a4ca7))
+
+
+### Bug Fixes
+
+* **client:** only call .close() when needed ([#99](https://github.com/riza-io/riza-api-python/issues/99)) ([2f1bc2d](https://github.com/riza-io/riza-api-python/commit/2f1bc2d99cc4abf2f1c5dcb37b8c560f466b0eae))
+* correctly handle deserialising `cls` fields ([#104](https://github.com/riza-io/riza-api-python/issues/104)) ([3dcd14e](https://github.com/riza-io/riza-api-python/commit/3dcd14ed7378af31b405bdeb882460bbe838364c))
+
+
+### Chores
+
+* add missing isclass check ([#96](https://github.com/riza-io/riza-api-python/issues/96)) ([eb92ef8](https://github.com/riza-io/riza-api-python/commit/eb92ef8ac93da94d0dd5ce52b985f8732a5dc81f))
+* **client:** simplify `Optional[object]` to just `object` ([#95](https://github.com/riza-io/riza-api-python/issues/95)) ([3f86041](https://github.com/riza-io/riza-api-python/commit/3f86041e44d871aeab2f6986d2f1702ddf0a9515))
+* **internal:** bump httpx dependency ([#97](https://github.com/riza-io/riza-api-python/issues/97)) ([a68c310](https://github.com/riza-io/riza-api-python/commit/a68c310a4745d94238e5ef8af46fc2f2dbd3e5ab))
+* **internal:** codegen related update ([#101](https://github.com/riza-io/riza-api-python/issues/101)) ([cc3e865](https://github.com/riza-io/riza-api-python/commit/cc3e8654246ab7afdd0f887f1de7b25c651e59bd))
+* **internal:** codegen related update ([#93](https://github.com/riza-io/riza-api-python/issues/93)) ([f5ad741](https://github.com/riza-io/riza-api-python/commit/f5ad74129fdfc41d5355cba9e0c8f49912cdb0c4))
+
+
+### Documentation
+
+* fix typos ([#100](https://github.com/riza-io/riza-api-python/issues/100)) ([aa496ac](https://github.com/riza-io/riza-api-python/commit/aa496acaa98ecf9e04acf2e8a1b1160ac18d51bf))
+
 ## 0.4.0 (2024-12-18)
 
 Full Changelog: [v0.3.0...v0.4.0](https://github.com/riza-io/riza-api-python/compare/v0.3.0...v0.4.0)
