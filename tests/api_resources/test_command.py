@@ -21,6 +21,7 @@ class TestCommand:
     def test_method_exec(self, client: Riza) -> None:
         command = client.command.exec(
             code='print("Hello world!")',
+            language="python",
         )
         assert_matches_type(CommandExecResponse, command, path=["response"])
 
@@ -28,6 +29,7 @@ class TestCommand:
     def test_method_exec_with_all_params(self, client: Riza) -> None:
         command = client.command.exec(
             code='print("Hello world!")',
+            language="python",
             allow_http_hosts=["string"],
             args=["string"],
             env={"foo": "string"},
@@ -59,7 +61,6 @@ class TestCommand:
                     }
                 ]
             },
-            language="python",
             limits={
                 "execution_timeout": 0,
                 "memory_size": 0,
@@ -73,6 +74,7 @@ class TestCommand:
     def test_raw_response_exec(self, client: Riza) -> None:
         response = client.command.with_raw_response.exec(
             code='print("Hello world!")',
+            language="python",
         )
 
         assert response.is_closed is True
@@ -84,6 +86,7 @@ class TestCommand:
     def test_streaming_response_exec(self, client: Riza) -> None:
         with client.command.with_streaming_response.exec(
             code='print("Hello world!")',
+            language="python",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -101,6 +104,7 @@ class TestAsyncCommand:
     async def test_method_exec(self, async_client: AsyncRiza) -> None:
         command = await async_client.command.exec(
             code='print("Hello world!")',
+            language="python",
         )
         assert_matches_type(CommandExecResponse, command, path=["response"])
 
@@ -108,6 +112,7 @@ class TestAsyncCommand:
     async def test_method_exec_with_all_params(self, async_client: AsyncRiza) -> None:
         command = await async_client.command.exec(
             code='print("Hello world!")',
+            language="python",
             allow_http_hosts=["string"],
             args=["string"],
             env={"foo": "string"},
@@ -139,7 +144,6 @@ class TestAsyncCommand:
                     }
                 ]
             },
-            language="python",
             limits={
                 "execution_timeout": 0,
                 "memory_size": 0,
@@ -153,6 +157,7 @@ class TestAsyncCommand:
     async def test_raw_response_exec(self, async_client: AsyncRiza) -> None:
         response = await async_client.command.with_raw_response.exec(
             code='print("Hello world!")',
+            language="python",
         )
 
         assert response.is_closed is True
@@ -164,6 +169,7 @@ class TestAsyncCommand:
     async def test_streaming_response_exec(self, async_client: AsyncRiza) -> None:
         async with async_client.command.with_streaming_response.exec(
             code='print("Hello world!")',
+            language="python",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
