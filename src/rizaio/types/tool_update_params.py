@@ -13,8 +13,8 @@ class ToolUpdateParams(TypedDict, total=False):
 
     description: Optional[str]
 
-    input_schema: Optional[object]
+    input_schema: object
 
-    language: Literal["PYTHON", "JAVASCRIPT", "TYPESCRIPT"]
+    language: Literal["python", "javascript", "typescript"]
 
     name: Optional[str]

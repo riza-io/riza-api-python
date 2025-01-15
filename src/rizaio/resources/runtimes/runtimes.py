@@ -62,7 +62,7 @@ class RuntimesResource(SyncAPIResource):
     def create(
         self,
         *,
-        language: Literal["PYTHON", "JAVASCRIPT"],
+        language: Literal["python", "javascript"],
         manifest_file: runtime_create_params.ManifestFile,
         name: str,
         additional_python_imports: str | NotGiven = NOT_GIVEN,
@@ -182,7 +182,7 @@ class AsyncRuntimesResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        language: Literal["PYTHON", "JAVASCRIPT"],
+        language: Literal["python", "javascript"],
         manifest_file: runtime_create_params.ManifestFile,
         name: str,
         additional_python_imports: str | NotGiven = NOT_GIVEN,

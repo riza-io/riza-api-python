@@ -11,13 +11,13 @@ __all__ = ["Runtime", "ManifestFile"]
 class ManifestFile(BaseModel):
     contents: str
 
-    name: Literal["requirements.txt"]
+    name: Literal["requirements.txt", "package.json"]
 
 
 class Runtime(BaseModel):
     id: str
 
-    language: Literal["PYTHON", "JAVASCRIPT"]
+    language: Literal["python", "javascript"]
 
     name: str
 
