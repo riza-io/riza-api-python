@@ -51,12 +51,12 @@ class CommandResource(SyncAPIResource):
         self,
         *,
         code: str,
+        language: Literal["python", "javascript", "typescript", "ruby", "php"],
         allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
         http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
-        language: Literal["python", "javascript", "typescript", "ruby", "php"] | NotGiven = NOT_GIVEN,
         limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
@@ -76,6 +76,8 @@ class CommandResource(SyncAPIResource):
         Args:
           code: The code to execute.
 
+          language: The interpreter to use when executing code.
+
           allow_http_hosts: List of allowed hosts for HTTP requests.
 
           args: List of command line arguments to pass to the script.
@@ -85,8 +87,6 @@ class CommandResource(SyncAPIResource):
           files: List of input files.
 
           http: Configuration for HTTP requests and authentication.
-
-          language: The interpreter to use when executing code.
 
           limits: Configuration for execution environment limits.
 
@@ -107,12 +107,12 @@ class CommandResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "code": code,
+                    "language": language,
                     "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
                     "files": files,
                     "http": http,
-                    "language": language,
                     "limits": limits,
                     "runtime_revision_id": runtime_revision_id,
                     "stdin": stdin,
@@ -150,12 +150,12 @@ class AsyncCommandResource(AsyncAPIResource):
         self,
         *,
         code: str,
+        language: Literal["python", "javascript", "typescript", "ruby", "php"],
         allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
         http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
-        language: Literal["python", "javascript", "typescript", "ruby", "php"] | NotGiven = NOT_GIVEN,
         limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
@@ -175,6 +175,8 @@ class AsyncCommandResource(AsyncAPIResource):
         Args:
           code: The code to execute.
 
+          language: The interpreter to use when executing code.
+
           allow_http_hosts: List of allowed hosts for HTTP requests.
 
           args: List of command line arguments to pass to the script.
@@ -184,8 +186,6 @@ class AsyncCommandResource(AsyncAPIResource):
           files: List of input files.
 
           http: Configuration for HTTP requests and authentication.
-
-          language: The interpreter to use when executing code.
 
           limits: Configuration for execution environment limits.
 
@@ -206,12 +206,12 @@ class AsyncCommandResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "code": code,
+                    "language": language,
                     "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
                     "files": files,
                     "http": http,
-                    "language": language,
                     "limits": limits,
                     "runtime_revision_id": runtime_revision_id,
                     "stdin": stdin,

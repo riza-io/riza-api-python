@@ -23,6 +23,9 @@ class CommandExecParams(TypedDict, total=False):
     code: Required[str]
     """The code to execute."""
 
+    language: Required[Literal["python", "javascript", "typescript", "ruby", "php"]]
+    """The interpreter to use when executing code."""
+
     allow_http_hosts: List[str]
     """List of allowed hosts for HTTP requests."""
 
@@ -37,9 +40,6 @@ class CommandExecParams(TypedDict, total=False):
 
     http: Optional[HTTP]
     """Configuration for HTTP requests and authentication."""
-
-    language: Literal["python", "javascript", "typescript", "ruby", "php"]
-    """The interpreter to use when executing code."""
 
     limits: Optional[Limits]
     """Configuration for execution environment limits."""
