@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0 (2025-01-16)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/riza-io/riza-api-python/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** api update ([#106](https://github.com/riza-io/riza-api-python/issues/106)) ([1cc6f50](https://github.com/riza-io/riza-api-python/commit/1cc6f500aeb590cc1523e6f072de0ebe66b8525b))
+
 ## 0.5.0 (2025-01-10)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/riza-io/riza-api-python/compare/v0.4.0...v0.5.0)
