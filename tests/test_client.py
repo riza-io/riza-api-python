@@ -751,7 +751,7 @@ class TestRiza:
 
         respx_mock.post("/v1/execute").mock(side_effect=retry_handler)
 
-        response = client.command.with_raw_response.exec(code='print("Hello world!")')
+        response = client.command.with_raw_response.exec(code='print("Hello world!")', language="python")
 
         assert response.retries_taken == failures_before_success
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
@@ -774,7 +774,7 @@ class TestRiza:
         respx_mock.post("/v1/execute").mock(side_effect=retry_handler)
 
         response = client.command.with_raw_response.exec(
-            code='print("Hello world!")', extra_headers={"x-stainless-retry-count": Omit()}
+            code='print("Hello world!")', language="python", extra_headers={"x-stainless-retry-count": Omit()}
         )
 
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
@@ -799,7 +799,7 @@ class TestRiza:
         respx_mock.post("/v1/execute").mock(side_effect=retry_handler)
 
         response = client.command.with_raw_response.exec(
-            code='print("Hello world!")', extra_headers={"x-stainless-retry-count": "42"}
+            code='print("Hello world!")', language="python", extra_headers={"x-stainless-retry-count": "42"}
         )
 
         assert response.http_request.headers.get("x-stainless-retry-count") == "42"
@@ -1520,7 +1520,7 @@ class TestAsyncRiza:
 
         respx_mock.post("/v1/execute").mock(side_effect=retry_handler)
 
-        response = await client.command.with_raw_response.exec(code='print("Hello world!")')
+        response = await client.command.with_raw_response.exec(code='print("Hello world!")', language="python")
 
         assert response.retries_taken == failures_before_success
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
@@ -1546,7 +1546,7 @@ class TestAsyncRiza:
         respx_mock.post("/v1/execute").mock(side_effect=retry_handler)
 
         response = await client.command.with_raw_response.exec(
-            code='print("Hello world!")', extra_headers={"x-stainless-retry-count": Omit()}
+            code='print("Hello world!")', language="python", extra_headers={"x-stainless-retry-count": Omit()}
         )
 
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
@@ -1572,7 +1572,7 @@ class TestAsyncRiza:
         respx_mock.post("/v1/execute").mock(side_effect=retry_handler)
 
         response = await client.command.with_raw_response.exec(
-            code='print("Hello world!")', extra_headers={"x-stainless-retry-count": "42"}
+            code='print("Hello world!")', language="python", extra_headers={"x-stainless-retry-count": "42"}
         )
 
         assert response.http_request.headers.get("x-stainless-retry-count") == "42"
