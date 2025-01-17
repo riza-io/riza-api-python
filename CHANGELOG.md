@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.1 (2025-01-17)
+
+Full Changelog: [v0.6.0...v0.6.1](https://github.com/riza-io/riza-api-python/compare/v0.6.0...v0.6.1)
+
+### Chores
+
+* **internal:** codegen related update ([#109](https://github.com/riza-io/riza-api-python/issues/109)) ([0b3e8c7](https://github.com/riza-io/riza-api-python/commit/0b3e8c7cd5d4337d412421334bb7c75b2f8ba4f3))
+
 ## 0.6.0 (2025-01-16)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/riza-io/riza-api-python/compare/v0.5.0...v0.6.0)
