@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.7.0 (2025-01-23)
+
+Full Changelog: [v0.6.0...v0.7.0](https://github.com/riza-io/riza-api-python/compare/v0.6.0...v0.7.0)
+
+### Features
+
+* **api:** api update ([#113](https://github.com/riza-io/riza-api-python/issues/113)) ([b2f6eda](https://github.com/riza-io/riza-api-python/commit/b2f6eda906a7d25e5b0e02097d214da2b4294469))
+
+
+### Bug Fixes
+
+* reuse model in pagination items type ([#111](https://github.com/riza-io/riza-api-python/issues/111)) ([6472cde](https://github.com/riza-io/riza-api-python/commit/6472cde6c7b552d557a2521959d82701227444ec))
+
+
+### Chores
+
+* **internal:** codegen related update ([#109](https://github.com/riza-io/riza-api-python/issues/109)) ([0b3e8c7](https://github.com/riza-io/riza-api-python/commit/0b3e8c7cd5d4337d412421334bb7c75b2f8ba4f3))
+* **internal:** minor style changes ([#112](https://github.com/riza-io/riza-api-python/issues/112)) ([eeef003](https://github.com/riza-io/riza-api-python/commit/eeef0036501132b303398f42a17e2f5cf2a47c46))
+
 ## 0.6.0 (2025-01-16)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/riza-io/riza-api-python/compare/v0.5.0...v0.6.0)
