@@ -32,12 +32,13 @@ Methods:
 Types:
 
 ```python
-from rizaio.types import CommandExecResponse
+from rizaio.types import CommandExecResponse, CommandExecFuncResponse
 ```
 
 Methods:
 
 - <code title="post /v1/execute">client.command.<a href="./src/rizaio/resources/command.py">exec</a>(\*\*<a href="src/rizaio/types/command_exec_params.py">params</a>) -> <a href="./src/rizaio/types/command_exec_response.py">CommandExecResponse</a></code>
+- <code title="post /v1/execute-function">client.command.<a href="./src/rizaio/resources/command.py">exec_func</a>(\*\*<a href="src/rizaio/types/command_exec_func_params.py">params</a>) -> <a href="./src/rizaio/types/command_exec_func_response.py">CommandExecFuncResponse</a></code>
 
 # Runtimes
 
