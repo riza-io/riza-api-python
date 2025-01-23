@@ -16,3 +16,5 @@ from .secret_list_response import SecretListResponse as SecretListResponse
 from .command_exec_response import CommandExecResponse as CommandExecResponse
 from .runtime_create_params import RuntimeCreateParams as RuntimeCreateParams
 from .runtime_list_response import RuntimeListResponse as RuntimeListResponse
+from .command_exec_func_params import CommandExecFuncParams as CommandExecFuncParams
+from .command_exec_func_response import CommandExecFuncResponse as CommandExecFuncResponse
