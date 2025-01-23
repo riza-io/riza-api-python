@@ -150,8 +150,8 @@ class CommandResource(SyncAPIResource):
         `execute`. The function will be passed `input` as an object.
 
         Args:
-          code: The function to execute. Your code must define a function named 'execute' and
-              return a JSON-serializable value.
+          code: The function to execute. Your code must define a function named "execute" that
+              takes in a single argument and returns a JSON-serializable value.
 
           language: The interpreter to use when executing code.
 
@@ -317,8 +317,8 @@ class AsyncCommandResource(AsyncAPIResource):
         `execute`. The function will be passed `input` as an object.
 
         Args:
-          code: The function to execute. Your code must define a function named 'execute' and
-              return a JSON-serializable value.
+          code: The function to execute. Your code must define a function named "execute" that
+              takes in a single argument and returns a JSON-serializable value.
 
           language: The interpreter to use when executing code.
 
