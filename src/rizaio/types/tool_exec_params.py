@@ -19,12 +19,20 @@ __all__ = [
 
 class ToolExecParams(TypedDict, total=False):
     env: Iterable[Env]
+    """Set of key-value pairs to add to the tool's execution environment."""
 
     http: Optional[HTTP]
+    """Configuration for HTTP requests and authentication."""
 
     input: object
 
     revision_id: str
+    """The Tool revision ID to execute.
+
+    This optional parmeter is used to pin executions to specific versions of the
+    Tool. If not provided, the latest (current) version of the Tool will be
+    executed.
+    """
 
 
 class Env(TypedDict, total=False):

@@ -64,10 +64,21 @@ class ToolsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
-        """
-        Create a tool in your project.
+        """Create a tool in your project.
 
         Args:
+          code: The code of the tool.
+
+        You must define a function named "execute" that takes in a
+              single argument and returns a JSON-serializable value. The argument will be the
+              "input" passed when executing the tool, and will match the input schema.
+
+          language: The language of the tool's code.
+
+          name: The name of the tool.
+
+          description: A description of the tool.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -182,6 +193,14 @@ class ToolsResource(SyncAPIResource):
         input schema.
 
         Args:
+          env: Set of key-value pairs to add to the tool's execution environment.
+
+          http: Configuration for HTTP requests and authentication.
+
+          revision_id: The Tool revision ID to execute. This optional parmeter is used to pin
+              executions to specific versions of the Tool. If not provided, the latest
+              (current) version of the Tool will be executed.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -278,10 +297,21 @@ class AsyncToolsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
-        """
-        Create a tool in your project.
+        """Create a tool in your project.
 
         Args:
+          code: The code of the tool.
+
+        You must define a function named "execute" that takes in a
+              single argument and returns a JSON-serializable value. The argument will be the
+              "input" passed when executing the tool, and will match the input schema.
+
+          language: The language of the tool's code.
+
+          name: The name of the tool.
+
+          description: A description of the tool.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -396,6 +426,14 @@ class AsyncToolsResource(AsyncAPIResource):
         input schema.
 
         Args:
+          env: Set of key-value pairs to add to the tool's execution environment.
+
+          http: Configuration for HTTP requests and authentication.
+
+          revision_id: The Tool revision ID to execute. This optional parmeter is used to pin
+              executions to specific versions of the Tool. If not provided, the latest
+              (current) version of the Tool will be executed.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
