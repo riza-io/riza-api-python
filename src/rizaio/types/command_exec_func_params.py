@@ -27,7 +27,7 @@ class CommandExecFuncParams(TypedDict, total=False):
     and returns a JSON-serializable value.
     """
 
-    language: Required[Literal["python", "javascript", "typescript", "ruby", "php"]]
+    language: Required[Literal["python", "javascript", "typescript"]]
     """The interpreter to use when executing code."""
 
     env: Dict[str, str]
