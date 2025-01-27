@@ -31,7 +31,7 @@ class CommandExecFuncParams(TypedDict, total=False):
     """The interpreter to use when executing code."""
 
     env: Dict[str, str]
-    """Set of key-value pairs to add to the script's execution environment."""
+    """Set of key-value pairs to add to the function's execution environment."""
 
     files: Iterable[File]
     """List of input files."""

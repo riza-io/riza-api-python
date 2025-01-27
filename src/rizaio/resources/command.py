@@ -155,7 +155,7 @@ class CommandResource(SyncAPIResource):
 
           language: The interpreter to use when executing code.
 
-          env: Set of key-value pairs to add to the script's execution environment.
+          env: Set of key-value pairs to add to the function's execution environment.
 
           files: List of input files.
 
@@ -322,7 +322,7 @@ class AsyncCommandResource(AsyncAPIResource):
 
           language: The interpreter to use when executing code.
 
-          env: Set of key-value pairs to add to the script's execution environment.
+          env: Set of key-value pairs to add to the function's execution environment.
 
           files: List of input files.
 
