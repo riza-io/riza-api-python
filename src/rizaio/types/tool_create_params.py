@@ -26,3 +26,6 @@ class ToolCreateParams(TypedDict, total=False):
     """A description of the tool."""
 
     input_schema: object
+
+    runtime_revision_id: str
+    """The ID of the runtime revision to use when executing the tool."""

@@ -38,6 +38,7 @@ class TestTools:
             name="name",
             description="description",
             input_schema={},
+            runtime_revision_id="runtime_revision_id",
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -85,6 +86,7 @@ class TestTools:
             input_schema={},
             language="python",
             name="name",
+            runtime_revision_id="runtime_revision_id",
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -280,6 +282,7 @@ class TestAsyncTools:
             name="name",
             description="description",
             input_schema={},
+            runtime_revision_id="runtime_revision_id",
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -327,6 +330,7 @@ class TestAsyncTools:
             input_schema={},
             language="python",
             name="name",
+            runtime_revision_id="runtime_revision_id",
         )
         assert_matches_type(Tool, tool, path=["response"])
 
