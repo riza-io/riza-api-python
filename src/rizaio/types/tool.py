@@ -24,6 +24,7 @@ class Tool(BaseModel):
     """A description of the tool."""
 
     input_schema: object
+    """The input schema of the tool. This must be a valid JSON Schema object."""
 
     language: Literal["python", "javascript", "typescript"]
     """The language of the tool's code."""

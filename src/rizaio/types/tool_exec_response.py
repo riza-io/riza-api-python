@@ -20,6 +20,7 @@ class ToolExecResponse(BaseModel):
     """The execution details of the Tool."""
 
     output: object
+    """The returned value of the Tool's execute function."""
 
     output_status: Literal["error", "json_serialization_error", "valid"]
     """The status of the output.
