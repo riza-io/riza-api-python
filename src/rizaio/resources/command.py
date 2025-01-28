@@ -161,6 +161,10 @@ class CommandResource(SyncAPIResource):
 
           http: Configuration for HTTP requests and authentication.
 
+          input: The input to the function. This must be a valid JSON-serializable object. If you
+              do not pass an input, your function will be called with None (Python) or null
+              (JavaScript/TypeScript) as the argument.
+
           limits: Configuration for execution environment limits.
 
           runtime_revision_id: The ID of the runtime revision to use when executing code.
@@ -327,6 +331,10 @@ class AsyncCommandResource(AsyncAPIResource):
           files: List of input files.
 
           http: Configuration for HTTP requests and authentication.
+
+          input: The input to the function. This must be a valid JSON-serializable object. If you
+              do not pass an input, your function will be called with None (Python) or null
+              (JavaScript/TypeScript) as the argument.
 
           limits: Configuration for execution environment limits.
 

@@ -25,6 +25,7 @@ class CommandExecFuncResponse(BaseModel):
     execution: Execution
 
     output: object
+    """The output of the function."""
 
     output_status: Literal["error", "json_serialization_error", "valid"]
     """The status of the output.
