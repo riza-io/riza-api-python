@@ -99,7 +99,7 @@ class TestCommand:
     @parametrize
     def test_method_exec_func(self, client: Riza) -> None:
         command = client.command.exec_func(
-            code='def execute(input): return { "name": "John", "executed": True }',
+            code='def execute(input): return { "name": input["name"], "executed": True }',
             language="python",
         )
         assert_matches_type(CommandExecFuncResponse, command, path=["response"])
@@ -107,7 +107,7 @@ class TestCommand:
     @parametrize
     def test_method_exec_func_with_all_params(self, client: Riza) -> None:
         command = client.command.exec_func(
-            code='def execute(input): return { "name": "John", "executed": True }',
+            code='def execute(input): return { "name": input["name"], "executed": True }',
             language="python",
             env={"foo": "string"},
             files=[
@@ -150,7 +150,7 @@ class TestCommand:
     @parametrize
     def test_raw_response_exec_func(self, client: Riza) -> None:
         response = client.command.with_raw_response.exec_func(
-            code='def execute(input): return { "name": "John", "executed": True }',
+            code='def execute(input): return { "name": input["name"], "executed": True }',
             language="python",
         )
 
@@ -162,7 +162,7 @@ class TestCommand:
     @parametrize
     def test_streaming_response_exec_func(self, client: Riza) -> None:
         with client.command.with_streaming_response.exec_func(
-            code='def execute(input): return { "name": "John", "executed": True }',
+            code='def execute(input): return { "name": input["name"], "executed": True }',
             language="python",
         ) as response:
             assert not response.is_closed
@@ -259,7 +259,7 @@ class TestAsyncCommand:
     @parametrize
     async def test_method_exec_func(self, async_client: AsyncRiza) -> None:
         command = await async_client.command.exec_func(
-            code='def execute(input): return { "name": "John", "executed": True }',
+            code='def execute(input): return { "name": input["name"], "executed": True }',
             language="python",
         )
         assert_matches_type(CommandExecFuncResponse, command, path=["response"])
@@ -267,7 +267,7 @@ class TestAsyncCommand:
     @parametrize
     async def test_method_exec_func_with_all_params(self, async_client: AsyncRiza) -> None:
         command = await async_client.command.exec_func(
-            code='def execute(input): return { "name": "John", "executed": True }',
+            code='def execute(input): return { "name": input["name"], "executed": True }',
             language="python",
             env={"foo": "string"},
             files=[
@@ -310,7 +310,7 @@ class TestAsyncCommand:
     @parametrize
     async def test_raw_response_exec_func(self, async_client: AsyncRiza) -> None:
         response = await async_client.command.with_raw_response.exec_func(
-            code='def execute(input): return { "name": "John", "executed": True }',
+            code='def execute(input): return { "name": input["name"], "executed": True }',
             language="python",
         )
 
@@ -322,7 +322,7 @@ class TestAsyncCommand:
     @parametrize
     async def test_streaming_response_exec_func(self, async_client: AsyncRiza) -> None:
         async with async_client.command.with_streaming_response.exec_func(
-            code='def execute(input): return { "name": "John", "executed": True }',
+            code='def execute(input): return { "name": input["name"], "executed": True }',
             language="python",
         ) as response:
             assert not response.is_closed

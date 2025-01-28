@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, List, Iterable, Optional
+from typing import Dict, List, Iterable
 from typing_extensions import Literal, Required, TypedDict
 
 __all__ = [
@@ -38,10 +38,10 @@ class CommandExecParams(TypedDict, total=False):
     files: Iterable[File]
     """List of input files."""
 
-    http: Optional[HTTP]
+    http: HTTP
     """Configuration for HTTP requests and authentication."""
 
-    limits: Optional[Limits]
+    limits: Limits
     """Configuration for execution environment limits."""
 
     runtime_revision_id: str
@@ -83,14 +83,14 @@ class HTTPAllowAuthQuery(TypedDict, total=False):
 
 
 class HTTPAllowAuth(TypedDict, total=False):
-    basic: Optional[HTTPAllowAuthBasic]
+    basic: HTTPAllowAuthBasic
 
-    bearer: Optional[HTTPAllowAuthBearer]
+    bearer: HTTPAllowAuthBearer
     """Configuration to add an 'Authorization' header using the 'Bearer' scheme."""
 
-    header: Optional[HTTPAllowAuthHeader]
+    header: HTTPAllowAuthHeader
 
-    query: Optional[HTTPAllowAuthQuery]
+    query: HTTPAllowAuthQuery
 
 
 class HTTPAllow(TypedDict, total=False):

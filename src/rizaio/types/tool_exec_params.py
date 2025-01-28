@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Optional
+from typing import Iterable
 from typing_extensions import Required, TypedDict
 
 __all__ = [
@@ -19,12 +19,25 @@ __all__ = [
 
 class ToolExecParams(TypedDict, total=False):
     env: Iterable[Env]
+    """Set of key-value pairs to add to the tool's execution environment."""
 
-    http: Optional[HTTP]
+    http: HTTP
+    """Configuration for HTTP requests and authentication."""
 
     input: object
+    """The input to the tool.
+
+    This must be a valid JSON-serializable object. It will be validated against the
+    tool's input schema.
+    """
 
     revision_id: str
+    """The Tool revision ID to execute.
+
+    This optional parmeter is used to pin executions to specific versions of the
+    Tool. If not provided, the latest (current) version of the Tool will be
+    executed.
+    """
 
 
 class Env(TypedDict, total=False):
@@ -59,12 +72,12 @@ class HTTPAllowAuthQuery(TypedDict, total=False):
 
 
 class HTTPAllowAuth(TypedDict, total=False):
-    basic: Optional[HTTPAllowAuthBasic]
+    basic: HTTPAllowAuthBasic
 
-    bearer: Optional[HTTPAllowAuthBearer]
+    bearer: HTTPAllowAuthBearer
     """Configuration to add an 'Authorization' header using the 'Bearer' scheme."""
 
-    query: Optional[HTTPAllowAuthQuery]
+    query: HTTPAllowAuthQuery
 
 
 class HTTPAllow(TypedDict, total=False):
