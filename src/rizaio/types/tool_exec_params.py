@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Optional
+from typing import Iterable
 from typing_extensions import Required, TypedDict
 
 __all__ = [
@@ -21,7 +21,7 @@ class ToolExecParams(TypedDict, total=False):
     env: Iterable[Env]
     """Set of key-value pairs to add to the tool's execution environment."""
 
-    http: Optional[HTTP]
+    http: HTTP
     """Configuration for HTTP requests and authentication."""
 
     input: object
@@ -67,12 +67,12 @@ class HTTPAllowAuthQuery(TypedDict, total=False):
 
 
 class HTTPAllowAuth(TypedDict, total=False):
-    basic: Optional[HTTPAllowAuthBasic]
+    basic: HTTPAllowAuthBasic
 
-    bearer: Optional[HTTPAllowAuthBearer]
+    bearer: HTTPAllowAuthBearer
     """Configuration to add an 'Authorization' header using the 'Bearer' scheme."""
 
-    query: Optional[HTTPAllowAuthQuery]
+    query: HTTPAllowAuthQuery
 
 
 class HTTPAllow(TypedDict, total=False):
