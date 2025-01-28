@@ -80,6 +80,8 @@ class ToolsResource(SyncAPIResource):
 
           description: A description of the tool.
 
+          input_schema: The input schema of the tool. This must be a valid JSON Schema object.
+
           runtime_revision_id: The ID of the runtime revision to use when executing the tool.
 
           extra_headers: Send extra headers
@@ -135,6 +137,8 @@ class ToolsResource(SyncAPIResource):
               "input" passed when executing the tool, and will match the input schema.
 
           description: A description of the tool.
+
+          input_schema: The input schema of the tool. This must be a valid JSON Schema object.
 
           language: The language of the tool's code.
 
@@ -216,6 +220,9 @@ class ToolsResource(SyncAPIResource):
           env: Set of key-value pairs to add to the tool's execution environment.
 
           http: Configuration for HTTP requests and authentication.
+
+          input: The input to the tool. This must be a valid JSON-serializable object. It will be
+              validated against the tool's input schema.
 
           revision_id: The Tool revision ID to execute. This optional parmeter is used to pin
               executions to specific versions of the Tool. If not provided, the latest
@@ -333,6 +340,8 @@ class AsyncToolsResource(AsyncAPIResource):
 
           description: A description of the tool.
 
+          input_schema: The input schema of the tool. This must be a valid JSON Schema object.
+
           runtime_revision_id: The ID of the runtime revision to use when executing the tool.
 
           extra_headers: Send extra headers
@@ -388,6 +397,8 @@ class AsyncToolsResource(AsyncAPIResource):
               "input" passed when executing the tool, and will match the input schema.
 
           description: A description of the tool.
+
+          input_schema: The input schema of the tool. This must be a valid JSON Schema object.
 
           language: The language of the tool's code.
 
@@ -469,6 +480,9 @@ class AsyncToolsResource(AsyncAPIResource):
           env: Set of key-value pairs to add to the tool's execution environment.
 
           http: Configuration for HTTP requests and authentication.
+
+          input: The input to the tool. This must be a valid JSON-serializable object. It will be
+              validated against the tool's input schema.
 
           revision_id: The Tool revision ID to execute. This optional parmeter is used to pin
               executions to specific versions of the Tool. If not provided, the latest

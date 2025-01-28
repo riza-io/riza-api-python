@@ -26,6 +26,7 @@ class ToolCreateParams(TypedDict, total=False):
     """A description of the tool."""
 
     input_schema: object
+    """The input schema of the tool. This must be a valid JSON Schema object."""
 
     runtime_revision_id: str
     """The ID of the runtime revision to use when executing the tool."""

@@ -25,6 +25,11 @@ class ToolExecParams(TypedDict, total=False):
     """Configuration for HTTP requests and authentication."""
 
     input: object
+    """The input to the tool.
+
+    This must be a valid JSON-serializable object. It will be validated against the
+    tool's input schema.
+    """
 
     revision_id: str
     """The Tool revision ID to execute.

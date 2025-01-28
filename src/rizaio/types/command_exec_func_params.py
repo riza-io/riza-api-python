@@ -40,6 +40,12 @@ class CommandExecFuncParams(TypedDict, total=False):
     """Configuration for HTTP requests and authentication."""
 
     input: object
+    """The input to the function.
+
+    This must be a valid JSON-serializable object. If you do not pass an input, your
+    function will be called with None (Python) or null (JavaScript/TypeScript) as
+    the argument.
+    """
 
     limits: Limits
     """Configuration for execution environment limits."""
