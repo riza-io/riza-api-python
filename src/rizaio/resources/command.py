@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, List, Iterable, Optional
+from typing import Dict, List, Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -57,8 +57,8 @@ class CommandResource(SyncAPIResource):
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
-        http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
-        limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
+        http: command_exec_params.HTTP | NotGiven = NOT_GIVEN,
+        limits: command_exec_params.Limits | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -133,9 +133,9 @@ class CommandResource(SyncAPIResource):
         language: Literal["python", "javascript", "typescript"],
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_func_params.File] | NotGiven = NOT_GIVEN,
-        http: Optional[command_exec_func_params.HTTP] | NotGiven = NOT_GIVEN,
+        http: command_exec_func_params.HTTP | NotGiven = NOT_GIVEN,
         input: object | NotGiven = NOT_GIVEN,
-        limits: Optional[command_exec_func_params.Limits] | NotGiven = NOT_GIVEN,
+        limits: command_exec_func_params.Limits | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -224,8 +224,8 @@ class AsyncCommandResource(AsyncAPIResource):
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
-        http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
-        limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
+        http: command_exec_params.HTTP | NotGiven = NOT_GIVEN,
+        limits: command_exec_params.Limits | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -300,9 +300,9 @@ class AsyncCommandResource(AsyncAPIResource):
         language: Literal["python", "javascript", "typescript"],
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_func_params.File] | NotGiven = NOT_GIVEN,
-        http: Optional[command_exec_func_params.HTTP] | NotGiven = NOT_GIVEN,
+        http: command_exec_func_params.HTTP | NotGiven = NOT_GIVEN,
         input: object | NotGiven = NOT_GIVEN,
-        limits: Optional[command_exec_func_params.Limits] | NotGiven = NOT_GIVEN,
+        limits: command_exec_func_params.Limits | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.

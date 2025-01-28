@@ -1,5 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+from typing import Optional
 from typing_extensions import Literal
 
 from .._models import BaseModel
@@ -33,6 +34,13 @@ class Tool(BaseModel):
     revision_id: str
     """The ID of the tool's current revision.
 
-    This is used to pin executions to specific versions of the Tool, even if the
-    Tool is updated later.
+    This is used to pin executions to a specific version of the tool, even if the
+    tool is updated later.
+    """
+
+    runtime_revision_id: Optional[str] = None
+    """The ID of the custom runtime revision that the tool uses for executions.
+
+    This pins executions to specific version of a custom runtime runtime, even if
+    the runtime is updated later.
     """
