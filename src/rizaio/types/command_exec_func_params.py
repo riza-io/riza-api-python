@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, Iterable, Optional
+from typing import Dict, Iterable
 from typing_extensions import Literal, Required, TypedDict
 
 __all__ = [
@@ -23,25 +23,31 @@ class CommandExecFuncParams(TypedDict, total=False):
     code: Required[str]
     """The function to execute.
 
-    Your code must define a function named 'execute' and return a JSON-serializable
-    value.
+    Your code must define a function named "execute" that takes in a single argument
+    and returns a JSON-serializable value.
     """
 
-    language: Required[Literal["python", "javascript", "typescript", "ruby", "php"]]
+    language: Required[Literal["python", "javascript", "typescript"]]
     """The interpreter to use when executing code."""
 
     env: Dict[str, str]
-    """Set of key-value pairs to add to the script's execution environment."""
+    """Set of key-value pairs to add to the function's execution environment."""
 
     files: Iterable[File]
     """List of input files."""
 
-    http: Optional[HTTP]
+    http: HTTP
     """Configuration for HTTP requests and authentication."""
 
     input: object
+    """The input to the function.
 
-    limits: Optional[Limits]
+    This must be a valid JSON-serializable object. If you do not pass an input, your
+    function will be called with None (Python) or null (JavaScript/TypeScript) as
+    the argument.
+    """
+
+    limits: Limits
     """Configuration for execution environment limits."""
 
     runtime_revision_id: str
@@ -80,14 +86,14 @@ class HTTPAllowAuthQuery(TypedDict, total=False):
 
 
 class HTTPAllowAuth(TypedDict, total=False):
-    basic: Optional[HTTPAllowAuthBasic]
+    basic: HTTPAllowAuthBasic
 
-    bearer: Optional[HTTPAllowAuthBearer]
+    bearer: HTTPAllowAuthBearer
     """Configuration to add an 'Authorization' header using the 'Bearer' scheme."""
 
-    header: Optional[HTTPAllowAuthHeader]
+    header: HTTPAllowAuthHeader
 
-    query: Optional[HTTPAllowAuthQuery]
+    query: HTTPAllowAuthQuery
 
 
 class HTTPAllow(TypedDict, total=False):

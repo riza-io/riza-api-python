@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.8.0 (2025-02-04)
+
+Full Changelog: [v0.7.0...v0.8.0](https://github.com/riza-io/riza-api-python/compare/v0.7.0...v0.8.0)
+
+### Features
+
+* **api:** api update ([#115](https://github.com/riza-io/riza-api-python/issues/115)) ([26f031e](https://github.com/riza-io/riza-api-python/commit/26f031edd8df146556a48a2cec50c1c23ebd0d4e))
+* **api:** api update ([#117](https://github.com/riza-io/riza-api-python/issues/117)) ([4105478](https://github.com/riza-io/riza-api-python/commit/41054787b55ec678f3389f40dd70f9edfcd7d950))
+* **api:** api update ([#119](https://github.com/riza-io/riza-api-python/issues/119)) ([fa14cbf](https://github.com/riza-io/riza-api-python/commit/fa14cbf315c66627082bfef281477a574b67dbfa))
+* **api:** api update ([#120](https://github.com/riza-io/riza-api-python/issues/120)) ([02d8740](https://github.com/riza-io/riza-api-python/commit/02d87408c52a8c495cc87119f89d613019665dc0))
+* **api:** api update ([#121](https://github.com/riza-io/riza-api-python/issues/121)) ([e168ac4](https://github.com/riza-io/riza-api-python/commit/e168ac4cf58dc61052fd0ca721610e9004fbf22d))
+* **api:** api update ([#122](https://github.com/riza-io/riza-api-python/issues/122)) ([ec346bf](https://github.com/riza-io/riza-api-python/commit/ec346bffdc56c0868c52932721e2648fc584d58b))
+* **api:** api update ([#123](https://github.com/riza-io/riza-api-python/issues/123)) ([14f6367](https://github.com/riza-io/riza-api-python/commit/14f6367def814ce48910dffc22f83c24997b06f1))
+
+
+### Chores
+
+* **internal:** change default timeout to an int ([#124](https://github.com/riza-io/riza-api-python/issues/124)) ([0cc525c](https://github.com/riza-io/riza-api-python/commit/0cc525cddd1b57d169ad6af58427b4e3f8e9abbe))
+* **internal:** minor formatting changes ([#118](https://github.com/riza-io/riza-api-python/issues/118)) ([61fdf26](https://github.com/riza-io/riza-api-python/commit/61fdf26af69850b576e4ea8058c6c72940217811))
+
 ## 0.7.0 (2025-01-23)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/riza-io/riza-api-python/compare/v0.6.0...v0.7.0)

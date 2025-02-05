@@ -1,6 +1,5 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import Optional
 from typing_extensions import Literal
 
 from .._models import BaseModel
@@ -9,25 +8,26 @@ __all__ = ["CommandExecFuncResponse", "Execution"]
 
 
 class Execution(BaseModel):
-    exit_code: Optional[int] = None
+    exit_code: int
     """The exit code returned by the script.
 
     Will often be '0' on success and non-zero on failure.
     """
 
-    stderr: Optional[str] = None
+    stderr: str
     """The contents of 'stderr' after executing the script."""
 
-    stdout: Optional[str] = None
+    stdout: str
     """The contents of 'stdout' after executing the script."""
 
 
 class CommandExecFuncResponse(BaseModel):
-    execution: Optional[Execution] = None
+    execution: Execution
 
-    output: Optional[object] = None
+    output: object
+    """The output of the function."""
 
-    output_status: Optional[Literal["error", "json_serialization_error", "valid"]] = None
+    output_status: Literal["error", "json_serialization_error", "valid"]
     """The status of the output.
 
     "valid" means your function executed successfully and returned a valid

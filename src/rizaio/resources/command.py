@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, List, Iterable, Optional
+from typing import Dict, List, Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -57,8 +57,8 @@ class CommandResource(SyncAPIResource):
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
-        http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
-        limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
+        http: command_exec_params.HTTP | NotGiven = NOT_GIVEN,
+        limits: command_exec_params.Limits | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -130,12 +130,12 @@ class CommandResource(SyncAPIResource):
         self,
         *,
         code: str,
-        language: Literal["python", "javascript", "typescript", "ruby", "php"],
+        language: Literal["python", "javascript", "typescript"],
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_func_params.File] | NotGiven = NOT_GIVEN,
-        http: Optional[command_exec_func_params.HTTP] | NotGiven = NOT_GIVEN,
+        http: command_exec_func_params.HTTP | NotGiven = NOT_GIVEN,
         input: object | NotGiven = NOT_GIVEN,
-        limits: Optional[command_exec_func_params.Limits] | NotGiven = NOT_GIVEN,
+        limits: command_exec_func_params.Limits | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -150,16 +150,20 @@ class CommandResource(SyncAPIResource):
         `execute`. The function will be passed `input` as an object.
 
         Args:
-          code: The function to execute. Your code must define a function named 'execute' and
-              return a JSON-serializable value.
+          code: The function to execute. Your code must define a function named "execute" that
+              takes in a single argument and returns a JSON-serializable value.
 
           language: The interpreter to use when executing code.
 
-          env: Set of key-value pairs to add to the script's execution environment.
+          env: Set of key-value pairs to add to the function's execution environment.
 
           files: List of input files.
 
           http: Configuration for HTTP requests and authentication.
+
+          input: The input to the function. This must be a valid JSON-serializable object. If you
+              do not pass an input, your function will be called with None (Python) or null
+              (JavaScript/TypeScript) as the argument.
 
           limits: Configuration for execution environment limits.
 
@@ -224,8 +228,8 @@ class AsyncCommandResource(AsyncAPIResource):
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
-        http: Optional[command_exec_params.HTTP] | NotGiven = NOT_GIVEN,
-        limits: Optional[command_exec_params.Limits] | NotGiven = NOT_GIVEN,
+        http: command_exec_params.HTTP | NotGiven = NOT_GIVEN,
+        limits: command_exec_params.Limits | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         stdin: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -297,12 +301,12 @@ class AsyncCommandResource(AsyncAPIResource):
         self,
         *,
         code: str,
-        language: Literal["python", "javascript", "typescript", "ruby", "php"],
+        language: Literal["python", "javascript", "typescript"],
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_func_params.File] | NotGiven = NOT_GIVEN,
-        http: Optional[command_exec_func_params.HTTP] | NotGiven = NOT_GIVEN,
+        http: command_exec_func_params.HTTP | NotGiven = NOT_GIVEN,
         input: object | NotGiven = NOT_GIVEN,
-        limits: Optional[command_exec_func_params.Limits] | NotGiven = NOT_GIVEN,
+        limits: command_exec_func_params.Limits | NotGiven = NOT_GIVEN,
         runtime_revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -317,16 +321,20 @@ class AsyncCommandResource(AsyncAPIResource):
         `execute`. The function will be passed `input` as an object.
 
         Args:
-          code: The function to execute. Your code must define a function named 'execute' and
-              return a JSON-serializable value.
+          code: The function to execute. Your code must define a function named "execute" that
+              takes in a single argument and returns a JSON-serializable value.
 
           language: The interpreter to use when executing code.
 
-          env: Set of key-value pairs to add to the script's execution environment.
+          env: Set of key-value pairs to add to the function's execution environment.
 
           files: List of input files.
 
           http: Configuration for HTTP requests and authentication.
+
+          input: The input to the function. This must be a valid JSON-serializable object. If you
+              do not pass an input, your function will be called with None (Python) or null
+              (JavaScript/TypeScript) as the argument.
 
           limits: Configuration for execution environment limits.
 

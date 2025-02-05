@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Optional
+from typing import Iterable
 from typing_extensions import Literal
 
 import httpx
@@ -57,6 +57,7 @@ class ToolsResource(SyncAPIResource):
         name: str,
         description: str | NotGiven = NOT_GIVEN,
         input_schema: object | NotGiven = NOT_GIVEN,
+        runtime_revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -64,10 +65,25 @@ class ToolsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
-        """
-        Create a tool in your project.
+        """Create a tool in your project.
 
         Args:
+          code: The code of the tool.
+
+        You must define a function named "execute" that takes in a
+              single argument and returns a JSON-serializable value. The argument will be the
+              "input" passed when executing the tool, and will match the input schema.
+
+          language: The language of the tool's code.
+
+          name: The name of the tool.
+
+          description: A description of the tool.
+
+          input_schema: The input schema of the tool. This must be a valid JSON Schema object.
+
+          runtime_revision_id: The ID of the runtime revision to use when executing the tool.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -85,6 +101,7 @@ class ToolsResource(SyncAPIResource):
                     "name": name,
                     "description": description,
                     "input_schema": input_schema,
+                    "runtime_revision_id": runtime_revision_id,
                 },
                 tool_create_params.ToolCreateParams,
             ),
@@ -98,11 +115,12 @@ class ToolsResource(SyncAPIResource):
         self,
         id: str,
         *,
-        code: Optional[str] | NotGiven = NOT_GIVEN,
-        description: Optional[str] | NotGiven = NOT_GIVEN,
+        code: str | NotGiven = NOT_GIVEN,
+        description: str | NotGiven = NOT_GIVEN,
         input_schema: object | NotGiven = NOT_GIVEN,
         language: Literal["python", "javascript", "typescript"] | NotGiven = NOT_GIVEN,
-        name: Optional[str] | NotGiven = NOT_GIVEN,
+        name: str | NotGiven = NOT_GIVEN,
+        runtime_revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -114,6 +132,22 @@ class ToolsResource(SyncAPIResource):
         Update the source code and input schema of a tool.
 
         Args:
+          code: The code of the tool. You must define a function named "execute" that takes in a
+              single argument and returns a JSON-serializable value. The argument will be the
+              "input" passed when executing the tool, and will match the input schema.
+
+          description: A description of the tool.
+
+          input_schema: The input schema of the tool. This must be a valid JSON Schema object.
+
+          language: The language of the tool's code.
+
+          name: The name of the tool.
+
+          runtime_revision_id: The ID of the custom runtime revision that the tool uses for executions. This is
+              used to pin executions to a specific version of a custom runtime, even if the
+              runtime is updated later.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -133,6 +167,7 @@ class ToolsResource(SyncAPIResource):
                     "input_schema": input_schema,
                     "language": language,
                     "name": name,
+                    "runtime_revision_id": runtime_revision_id,
                 },
                 tool_update_params.ToolUpdateParams,
             ),
@@ -166,7 +201,7 @@ class ToolsResource(SyncAPIResource):
         id: str,
         *,
         env: Iterable[tool_exec_params.Env] | NotGiven = NOT_GIVEN,
-        http: Optional[tool_exec_params.HTTP] | NotGiven = NOT_GIVEN,
+        http: tool_exec_params.HTTP | NotGiven = NOT_GIVEN,
         input: object | NotGiven = NOT_GIVEN,
         revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -182,6 +217,17 @@ class ToolsResource(SyncAPIResource):
         input schema.
 
         Args:
+          env: Set of key-value pairs to add to the tool's execution environment.
+
+          http: Configuration for HTTP requests and authentication.
+
+          input: The input to the tool. This must be a valid JSON-serializable object. It will be
+              validated against the tool's input schema.
+
+          revision_id: The Tool revision ID to execute. This optional parmeter is used to pin
+              executions to specific versions of the Tool. If not provided, the latest
+              (current) version of the Tool will be executed.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -271,6 +317,7 @@ class AsyncToolsResource(AsyncAPIResource):
         name: str,
         description: str | NotGiven = NOT_GIVEN,
         input_schema: object | NotGiven = NOT_GIVEN,
+        runtime_revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -278,10 +325,25 @@ class AsyncToolsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Tool:
-        """
-        Create a tool in your project.
+        """Create a tool in your project.
 
         Args:
+          code: The code of the tool.
+
+        You must define a function named "execute" that takes in a
+              single argument and returns a JSON-serializable value. The argument will be the
+              "input" passed when executing the tool, and will match the input schema.
+
+          language: The language of the tool's code.
+
+          name: The name of the tool.
+
+          description: A description of the tool.
+
+          input_schema: The input schema of the tool. This must be a valid JSON Schema object.
+
+          runtime_revision_id: The ID of the runtime revision to use when executing the tool.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -299,6 +361,7 @@ class AsyncToolsResource(AsyncAPIResource):
                     "name": name,
                     "description": description,
                     "input_schema": input_schema,
+                    "runtime_revision_id": runtime_revision_id,
                 },
                 tool_create_params.ToolCreateParams,
             ),
@@ -312,11 +375,12 @@ class AsyncToolsResource(AsyncAPIResource):
         self,
         id: str,
         *,
-        code: Optional[str] | NotGiven = NOT_GIVEN,
-        description: Optional[str] | NotGiven = NOT_GIVEN,
+        code: str | NotGiven = NOT_GIVEN,
+        description: str | NotGiven = NOT_GIVEN,
         input_schema: object | NotGiven = NOT_GIVEN,
         language: Literal["python", "javascript", "typescript"] | NotGiven = NOT_GIVEN,
-        name: Optional[str] | NotGiven = NOT_GIVEN,
+        name: str | NotGiven = NOT_GIVEN,
+        runtime_revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -328,6 +392,22 @@ class AsyncToolsResource(AsyncAPIResource):
         Update the source code and input schema of a tool.
 
         Args:
+          code: The code of the tool. You must define a function named "execute" that takes in a
+              single argument and returns a JSON-serializable value. The argument will be the
+              "input" passed when executing the tool, and will match the input schema.
+
+          description: A description of the tool.
+
+          input_schema: The input schema of the tool. This must be a valid JSON Schema object.
+
+          language: The language of the tool's code.
+
+          name: The name of the tool.
+
+          runtime_revision_id: The ID of the custom runtime revision that the tool uses for executions. This is
+              used to pin executions to a specific version of a custom runtime, even if the
+              runtime is updated later.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -347,6 +427,7 @@ class AsyncToolsResource(AsyncAPIResource):
                     "input_schema": input_schema,
                     "language": language,
                     "name": name,
+                    "runtime_revision_id": runtime_revision_id,
                 },
                 tool_update_params.ToolUpdateParams,
             ),
@@ -380,7 +461,7 @@ class AsyncToolsResource(AsyncAPIResource):
         id: str,
         *,
         env: Iterable[tool_exec_params.Env] | NotGiven = NOT_GIVEN,
-        http: Optional[tool_exec_params.HTTP] | NotGiven = NOT_GIVEN,
+        http: tool_exec_params.HTTP | NotGiven = NOT_GIVEN,
         input: object | NotGiven = NOT_GIVEN,
         revision_id: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -396,6 +477,17 @@ class AsyncToolsResource(AsyncAPIResource):
         input schema.
 
         Args:
+          env: Set of key-value pairs to add to the tool's execution environment.
+
+          http: Configuration for HTTP requests and authentication.
+
+          input: The input to the tool. This must be a valid JSON-serializable object. It will be
+              validated against the tool's input schema.
+
+          revision_id: The Tool revision ID to execute. This optional parmeter is used to pin
+              executions to specific versions of the Tool. If not provided, the latest
+              (current) version of the Tool will be executed.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
