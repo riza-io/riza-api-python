@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.9.0 (2025-02-07)
+
+Full Changelog: [v0.8.0...v0.9.0](https://github.com/riza-io/riza-api-python/compare/v0.8.0...v0.9.0)
+
+### Features
+
+* **client:** send `X-Stainless-Read-Timeout` header ([#127](https://github.com/riza-io/riza-api-python/issues/127)) ([d2629cf](https://github.com/riza-io/riza-api-python/commit/d2629cfece0ad9f4738d4b50b90334d27412b7da))
+
+
+### Chores
+
+* **internal:** fix type traversing dictionary params ([#129](https://github.com/riza-io/riza-api-python/issues/129)) ([8cfb90d](https://github.com/riza-io/riza-api-python/commit/8cfb90d3cdd56468276a1387a20ec5653e80e758))
+* **internal:** minor type handling changes ([#130](https://github.com/riza-io/riza-api-python/issues/130)) ([778f16d](https://github.com/riza-io/riza-api-python/commit/778f16d7b44115f15424b2bb6c3d7659d209d3ea))
+
 ## 0.8.0 (2025-02-04)
 
 Full Changelog: [v0.7.0...v0.8.0](https://github.com/riza-io/riza-api-python/compare/v0.7.0...v0.8.0)
