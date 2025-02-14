@@ -53,7 +53,6 @@ class CommandResource(SyncAPIResource):
         *,
         code: str,
         language: Literal["python", "javascript", "typescript", "ruby", "php"],
-        allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
@@ -78,8 +77,6 @@ class CommandResource(SyncAPIResource):
           code: The code to execute.
 
           language: The interpreter to use when executing code.
-
-          allow_http_hosts: List of allowed hosts for HTTP requests.
 
           args: List of command line arguments to pass to the script.
 
@@ -109,7 +106,6 @@ class CommandResource(SyncAPIResource):
                 {
                     "code": code,
                     "language": language,
-                    "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
                     "files": files,
@@ -224,7 +220,6 @@ class AsyncCommandResource(AsyncAPIResource):
         *,
         code: str,
         language: Literal["python", "javascript", "typescript", "ruby", "php"],
-        allow_http_hosts: List[str] | NotGiven = NOT_GIVEN,
         args: List[str] | NotGiven = NOT_GIVEN,
         env: Dict[str, str] | NotGiven = NOT_GIVEN,
         files: Iterable[command_exec_params.File] | NotGiven = NOT_GIVEN,
@@ -249,8 +244,6 @@ class AsyncCommandResource(AsyncAPIResource):
           code: The code to execute.
 
           language: The interpreter to use when executing code.
-
-          allow_http_hosts: List of allowed hosts for HTTP requests.
 
           args: List of command line arguments to pass to the script.
 
@@ -280,7 +273,6 @@ class AsyncCommandResource(AsyncAPIResource):
                 {
                     "code": code,
                     "language": language,
-                    "allow_http_hosts": allow_http_hosts,
                     "args": args,
                     "env": env,
                     "files": files,

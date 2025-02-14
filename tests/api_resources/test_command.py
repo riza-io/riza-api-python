@@ -30,7 +30,6 @@ class TestCommand:
         command = client.command.exec(
             code='print("Hello world!")',
             language="python",
-            allow_http_hosts=["string"],
             args=["string"],
             env={"foo": "string"},
             files=[
@@ -190,7 +189,6 @@ class TestAsyncCommand:
         command = await async_client.command.exec(
             code='print("Hello world!")',
             language="python",
-            allow_http_hosts=["string"],
             args=["string"],
             env={"foo": "string"},
             files=[
