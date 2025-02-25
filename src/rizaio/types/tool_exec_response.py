@@ -9,15 +9,21 @@ __all__ = ["ToolExecResponse", "Execution"]
 
 class Execution(BaseModel):
     exit_code: int
+    """The exit code returned by the function.
+
+    Will often be '0' on success and non-zero on failure.
+    """
 
     stderr: str
+    """The contents of 'stderr' after executing the function."""
 
     stdout: str
+    """The contents of 'stdout' after executing the function."""
 
 
 class ToolExecResponse(BaseModel):
     execution: Execution
-    """The execution details of the Tool."""
+    """The execution details of the function."""
 
     output: object
     """The returned value of the Tool's execute function."""
