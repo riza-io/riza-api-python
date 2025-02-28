@@ -71,7 +71,7 @@ class Riza(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous riza client instance.
+        """Construct a new synchronous Riza client instance.
 
         This automatically infers the `api_key` argument from the `RIZA_API_KEY` environment variable if it is not provided.
         """
@@ -245,7 +245,7 @@ class AsyncRiza(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async riza client instance.
+        """Construct a new async AsyncRiza client instance.
 
         This automatically infers the `api_key` argument from the `RIZA_API_KEY` environment variable if it is not provided.
         """
