@@ -35,7 +35,7 @@ response = client.command.exec(
     code="print('Hello, World!')",
     language="python",
 )
-print(response.exit_code)
+print(response.duration)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -62,7 +62,7 @@ async def main() -> None:
         code="print('Hello, World!')",
         language="python",
     )
-    print(response.exit_code)
+    print(response.duration)
 
 
 asyncio.run(main())
@@ -218,7 +218,7 @@ response = client.command.with_raw_response.exec(
 print(response.headers.get('X-My-Header'))
 
 command = response.parse()  # get the object that `command.exec()` would have returned
-print(command.exit_code)
+print(command.duration)
 ```
 
 These methods return an [`APIResponse`](https://github.com/riza-io/riza-api-python/tree/main/src/rizaio/_response.py) object.
