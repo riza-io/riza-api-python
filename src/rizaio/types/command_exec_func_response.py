@@ -8,6 +8,9 @@ __all__ = ["CommandExecFuncResponse", "Execution"]
 
 
 class Execution(BaseModel):
+    duration: int
+    """The execution time of the function in milliseconds."""
+
     exit_code: int
     """The exit code returned by the function.
 
