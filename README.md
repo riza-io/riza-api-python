@@ -79,6 +79,44 @@ Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typ
 
 Typed requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.
 
+## Nested params
+
+Nested parameters are dictionaries, typed using `TypedDict`, for example:
+
+```python
+from rizaio import Riza
+
+client = Riza()
+
+response = client.tools.exec(
+    id="id",
+    http={
+        "allow": [
+            {
+                "auth": {
+                    "basic": {
+                        "password": "password",
+                        "secret_id": "secret_id",
+                        "user_id": "user_id",
+                    },
+                    "bearer": {
+                        "token": "token",
+                        "secret_id": "secret_id",
+                    },
+                    "query": {
+                        "key": "key",
+                        "secret_id": "secret_id",
+                        "value": "value",
+                    },
+                },
+                "host": "host",
+            }
+        ]
+    },
+)
+print(response.http)
+```
+
 ## Handling errors
 
 When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `rizaio.APIConnectionError` is raised.
