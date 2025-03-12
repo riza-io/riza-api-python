@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.9.0 (2025-03-11)
+
+Full Changelog: [v0.8.0...v0.9.0](https://github.com/riza-io/riza-api-python/compare/v0.8.0...v0.9.0)
+
+### Features
+
+* **api:** api update ([#133](https://github.com/riza-io/riza-api-python/issues/133)) ([f3fd506](https://github.com/riza-io/riza-api-python/commit/f3fd506b53a825bfacae9346d99b36775b2eaab9))
+* **api:** api update ([#136](https://github.com/riza-io/riza-api-python/issues/136)) ([9095362](https://github.com/riza-io/riza-api-python/commit/909536270fa373d63c51f28f10cc8cae1865f6da))
+* **api:** api update ([#141](https://github.com/riza-io/riza-api-python/issues/141)) ([b0ff99a](https://github.com/riza-io/riza-api-python/commit/b0ff99a573bee3d4f6b7f167bdbdd4d5e73649cb))
+* **client:** allow passing `NotGiven` for body ([#134](https://github.com/riza-io/riza-api-python/issues/134)) ([b5a1ab9](https://github.com/riza-io/riza-api-python/commit/b5a1ab9dbdc6981c17ebb9fd08fc45378dec0662))
+* **client:** send `X-Stainless-Read-Timeout` header ([#127](https://github.com/riza-io/riza-api-python/issues/127)) ([d2629cf](https://github.com/riza-io/riza-api-python/commit/d2629cfece0ad9f4738d4b50b90334d27412b7da))
+
+
+### Bug Fixes
+
+* asyncify on non-asyncio runtimes ([#132](https://github.com/riza-io/riza-api-python/issues/132)) ([ce5e5b0](https://github.com/riza-io/riza-api-python/commit/ce5e5b0d7b854af7212cc6a34129cd0823dda109))
+* **client:** mark some request bodies as optional ([b5a1ab9](https://github.com/riza-io/riza-api-python/commit/b5a1ab9dbdc6981c17ebb9fd08fc45378dec0662))
+
+
+### Chores
+
+* **docs:** update client docstring ([#139](https://github.com/riza-io/riza-api-python/issues/139)) ([f897bc5](https://github.com/riza-io/riza-api-python/commit/f897bc54e13dbbd2a09f35ebed272255f3e5ab02))
+* **internal:** fix devcontainers setup ([#135](https://github.com/riza-io/riza-api-python/issues/135)) ([cc94121](https://github.com/riza-io/riza-api-python/commit/cc941211ec216cb16432fe5f9bdaf0fe64c70a31))
+* **internal:** fix type traversing dictionary params ([#129](https://github.com/riza-io/riza-api-python/issues/129)) ([8cfb90d](https://github.com/riza-io/riza-api-python/commit/8cfb90d3cdd56468276a1387a20ec5653e80e758))
+* **internal:** minor type handling changes ([#130](https://github.com/riza-io/riza-api-python/issues/130)) ([778f16d](https://github.com/riza-io/riza-api-python/commit/778f16d7b44115f15424b2bb6c3d7659d209d3ea))
+* **internal:** properly set __pydantic_private__ ([#137](https://github.com/riza-io/riza-api-python/issues/137)) ([ad8f1bb](https://github.com/riza-io/riza-api-python/commit/ad8f1bbbec2509465d6bada2c9f69c3e0db0c51a))
+* **internal:** remove unused http client options forwarding ([#140](https://github.com/riza-io/riza-api-python/issues/140)) ([91eb039](https://github.com/riza-io/riza-api-python/commit/91eb039a636d9fc2725c25fcf8d90ab9b4bf502e))
+* **internal:** update client tests ([#131](https://github.com/riza-io/riza-api-python/issues/131)) ([3e9339e](https://github.com/riza-io/riza-api-python/commit/3e9339ee374e19dfe87a752046d370644df05e3b))
+
+
+### Documentation
+
+* revise readme docs about nested params ([#142](https://github.com/riza-io/riza-api-python/issues/142)) ([ad0478e](https://github.com/riza-io/riza-api-python/commit/ad0478eeb05cfb65d5abeff560b0aea74a1d5d70))
+* update URLs from stainlessapi.com to stainless.com ([#138](https://github.com/riza-io/riza-api-python/issues/138)) ([b3146ea](https://github.com/riza-io/riza-api-python/commit/b3146eac22b432b11d122089635362d6f09e403f))
+
 ## 0.8.0 (2025-02-04)
 
 Full Changelog: [v0.7.0...v0.8.0](https://github.com/riza-io/riza-api-python/compare/v0.7.0...v0.8.0)

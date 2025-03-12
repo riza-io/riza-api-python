@@ -8,21 +8,25 @@ __all__ = ["CommandExecFuncResponse", "Execution"]
 
 
 class Execution(BaseModel):
+    duration: int
+    """The execution time of the function in milliseconds."""
+
     exit_code: int
-    """The exit code returned by the script.
+    """The exit code returned by the function.
 
     Will often be '0' on success and non-zero on failure.
     """
 
     stderr: str
-    """The contents of 'stderr' after executing the script."""
+    """The contents of 'stderr' after executing the function."""
 
     stdout: str
-    """The contents of 'stdout' after executing the script."""
+    """The contents of 'stdout' after executing the function."""
 
 
 class CommandExecFuncResponse(BaseModel):
     execution: Execution
+    """The execution details of the function."""
 
     output: object
     """The output of the function."""

@@ -6,7 +6,7 @@ The Riza Python library provides convenient access to the Riza REST API from any
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
-It is generated with [Stainless](https://www.stainlessapi.com/).
+It is generated with [Stainless](https://www.stainless.com/).
 
 ## Documentation
 
@@ -35,7 +35,7 @@ response = client.command.exec(
     code="print('Hello, World!')",
     language="python",
 )
-print(response.exit_code)
+print(response.duration)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -62,7 +62,7 @@ async def main() -> None:
         code="print('Hello, World!')",
         language="python",
     )
-    print(response.exit_code)
+    print(response.duration)
 
 
 asyncio.run(main())
@@ -78,6 +78,44 @@ Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typ
 - Converting to a dictionary, `model.to_dict()`
 
 Typed requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.
+
+## Nested params
+
+Nested parameters are dictionaries, typed using `TypedDict`, for example:
+
+```python
+from rizaio import Riza
+
+client = Riza()
+
+response = client.tools.exec(
+    id="id",
+    http={
+        "allow": [
+            {
+                "auth": {
+                    "basic": {
+                        "password": "password",
+                        "secret_id": "secret_id",
+                        "user_id": "user_id",
+                    },
+                    "bearer": {
+                        "token": "token",
+                        "secret_id": "secret_id",
+                    },
+                    "query": {
+                        "key": "key",
+                        "secret_id": "secret_id",
+                        "value": "value",
+                    },
+                },
+                "host": "host",
+            }
+        ]
+    },
+)
+print(response.http)
+```
 
 ## Handling errors
 
@@ -218,7 +256,7 @@ response = client.command.with_raw_response.exec(
 print(response.headers.get('X-My-Header'))
 
 command = response.parse()  # get the object that `command.exec()` would have returned
-print(command.exit_code)
+print(command.duration)
 ```
 
 These methods return an [`APIResponse`](https://github.com/riza-io/riza-api-python/tree/main/src/rizaio/_response.py) object.

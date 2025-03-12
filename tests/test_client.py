@@ -23,10 +23,12 @@ from pydantic import ValidationError
 
 from rizaio import Riza, AsyncRiza, APIResponseValidationError
 from rizaio._types import Omit
+from rizaio._utils import maybe_transform
 from rizaio._models import BaseModel, FinalRequestOptions
 from rizaio._constants import RAW_RESPONSE_HEADER
 from rizaio._exceptions import RizaError, APIStatusError, APITimeoutError, APIResponseValidationError
 from rizaio._base_client import DEFAULT_TIMEOUT, HTTPX_DEFAULT_TIMEOUT, BaseClient, make_request_options
+from rizaio.types.command_exec_params import CommandExecParams
 
 from .utils import update_env
 
@@ -704,7 +706,9 @@ class TestRiza:
         with pytest.raises(APITimeoutError):
             self.client.post(
                 "/v1/execute",
-                body=cast(object, dict(code="print('Hello, World!')", language="python")),
+                body=cast(
+                    object, maybe_transform(dict(code="print('Hello, World!')", language="python"), CommandExecParams)
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -719,7 +723,9 @@ class TestRiza:
         with pytest.raises(APIStatusError):
             self.client.post(
                 "/v1/execute",
-                body=cast(object, dict(code="print('Hello, World!')", language="python")),
+                body=cast(
+                    object, maybe_transform(dict(code="print('Hello, World!')", language="python"), CommandExecParams)
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1472,7 +1478,9 @@ class TestAsyncRiza:
         with pytest.raises(APITimeoutError):
             await self.client.post(
                 "/v1/execute",
-                body=cast(object, dict(code="print('Hello, World!')", language="python")),
+                body=cast(
+                    object, maybe_transform(dict(code="print('Hello, World!')", language="python"), CommandExecParams)
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1487,7 +1495,9 @@ class TestAsyncRiza:
         with pytest.raises(APIStatusError):
             await self.client.post(
                 "/v1/execute",
-                body=cast(object, dict(code="print('Hello, World!')", language="python")),
+                body=cast(
+                    object, maybe_transform(dict(code="print('Hello, World!')", language="python"), CommandExecParams)
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
