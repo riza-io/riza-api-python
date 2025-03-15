@@ -23,7 +23,7 @@ class Runtime(BaseModel):
 
     revision_id: str
 
-    status: str
+    status: Literal["pending", "building", "succeeded", "failed", "cancelled"]
 
     additional_python_imports: Optional[str] = None
 
