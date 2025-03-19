@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.10.0 (2025-03-17)
+
+Full Changelog: [v0.9.0...v0.10.0](https://github.com/riza-io/riza-api-python/compare/v0.9.0...v0.10.0)
+
+### Features
+
+* **api:** api update ([#145](https://github.com/riza-io/riza-api-python/issues/145)) ([6f94e74](https://github.com/riza-io/riza-api-python/commit/6f94e74f384b9b7a4f96164fc6b65ba915f44b41))
+
+
+### Bug Fixes
+
+* **ci:** ensure pip is always available ([#151](https://github.com/riza-io/riza-api-python/issues/151)) ([4e1aaa0](https://github.com/riza-io/riza-api-python/commit/4e1aaa0804c8b90b4c65dc3d51e8ec3ac574ebbc))
+* **ci:** remove publishing patch ([#152](https://github.com/riza-io/riza-api-python/issues/152)) ([fc6302b](https://github.com/riza-io/riza-api-python/commit/fc6302b096cb4d6763397075f5f6707dde0df74e))
+* **types:** handle more discriminated union shapes ([#150](https://github.com/riza-io/riza-api-python/issues/150)) ([142b585](https://github.com/riza-io/riza-api-python/commit/142b58513dff2902d976dbc99171fa18b15b157f))
+
+
+### Chores
+
+* **internal:** bump rye to 0.44.0 ([#149](https://github.com/riza-io/riza-api-python/issues/149)) ([eda0bf5](https://github.com/riza-io/riza-api-python/commit/eda0bf5410ee7f84e4a584ed7c48f12512317c45))
+* **internal:** codegen related update ([#148](https://github.com/riza-io/riza-api-python/issues/148)) ([3941fce](https://github.com/riza-io/riza-api-python/commit/3941fce6c6bda47dd81474afa6eb4d092ecfc1ba))
+* **internal:** remove extra empty newlines ([#147](https://github.com/riza-io/riza-api-python/issues/147)) ([1b710bb](https://github.com/riza-io/riza-api-python/commit/1b710bb900191f4eec5a51565f5776c6a25b08fa))
+
 ## 0.9.0 (2025-03-11)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/riza-io/riza-api-python/compare/v0.8.0...v0.9.0)
