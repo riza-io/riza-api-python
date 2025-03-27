@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.1 (2025-03-27)
+
+Full Changelog: [v0.10.0...v0.10.1](https://github.com/riza-io/riza-api-python/compare/v0.10.0...v0.10.1)
+
+### Chores
+
+* fix typos ([#154](https://github.com/riza-io/riza-api-python/issues/154)) ([df55edc](https://github.com/riza-io/riza-api-python/commit/df55edcea695658eeb69f9cde262c50904d8bf7a))
+
 ## 0.10.0 (2025-03-17)
 
 Full Changelog: [v0.9.0...v0.10.0](https://github.com/riza-io/riza-api-python/compare/v0.9.0...v0.10.0)
