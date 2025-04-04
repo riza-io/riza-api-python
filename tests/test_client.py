@@ -1600,7 +1600,7 @@ class TestAsyncRiza:
         import threading
 
         from rizaio._utils import asyncify
-        from rizaio._base_client import get_platform 
+        from rizaio._base_client import get_platform
 
         async def test_main() -> None:
             result = await asyncify(get_platform)()
