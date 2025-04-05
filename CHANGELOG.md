@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.10.1 (2025-04-05)
+
+Full Changelog: [v0.10.0...v0.10.1](https://github.com/riza-io/riza-api-python/compare/v0.10.0...v0.10.1)
+
+### Chores
+
+* fix typos ([#154](https://github.com/riza-io/riza-api-python/issues/154)) ([df55edc](https://github.com/riza-io/riza-api-python/commit/df55edcea695658eeb69f9cde262c50904d8bf7a))
+* **internal:** remove trailing character ([#156](https://github.com/riza-io/riza-api-python/issues/156)) ([c74e986](https://github.com/riza-io/riza-api-python/commit/c74e986b77ce7272bd8146e8269033874a01503c))
+
+
+### Documentation
+
+* swap examples used in readme ([#157](https://github.com/riza-io/riza-api-python/issues/157)) ([866054c](https://github.com/riza-io/riza-api-python/commit/866054cd0505df3682c9849902633ea10e049d18))
+
 ## 0.10.0 (2025-03-17)
 
 Full Changelog: [v0.9.0...v0.10.0](https://github.com/riza-io/riza-api-python/compare/v0.9.0...v0.10.0)
