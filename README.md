@@ -88,24 +88,24 @@ from rizaio import Riza
 
 client = Riza()
 
-response = client.tools.exec(
-    id="id",
+response = client.command.exec(
+    code='print("Hello world!")',
+    language="python",
     http={
         "allow": [
             {
                 "auth": {
                     "basic": {
                         "password": "password",
-                        "secret_id": "secret_id",
                         "user_id": "user_id",
                     },
-                    "bearer": {
-                        "token": "token",
-                        "secret_id": "secret_id",
+                    "bearer": {"token": "token"},
+                    "header": {
+                        "name": "name",
+                        "value": "value",
                     },
                     "query": {
                         "key": "key",
-                        "secret_id": "secret_id",
                         "value": "value",
                     },
                 },
