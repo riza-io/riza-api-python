@@ -39,6 +39,7 @@ class TestRuntimes:
             },
             name="name",
             additional_python_imports="additional_python_imports",
+            engine="wasi",
         )
         assert_matches_type(Runtime, runtime, path=["response"])
 
@@ -165,6 +166,7 @@ class TestAsyncRuntimes:
             },
             name="name",
             additional_python_imports="additional_python_imports",
+            engine="wasi",
         )
         assert_matches_type(Runtime, runtime, path=["response"])
 
