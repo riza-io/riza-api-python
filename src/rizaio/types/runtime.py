@@ -17,6 +17,8 @@ class ManifestFile(BaseModel):
 class Runtime(BaseModel):
     id: str
 
+    engine: Literal["wasi", "microvm", "v8"]
+
     language: Literal["python", "javascript"]
 
     name: str
