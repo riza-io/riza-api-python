@@ -66,6 +66,7 @@ class RuntimesResource(SyncAPIResource):
         manifest_file: runtime_create_params.ManifestFile,
         name: str,
         additional_python_imports: str | NotGiven = NOT_GIVEN,
+        engine: Literal["wasi", "microvm", "v8"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -93,6 +94,7 @@ class RuntimesResource(SyncAPIResource):
                     "manifest_file": manifest_file,
                     "name": name,
                     "additional_python_imports": additional_python_imports,
+                    "engine": engine,
                 },
                 runtime_create_params.RuntimeCreateParams,
             ),
@@ -186,6 +188,7 @@ class AsyncRuntimesResource(AsyncAPIResource):
         manifest_file: runtime_create_params.ManifestFile,
         name: str,
         additional_python_imports: str | NotGiven = NOT_GIVEN,
+        engine: Literal["wasi", "microvm", "v8"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -213,6 +216,7 @@ class AsyncRuntimesResource(AsyncAPIResource):
                     "manifest_file": manifest_file,
                     "name": name,
                     "additional_python_imports": additional_python_imports,
+                    "engine": engine,
                 },
                 runtime_create_params.RuntimeCreateParams,
             ),
