@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.11.0 (2025-04-10)
+
+Full Changelog: [v0.10.0...v0.11.0](https://github.com/riza-io/riza-api-python/compare/v0.10.0...v0.11.0)
+
+### Features
+
+* **api:** api update ([#158](https://github.com/riza-io/riza-api-python/issues/158)) ([ea3138e](https://github.com/riza-io/riza-api-python/commit/ea3138ee6b70bac9ba636da7da18ac2481aceb85))
+
+
+### Chores
+
+* fix typos ([#154](https://github.com/riza-io/riza-api-python/issues/154)) ([df55edc](https://github.com/riza-io/riza-api-python/commit/df55edcea695658eeb69f9cde262c50904d8bf7a))
+* **internal:** expand CI branch coverage ([b94f114](https://github.com/riza-io/riza-api-python/commit/b94f11405beb32f96b5fb35e68b4f4cc7dd1f845))
+* **internal:** reduce CI branch coverage ([608888f](https://github.com/riza-io/riza-api-python/commit/608888f2ebf68f97f535b26df95253cf21d20263))
+* **internal:** remove trailing character ([#156](https://github.com/riza-io/riza-api-python/issues/156)) ([c74e986](https://github.com/riza-io/riza-api-python/commit/c74e986b77ce7272bd8146e8269033874a01503c))
+* **internal:** slight transform perf improvement ([#159](https://github.com/riza-io/riza-api-python/issues/159)) ([fc0bc46](https://github.com/riza-io/riza-api-python/commit/fc0bc46cd237aae3f3f47d8e63f0ae92a94b0b06))
+
+
+### Documentation
+
+* swap examples used in readme ([#157](https://github.com/riza-io/riza-api-python/issues/157)) ([866054c](https://github.com/riza-io/riza-api-python/commit/866054cd0505df3682c9849902633ea10e049d18))
+
 ## 0.10.0 (2025-03-17)
 
 Full Changelog: [v0.9.0...v0.10.0](https://github.com/riza-io/riza-api-python/compare/v0.9.0...v0.10.0)
