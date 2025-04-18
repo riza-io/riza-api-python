@@ -1,4 +1,4 @@
 configured_endpoints: 15
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/riza%2Friza-api-9c0f53aabe007dbc4d75475c6b56151371b42eafb99ad3b70364d1b4eed80bb7.yml
-openapi_spec_hash: 2f5730931c25dc605ea48d0634a7f0f7
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/riza%2Friza-api-ffd3c5def45960ed85adb10ec5591f17754cbeaa1b2eb5acc5200cae5df9f1a4.yml
+openapi_spec_hash: ddee2608bad1015458dbf4df194fbb52
 config_hash: fec51ad95adefe3799b7614d889a8e13

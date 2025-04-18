@@ -9,7 +9,7 @@ from rizaio.types import Secret, SecretListResponse
 Methods:
 
 - <code title="post /v1/secrets">client.secrets.<a href="./src/rizaio/resources/secrets.py">create</a>(\*\*<a href="src/rizaio/types/secret_create_params.py">params</a>) -> <a href="./src/rizaio/types/secret.py">Secret</a></code>
-- <code title="get /v1/secrets">client.secrets.<a href="./src/rizaio/resources/secrets.py">list</a>() -> <a href="./src/rizaio/types/secret_list_response.py">SecretListResponse</a></code>
+- <code title="get /v1/secrets">client.secrets.<a href="./src/rizaio/resources/secrets.py">list</a>(\*\*<a href="src/rizaio/types/secret_list_params.py">params</a>) -> <a href="./src/rizaio/types/secret_list_response.py">SecretListResponse</a></code>
 
 # Tools
 

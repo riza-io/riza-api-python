@@ -7,6 +7,7 @@ from .secret import Secret as Secret
 from .runtime import Runtime as Runtime
 from .tool_exec_params import ToolExecParams as ToolExecParams
 from .tool_list_params import ToolListParams as ToolListParams
+from .secret_list_params import SecretListParams as SecretListParams
 from .tool_create_params import ToolCreateParams as ToolCreateParams
 from .tool_exec_response import ToolExecResponse as ToolExecResponse
 from .tool_list_response import ToolListResponse as ToolListResponse

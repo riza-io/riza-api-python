@@ -57,6 +57,14 @@ class TestSecrets:
         assert_matches_type(SecretListResponse, secret, path=["response"])
 
     @parametrize
+    def test_method_list_with_all_params(self, client: Riza) -> None:
+        secret = client.secrets.list(
+            limit=0,
+            starting_after="starting_after",
+        )
+        assert_matches_type(SecretListResponse, secret, path=["response"])
+
+    @parametrize
     def test_raw_response_list(self, client: Riza) -> None:
         response = client.secrets.with_raw_response.list()
 
@@ -117,6 +125,14 @@ class TestAsyncSecrets:
     @parametrize
     async def test_method_list(self, async_client: AsyncRiza) -> None:
         secret = await async_client.secrets.list()
+        assert_matches_type(SecretListResponse, secret, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncRiza) -> None:
+        secret = await async_client.secrets.list(
+            limit=0,
+            starting_after="starting_after",
+        )
         assert_matches_type(SecretListResponse, secret, path=["response"])
 
     @parametrize
