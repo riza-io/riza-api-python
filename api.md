@@ -51,7 +51,7 @@ from rizaio.types import Runtime, RuntimeListResponse
 Methods:
 
 - <code title="post /v1/runtimes">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">create</a>(\*\*<a href="src/rizaio/types/runtime_create_params.py">params</a>) -> <a href="./src/rizaio/types/runtime.py">Runtime</a></code>
-- <code title="get /v1/runtimes">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">list</a>() -> <a href="./src/rizaio/types/runtime_list_response.py">RuntimeListResponse</a></code>
+- <code title="get /v1/runtimes">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">list</a>(\*\*<a href="src/rizaio/types/runtime_list_params.py">params</a>) -> <a href="./src/rizaio/types/runtime_list_response.py">RuntimeListResponse</a></code>
 - <code title="get /v1/runtimes/{id}">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">get</a>(id) -> <a href="./src/rizaio/types/runtime.py">Runtime</a></code>
 
 ## Revisions

@@ -83,6 +83,14 @@ class TestRuntimes:
         assert_matches_type(RuntimeListResponse, runtime, path=["response"])
 
     @parametrize
+    def test_method_list_with_all_params(self, client: Riza) -> None:
+        runtime = client.runtimes.list(
+            limit=0,
+            starting_after="starting_after",
+        )
+        assert_matches_type(RuntimeListResponse, runtime, path=["response"])
+
+    @parametrize
     def test_raw_response_list(self, client: Riza) -> None:
         response = client.runtimes.with_raw_response.list()
 
@@ -207,6 +215,14 @@ class TestAsyncRuntimes:
     @parametrize
     async def test_method_list(self, async_client: AsyncRiza) -> None:
         runtime = await async_client.runtimes.list()
+        assert_matches_type(RuntimeListResponse, runtime, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncRiza) -> None:
+        runtime = await async_client.runtimes.list(
+            limit=0,
+            starting_after="starting_after",
+        )
         assert_matches_type(RuntimeListResponse, runtime, path=["response"])
 
     @parametrize
