@@ -127,6 +127,14 @@ class TestTools:
         assert_matches_type(ToolListResponse, tool, path=["response"])
 
     @parametrize
+    def test_method_list_with_all_params(self, client: Riza) -> None:
+        tool = client.tools.list(
+            limit=0,
+            starting_after="starting_after",
+        )
+        assert_matches_type(ToolListResponse, tool, path=["response"])
+
+    @parametrize
     def test_raw_response_list(self, client: Riza) -> None:
         response = client.tools.with_raw_response.list()
 
@@ -368,6 +376,14 @@ class TestAsyncTools:
     @parametrize
     async def test_method_list(self, async_client: AsyncRiza) -> None:
         tool = await async_client.tools.list()
+        assert_matches_type(ToolListResponse, tool, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncRiza) -> None:
+        tool = await async_client.tools.list(
+            limit=0,
+            starting_after="starting_after",
+        )
         assert_matches_type(ToolListResponse, tool, path=["response"])
 
     @parametrize
