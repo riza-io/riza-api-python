@@ -16,6 +16,8 @@ class RuntimeCreateParams(TypedDict, total=False):
 
     additional_python_imports: str
 
+    engine: Literal["wasi", "microvm", "v8"]
+
 
 class ManifestFile(TypedDict, total=False):
     contents: Required[str]

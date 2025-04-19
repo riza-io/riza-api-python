@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..types import tool_exec_params, tool_create_params, tool_update_params
+from ..types import tool_exec_params, tool_list_params, tool_create_params, tool_update_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from .._utils import (
     maybe_transform,
@@ -180,6 +180,8 @@ class ToolsResource(SyncAPIResource):
     def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        starting_after: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -187,11 +189,37 @@ class ToolsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ToolListResponse:
-        """Returns a list of tools in your project."""
+        """
+        Returns a list of tools in your project.
+
+        Args:
+          limit: The number of items to return. Defaults to 100. Maximum is 100.
+
+          starting_after: The ID of the item to start after. To get the next page of results, set this to
+              the ID of the last item in the current page.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return self._get(
             "/v1/tools",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "starting_after": starting_after,
+                    },
+                    tool_list_params.ToolListParams,
+                ),
             ),
             cast_to=ToolListResponse,
         )
@@ -440,6 +468,8 @@ class AsyncToolsResource(AsyncAPIResource):
     async def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        starting_after: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -447,11 +477,37 @@ class AsyncToolsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ToolListResponse:
-        """Returns a list of tools in your project."""
+        """
+        Returns a list of tools in your project.
+
+        Args:
+          limit: The number of items to return. Defaults to 100. Maximum is 100.
+
+          starting_after: The ID of the item to start after. To get the next page of results, set this to
+              the ID of the last item in the current page.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return await self._get(
             "/v1/tools",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {
+                        "limit": limit,
+                        "starting_after": starting_after,
+                    },
+                    tool_list_params.ToolListParams,
+                ),
             ),
             cast_to=ToolListResponse,
         )
