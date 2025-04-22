@@ -21,10 +21,10 @@ from .._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
+from ..pagination import SyncToolsPagination, AsyncToolsPagination
 from ..types.tool import Tool
-from .._base_client import make_request_options
+from .._base_client import AsyncPaginator, make_request_options
 from ..types.tool_exec_response import ToolExecResponse
-from ..types.tool_list_response import ToolListResponse
 
 __all__ = ["ToolsResource", "AsyncToolsResource"]
 
@@ -188,7 +188,7 @@ class ToolsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ToolListResponse:
+    ) -> SyncToolsPagination[Tool]:
         """
         Returns a list of tools in your project.
 
@@ -206,8 +206,9 @@ class ToolsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._get(
+        return self._get_api_list(
             "/v1/tools",
+            page=SyncToolsPagination[Tool],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -221,7 +222,7 @@ class ToolsResource(SyncAPIResource):
                     tool_list_params.ToolListParams,
                 ),
             ),
-            cast_to=ToolListResponse,
+            model=Tool,
         )
 
     def exec(
@@ -465,7 +466,7 @@ class AsyncToolsResource(AsyncAPIResource):
             cast_to=Tool,
         )
 
-    async def list(
+    def list(
         self,
         *,
         limit: int | NotGiven = NOT_GIVEN,
@@ -476,7 +477,7 @@ class AsyncToolsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ToolListResponse:
+    ) -> AsyncPaginator[Tool, AsyncToolsPagination[Tool]]:
         """
         Returns a list of tools in your project.
 
@@ -494,14 +495,15 @@ class AsyncToolsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._get(
+        return self._get_api_list(
             "/v1/tools",
+            page=AsyncToolsPagination[Tool],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "limit": limit,
                         "starting_after": starting_after,
@@ -509,7 +511,7 @@ class AsyncToolsResource(AsyncAPIResource):
                     tool_list_params.ToolListParams,
                 ),
             ),
-            cast_to=ToolListResponse,
+            model=Tool,
         )
 
     async def exec(
