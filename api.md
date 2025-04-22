@@ -3,27 +3,27 @@
 Types:
 
 ```python
-from rizaio.types import Secret, SecretListResponse
+from rizaio.types import Secret
 ```
 
 Methods:
 
 - <code title="post /v1/secrets">client.secrets.<a href="./src/rizaio/resources/secrets.py">create</a>(\*\*<a href="src/rizaio/types/secret_create_params.py">params</a>) -> <a href="./src/rizaio/types/secret.py">Secret</a></code>
-- <code title="get /v1/secrets">client.secrets.<a href="./src/rizaio/resources/secrets.py">list</a>(\*\*<a href="src/rizaio/types/secret_list_params.py">params</a>) -> <a href="./src/rizaio/types/secret_list_response.py">SecretListResponse</a></code>
+- <code title="get /v1/secrets">client.secrets.<a href="./src/rizaio/resources/secrets.py">list</a>(\*\*<a href="src/rizaio/types/secret_list_params.py">params</a>) -> <a href="./src/rizaio/types/secret.py">SyncSecretsPagination[Secret]</a></code>
 
 # Tools
 
 Types:
 
 ```python
-from rizaio.types import Tool, ToolListResponse, ToolExecResponse
+from rizaio.types import Tool, ToolExecResponse
 ```
 
 Methods:
 
 - <code title="post /v1/tools">client.tools.<a href="./src/rizaio/resources/tools.py">create</a>(\*\*<a href="src/rizaio/types/tool_create_params.py">params</a>) -> <a href="./src/rizaio/types/tool.py">Tool</a></code>
 - <code title="post /v1/tools/{id}">client.tools.<a href="./src/rizaio/resources/tools.py">update</a>(id, \*\*<a href="src/rizaio/types/tool_update_params.py">params</a>) -> <a href="./src/rizaio/types/tool.py">Tool</a></code>
-- <code title="get /v1/tools">client.tools.<a href="./src/rizaio/resources/tools.py">list</a>(\*\*<a href="src/rizaio/types/tool_list_params.py">params</a>) -> <a href="./src/rizaio/types/tool_list_response.py">ToolListResponse</a></code>
+- <code title="get /v1/tools">client.tools.<a href="./src/rizaio/resources/tools.py">list</a>(\*\*<a href="src/rizaio/types/tool_list_params.py">params</a>) -> <a href="./src/rizaio/types/tool.py">SyncToolsPagination[Tool]</a></code>
 - <code title="post /v1/tools/{id}/execute">client.tools.<a href="./src/rizaio/resources/tools.py">exec</a>(id, \*\*<a href="src/rizaio/types/tool_exec_params.py">params</a>) -> <a href="./src/rizaio/types/tool_exec_response.py">ToolExecResponse</a></code>
 - <code title="get /v1/tools/{id}">client.tools.<a href="./src/rizaio/resources/tools.py">get</a>(id) -> <a href="./src/rizaio/types/tool.py">Tool</a></code>
 
@@ -45,13 +45,13 @@ Methods:
 Types:
 
 ```python
-from rizaio.types import Runtime, RuntimeListResponse
+from rizaio.types import Runtime
 ```
 
 Methods:
 
 - <code title="post /v1/runtimes">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">create</a>(\*\*<a href="src/rizaio/types/runtime_create_params.py">params</a>) -> <a href="./src/rizaio/types/runtime.py">Runtime</a></code>
-- <code title="get /v1/runtimes">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">list</a>(\*\*<a href="src/rizaio/types/runtime_list_params.py">params</a>) -> <a href="./src/rizaio/types/runtime_list_response.py">RuntimeListResponse</a></code>
+- <code title="get /v1/runtimes">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">list</a>(\*\*<a href="src/rizaio/types/runtime_list_params.py">params</a>) -> <a href="./src/rizaio/types/runtime.py">SyncRuntimesPagination[Runtime]</a></code>
 - <code title="get /v1/runtimes/{id}">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">get</a>(id) -> <a href="./src/rizaio/types/runtime.py">Runtime</a></code>
 
 ## Revisions

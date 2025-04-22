@@ -18,9 +18,9 @@ from .._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .._base_client import make_request_options
+from ..pagination import SyncSecretsPagination, AsyncSecretsPagination
+from .._base_client import AsyncPaginator, make_request_options
 from ..types.secret import Secret
-from ..types.secret_list_response import SecretListResponse
 
 __all__ = ["SecretsResource", "AsyncSecretsResource"]
 
@@ -95,7 +95,7 @@ class SecretsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SecretListResponse:
+    ) -> SyncSecretsPagination[Secret]:
         """
         Returns a list of secrets in your project.
 
@@ -113,8 +113,9 @@ class SecretsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._get(
+        return self._get_api_list(
             "/v1/secrets",
+            page=SyncSecretsPagination[Secret],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -128,7 +129,7 @@ class SecretsResource(SyncAPIResource):
                     secret_list_params.SecretListParams,
                 ),
             ),
-            cast_to=SecretListResponse,
+            model=Secret,
         )
 
 
@@ -191,7 +192,7 @@ class AsyncSecretsResource(AsyncAPIResource):
             cast_to=Secret,
         )
 
-    async def list(
+    def list(
         self,
         *,
         limit: int | NotGiven = NOT_GIVEN,
@@ -202,7 +203,7 @@ class AsyncSecretsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SecretListResponse:
+    ) -> AsyncPaginator[Secret, AsyncSecretsPagination[Secret]]:
         """
         Returns a list of secrets in your project.
 
@@ -220,14 +221,15 @@ class AsyncSecretsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._get(
+        return self._get_api_list(
             "/v1/secrets",
+            page=AsyncSecretsPagination[Secret],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "limit": limit,
                         "starting_after": starting_after,
@@ -235,7 +237,7 @@ class AsyncSecretsResource(AsyncAPIResource):
                     secret_list_params.SecretListParams,
                 ),
             ),
-            cast_to=SecretListResponse,
+            model=Secret,
         )
 
 

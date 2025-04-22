@@ -28,9 +28,9 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncRuntimesPagination, AsyncRuntimesPagination
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.runtime import Runtime
-from ...types.runtime_list_response import RuntimeListResponse
 
 __all__ = ["RuntimesResource", "AsyncRuntimesResource"]
 
@@ -115,7 +115,7 @@ class RuntimesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RuntimeListResponse:
+    ) -> SyncRuntimesPagination[Runtime]:
         """
         Returns a list of runtimes in your project.
 
@@ -133,8 +133,9 @@ class RuntimesResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._get(
+        return self._get_api_list(
             "/v1/runtimes",
+            page=SyncRuntimesPagination[Runtime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -148,7 +149,7 @@ class RuntimesResource(SyncAPIResource):
                     runtime_list_params.RuntimeListParams,
                 ),
             ),
-            cast_to=RuntimeListResponse,
+            model=Runtime,
         )
 
     def get(
@@ -254,7 +255,7 @@ class AsyncRuntimesResource(AsyncAPIResource):
             cast_to=Runtime,
         )
 
-    async def list(
+    def list(
         self,
         *,
         limit: int | NotGiven = NOT_GIVEN,
@@ -265,7 +266,7 @@ class AsyncRuntimesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RuntimeListResponse:
+    ) -> AsyncPaginator[Runtime, AsyncRuntimesPagination[Runtime]]:
         """
         Returns a list of runtimes in your project.
 
@@ -283,14 +284,15 @@ class AsyncRuntimesResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._get(
+        return self._get_api_list(
             "/v1/runtimes",
+            page=AsyncRuntimesPagination[Runtime],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "limit": limit,
                         "starting_after": starting_after,
@@ -298,7 +300,7 @@ class AsyncRuntimesResource(AsyncAPIResource):
                     runtime_list_params.RuntimeListParams,
                 ),
             ),
-            cast_to=RuntimeListResponse,
+            model=Runtime,
         )
 
     async def get(
