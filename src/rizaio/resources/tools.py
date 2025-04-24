@@ -7,12 +7,9 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..types import tool_exec_params, tool_create_params, tool_update_params
+from ..types import tool_exec_params, tool_list_params, tool_create_params, tool_update_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from .._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -21,10 +18,10 @@ from .._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
+from ..pagination import SyncToolsPagination, AsyncToolsPagination
 from ..types.tool import Tool
-from .._base_client import make_request_options
+from .._base_client import AsyncPaginator, make_request_options
 from ..types.tool_exec_response import ToolExecResponse
-from ..types.tool_list_response import ToolListResponse
 
 __all__ = ["ToolsResource", "AsyncToolsResource"]
 
@@ -180,20 +177,49 @@ class ToolsResource(SyncAPIResource):
     def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        starting_after: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ToolListResponse:
-        """Returns a list of tools in your project."""
-        return self._get(
+    ) -> SyncToolsPagination[Tool]:
+        """
+        Returns a list of tools in your project.
+
+        Args:
+          limit: The number of items to return. Defaults to 100. Maximum is 100.
+
+          starting_after: The ID of the item to start after. To get the next page of results, set this to
+              the ID of the last item in the current page.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self._get_api_list(
             "/v1/tools",
+            page=SyncToolsPagination[Tool],
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "starting_after": starting_after,
+                    },
+                    tool_list_params.ToolListParams,
+                ),
             ),
-            cast_to=ToolListResponse,
+            model=Tool,
         )
 
     def exec(
@@ -437,23 +463,52 @@ class AsyncToolsResource(AsyncAPIResource):
             cast_to=Tool,
         )
 
-    async def list(
+    def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        starting_after: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ToolListResponse:
-        """Returns a list of tools in your project."""
-        return await self._get(
+    ) -> AsyncPaginator[Tool, AsyncToolsPagination[Tool]]:
+        """
+        Returns a list of tools in your project.
+
+        Args:
+          limit: The number of items to return. Defaults to 100. Maximum is 100.
+
+          starting_after: The ID of the item to start after. To get the next page of results, set this to
+              the ID of the last item in the current page.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self._get_api_list(
             "/v1/tools",
+            page=AsyncToolsPagination[Tool],
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "starting_after": starting_after,
+                    },
+                    tool_list_params.ToolListParams,
+                ),
             ),
-            cast_to=ToolListResponse,
+            model=Tool,
         )
 
     async def exec(

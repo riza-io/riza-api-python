@@ -6,12 +6,9 @@ from typing_extensions import Literal
 
 import httpx
 
-from ...types import runtime_create_params
+from ...types import runtime_list_params, runtime_create_params
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from .revisions import (
     RevisionsResource,
@@ -28,9 +25,9 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
+from ...pagination import SyncRuntimesPagination, AsyncRuntimesPagination
+from ..._base_client import AsyncPaginator, make_request_options
 from ...types.runtime import Runtime
-from ...types.runtime_list_response import RuntimeListResponse
 
 __all__ = ["RuntimesResource", "AsyncRuntimesResource"]
 
@@ -66,6 +63,7 @@ class RuntimesResource(SyncAPIResource):
         manifest_file: runtime_create_params.ManifestFile,
         name: str,
         additional_python_imports: str | NotGiven = NOT_GIVEN,
+        engine: Literal["wasi", "microvm", "v8"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -93,6 +91,7 @@ class RuntimesResource(SyncAPIResource):
                     "manifest_file": manifest_file,
                     "name": name,
                     "additional_python_imports": additional_python_imports,
+                    "engine": engine,
                 },
                 runtime_create_params.RuntimeCreateParams,
             ),
@@ -105,20 +104,49 @@ class RuntimesResource(SyncAPIResource):
     def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        starting_after: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RuntimeListResponse:
-        """Returns a list of runtimes in your project."""
-        return self._get(
+    ) -> SyncRuntimesPagination[Runtime]:
+        """
+        Returns a list of runtimes in your project.
+
+        Args:
+          limit: The number of items to return. Defaults to 100. Maximum is 100.
+
+          starting_after: The ID of the item to start after. To get the next page of results, set this to
+              the ID of the last item in the current page.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self._get_api_list(
             "/v1/runtimes",
+            page=SyncRuntimesPagination[Runtime],
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "starting_after": starting_after,
+                    },
+                    runtime_list_params.RuntimeListParams,
+                ),
             ),
-            cast_to=RuntimeListResponse,
+            model=Runtime,
         )
 
     def get(
@@ -186,6 +214,7 @@ class AsyncRuntimesResource(AsyncAPIResource):
         manifest_file: runtime_create_params.ManifestFile,
         name: str,
         additional_python_imports: str | NotGiven = NOT_GIVEN,
+        engine: Literal["wasi", "microvm", "v8"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -213,6 +242,7 @@ class AsyncRuntimesResource(AsyncAPIResource):
                     "manifest_file": manifest_file,
                     "name": name,
                     "additional_python_imports": additional_python_imports,
+                    "engine": engine,
                 },
                 runtime_create_params.RuntimeCreateParams,
             ),
@@ -222,23 +252,52 @@ class AsyncRuntimesResource(AsyncAPIResource):
             cast_to=Runtime,
         )
 
-    async def list(
+    def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        starting_after: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RuntimeListResponse:
-        """Returns a list of runtimes in your project."""
-        return await self._get(
+    ) -> AsyncPaginator[Runtime, AsyncRuntimesPagination[Runtime]]:
+        """
+        Returns a list of runtimes in your project.
+
+        Args:
+          limit: The number of items to return. Defaults to 100. Maximum is 100.
+
+          starting_after: The ID of the item to start after. To get the next page of results, set this to
+              the ID of the last item in the current page.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self._get_api_list(
             "/v1/runtimes",
+            page=AsyncRuntimesPagination[Runtime],
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "starting_after": starting_after,
+                    },
+                    runtime_list_params.RuntimeListParams,
+                ),
             ),
-            cast_to=RuntimeListResponse,
+            model=Runtime,
         )
 
     async def get(
