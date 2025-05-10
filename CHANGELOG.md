@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.11.1 (2025-05-10)
+
+Full Changelog: [v0.11.0...v0.11.1](https://github.com/riza-io/riza-api-python/compare/v0.11.0...v0.11.1)
+
+### Bug Fixes
+
+* **package:** support direct resource imports ([5a8f2bd](https://github.com/riza-io/riza-api-python/commit/5a8f2bd588ed788643b59c1f64bf88af21f8774e))
+
+
+### Chores
+
+* **internal:** avoid errors for isinstance checks on proxies ([df06fdf](https://github.com/riza-io/riza-api-python/commit/df06fdf1fd3534a47862a98e9df3868dc8813dd9))
+
 ## 0.11.0 (2025-04-24)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/riza-io/riza-api-python/compare/v0.10.0...v0.11.0)
