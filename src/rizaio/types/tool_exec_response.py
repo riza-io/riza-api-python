@@ -8,6 +8,9 @@ __all__ = ["ToolExecResponse", "Execution"]
 
 
 class Execution(BaseModel):
+    id: str
+    """The ID of the execution."""
+
     duration: int
     """The execution time of the function in milliseconds."""
 
