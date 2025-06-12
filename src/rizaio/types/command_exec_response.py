@@ -6,6 +6,9 @@ __all__ = ["CommandExecResponse"]
 
 
 class CommandExecResponse(BaseModel):
+    id: str
+    """The ID of the execution."""
+
     duration: int
     """The execution time of the script in milliseconds."""
 
