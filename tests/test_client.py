@@ -23,9 +23,7 @@ from pydantic import ValidationError
 
 from rizaio import Riza, AsyncRiza, APIResponseValidationError
 from rizaio._types import Omit
-from rizaio._utils import maybe_transform
 from rizaio._models import BaseModel, FinalRequestOptions
-from rizaio._constants import RAW_RESPONSE_HEADER
 from rizaio._exceptions import RizaError, APIStatusError, APITimeoutError, APIResponseValidationError
 from rizaio._base_client import (
     DEFAULT_TIMEOUT,
@@ -35,7 +33,6 @@ from rizaio._base_client import (
     DefaultAsyncHttpxClient,
     make_request_options,
 )
-from rizaio.types.command_exec_params import CommandExecParams
 
 from .utils import update_env
 
@@ -707,36 +704,21 @@ class TestRiza:
 
     @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
+    def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter, client: Riza) -> None:
         respx_mock.post("/v1/execute").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            self.client.post(
-                "/v1/execute",
-                body=cast(
-                    object, maybe_transform(dict(code="print('Hello, World!')", language="python"), CommandExecParams)
-                ),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
+            client.command.with_streaming_response.exec(code='print("Hello world!")', language="python").__enter__()
 
         assert _get_open_connections(self.client) == 0
 
     @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
+    def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, client: Riza) -> None:
         respx_mock.post("/v1/execute").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            self.client.post(
-                "/v1/execute",
-                body=cast(
-                    object, maybe_transform(dict(code="print('Hello, World!')", language="python"), CommandExecParams)
-                ),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
-
+            client.command.with_streaming_response.exec(code='print("Hello world!")', language="python").__enter__()
         assert _get_open_connections(self.client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
@@ -1528,36 +1510,25 @@ class TestAsyncRiza:
 
     @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    async def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
+    async def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter, async_client: AsyncRiza) -> None:
         respx_mock.post("/v1/execute").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            await self.client.post(
-                "/v1/execute",
-                body=cast(
-                    object, maybe_transform(dict(code="print('Hello, World!')", language="python"), CommandExecParams)
-                ),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
+            await async_client.command.with_streaming_response.exec(
+                code='print("Hello world!")', language="python"
+            ).__aenter__()
 
         assert _get_open_connections(self.client) == 0
 
     @mock.patch("rizaio._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
+    async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, async_client: AsyncRiza) -> None:
         respx_mock.post("/v1/execute").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            await self.client.post(
-                "/v1/execute",
-                body=cast(
-                    object, maybe_transform(dict(code="print('Hello, World!')", language="python"), CommandExecParams)
-                ),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
-
+            await async_client.command.with_streaming_response.exec(
+                code='print("Hello world!")', language="python"
+            ).__aenter__()
         assert _get_open_connections(self.client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
