@@ -37,6 +37,8 @@ classifiers = [
 Homepage = "https://github.com/riza-io/riza-api-python"
 Repository = "https://github.com/riza-io/riza-api-python"
 
+[project.optional-dependencies]
+aiohttp = ["aiohttp", "httpx_aiohttp>=0.1.6"]
 
 [tool.rye]
 managed = true
