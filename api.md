@@ -45,13 +45,14 @@ Methods:
 Types:
 
 ```python
-from rizaio.types import Runtime
+from rizaio.types import Runtime, RuntimeDeleteResponse
 ```
 
 Methods:
 
 - <code title="post /v1/runtimes">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">create</a>(\*\*<a href="src/rizaio/types/runtime_create_params.py">params</a>) -> <a href="./src/rizaio/types/runtime.py">Runtime</a></code>
 - <code title="get /v1/runtimes">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">list</a>(\*\*<a href="src/rizaio/types/runtime_list_params.py">params</a>) -> <a href="./src/rizaio/types/runtime.py">SyncRuntimesPagination[Runtime]</a></code>
+- <code title="delete /v1/runtimes/{id}">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">delete</a>(id) -> <a href="./src/rizaio/types/runtime_delete_response.py">RuntimeDeleteResponse</a></code>
 - <code title="get /v1/runtimes/{id}">client.runtimes.<a href="./src/rizaio/resources/runtimes/runtimes.py">get</a>(id) -> <a href="./src/rizaio/types/runtime.py">Runtime</a></code>
 
 ## Revisions
@@ -67,3 +68,16 @@ Methods:
 - <code title="post /v1/runtimes/{id}/revisions">client.runtimes.revisions.<a href="./src/rizaio/resources/runtimes/revisions.py">create</a>(id, \*\*<a href="src/rizaio/types/runtimes/revision_create_params.py">params</a>) -> <a href="./src/rizaio/types/runtimes/revision.py">Revision</a></code>
 - <code title="get /v1/runtimes/{id}/revisions">client.runtimes.revisions.<a href="./src/rizaio/resources/runtimes/revisions.py">list</a>(id) -> <a href="./src/rizaio/types/runtimes/revision_list_response.py">RevisionListResponse</a></code>
 - <code title="get /v1/runtimes/{runtime_id}/revisions/{revision_id}">client.runtimes.revisions.<a href="./src/rizaio/resources/runtimes/revisions.py">get</a>(revision_id, \*, runtime_id) -> <a href="./src/rizaio/types/runtimes/revision.py">Revision</a></code>
+
+# Executions
+
+Types:
+
+```python
+from rizaio.types import Execution
+```
+
+Methods:
+
+- <code title="get /v1/executions">client.executions.<a href="./src/rizaio/resources/executions.py">list</a>(\*\*<a href="src/rizaio/types/execution_list_params.py">params</a>) -> <a href="./src/rizaio/types/execution.py">SyncDefaultPagination[Execution]</a></code>
+- <code title="get /v1/executions/{id}">client.executions.<a href="./src/rizaio/resources/executions.py">get</a>(id) -> <a href="./src/rizaio/types/execution.py">Execution</a></code>

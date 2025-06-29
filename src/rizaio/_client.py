@@ -21,7 +21,7 @@ from ._types import (
 )
 from ._utils import is_given, get_async_library
 from ._version import __version__
-from .resources import tools, command, secrets
+from .resources import tools, command, secrets, executions
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import RizaError, APIStatusError
 from ._base_client import (
@@ -39,6 +39,7 @@ class Riza(SyncAPIClient):
     tools: tools.ToolsResource
     command: command.CommandResource
     runtimes: runtimes.RuntimesResource
+    executions: executions.ExecutionsResource
     with_raw_response: RizaWithRawResponse
     with_streaming_response: RizaWithStreamedResponse
 
@@ -100,6 +101,7 @@ class Riza(SyncAPIClient):
         self.tools = tools.ToolsResource(self)
         self.command = command.CommandResource(self)
         self.runtimes = runtimes.RuntimesResource(self)
+        self.executions = executions.ExecutionsResource(self)
         self.with_raw_response = RizaWithRawResponse(self)
         self.with_streaming_response = RizaWithStreamedResponse(self)
 
@@ -213,6 +215,7 @@ class AsyncRiza(AsyncAPIClient):
     tools: tools.AsyncToolsResource
     command: command.AsyncCommandResource
     runtimes: runtimes.AsyncRuntimesResource
+    executions: executions.AsyncExecutionsResource
     with_raw_response: AsyncRizaWithRawResponse
     with_streaming_response: AsyncRizaWithStreamedResponse
 
@@ -274,6 +277,7 @@ class AsyncRiza(AsyncAPIClient):
         self.tools = tools.AsyncToolsResource(self)
         self.command = command.AsyncCommandResource(self)
         self.runtimes = runtimes.AsyncRuntimesResource(self)
+        self.executions = executions.AsyncExecutionsResource(self)
         self.with_raw_response = AsyncRizaWithRawResponse(self)
         self.with_streaming_response = AsyncRizaWithStreamedResponse(self)
 
@@ -388,6 +392,7 @@ class RizaWithRawResponse:
         self.tools = tools.ToolsResourceWithRawResponse(client.tools)
         self.command = command.CommandResourceWithRawResponse(client.command)
         self.runtimes = runtimes.RuntimesResourceWithRawResponse(client.runtimes)
+        self.executions = executions.ExecutionsResourceWithRawResponse(client.executions)
 
 
 class AsyncRizaWithRawResponse:
@@ -396,6 +401,7 @@ class AsyncRizaWithRawResponse:
         self.tools = tools.AsyncToolsResourceWithRawResponse(client.tools)
         self.command = command.AsyncCommandResourceWithRawResponse(client.command)
         self.runtimes = runtimes.AsyncRuntimesResourceWithRawResponse(client.runtimes)
+        self.executions = executions.AsyncExecutionsResourceWithRawResponse(client.executions)
 
 
 class RizaWithStreamedResponse:
@@ -404,6 +410,7 @@ class RizaWithStreamedResponse:
         self.tools = tools.ToolsResourceWithStreamingResponse(client.tools)
         self.command = command.CommandResourceWithStreamingResponse(client.command)
         self.runtimes = runtimes.RuntimesResourceWithStreamingResponse(client.runtimes)
+        self.executions = executions.ExecutionsResourceWithStreamingResponse(client.executions)
 
 
 class AsyncRizaWithStreamedResponse:
@@ -412,6 +419,7 @@ class AsyncRizaWithStreamedResponse:
         self.tools = tools.AsyncToolsResourceWithStreamingResponse(client.tools)
         self.command = command.AsyncCommandResourceWithStreamingResponse(client.command)
         self.runtimes = runtimes.AsyncRuntimesResourceWithStreamingResponse(client.runtimes)
+        self.executions = executions.AsyncExecutionsResourceWithStreamingResponse(client.executions)
 
 
 Client = Riza
