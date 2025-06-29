@@ -9,7 +9,7 @@ import pytest
 
 from rizaio import Riza, AsyncRiza
 from tests.utils import assert_matches_type
-from rizaio.types import Runtime
+from rizaio.types import Runtime, RuntimeDeleteResponse
 from rizaio.pagination import SyncRuntimesPagination, AsyncRuntimesPagination
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -110,6 +110,44 @@ class TestRuntimes:
             assert_matches_type(SyncRuntimesPagination[Runtime], runtime, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_method_delete(self, client: Riza) -> None:
+        runtime = client.runtimes.delete(
+            "id",
+        )
+        assert_matches_type(RuntimeDeleteResponse, runtime, path=["response"])
+
+    @parametrize
+    def test_raw_response_delete(self, client: Riza) -> None:
+        response = client.runtimes.with_raw_response.delete(
+            "id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        runtime = response.parse()
+        assert_matches_type(RuntimeDeleteResponse, runtime, path=["response"])
+
+    @parametrize
+    def test_streaming_response_delete(self, client: Riza) -> None:
+        with client.runtimes.with_streaming_response.delete(
+            "id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            runtime = response.parse()
+            assert_matches_type(RuntimeDeleteResponse, runtime, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_delete(self, client: Riza) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.runtimes.with_raw_response.delete(
+                "",
+            )
 
     @parametrize
     def test_method_get(self, client: Riza) -> None:
@@ -247,6 +285,44 @@ class TestAsyncRuntimes:
             assert_matches_type(AsyncRuntimesPagination[Runtime], runtime, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_method_delete(self, async_client: AsyncRiza) -> None:
+        runtime = await async_client.runtimes.delete(
+            "id",
+        )
+        assert_matches_type(RuntimeDeleteResponse, runtime, path=["response"])
+
+    @parametrize
+    async def test_raw_response_delete(self, async_client: AsyncRiza) -> None:
+        response = await async_client.runtimes.with_raw_response.delete(
+            "id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        runtime = await response.parse()
+        assert_matches_type(RuntimeDeleteResponse, runtime, path=["response"])
+
+    @parametrize
+    async def test_streaming_response_delete(self, async_client: AsyncRiza) -> None:
+        async with async_client.runtimes.with_streaming_response.delete(
+            "id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            runtime = await response.parse()
+            assert_matches_type(RuntimeDeleteResponse, runtime, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_delete(self, async_client: AsyncRiza) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.runtimes.with_raw_response.delete(
+                "",
+            )
 
     @parametrize
     async def test_method_get(self, async_client: AsyncRiza) -> None:

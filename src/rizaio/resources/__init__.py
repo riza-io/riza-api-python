@@ -32,6 +32,14 @@ from .runtimes import (
     RuntimesResourceWithStreamingResponse,
     AsyncRuntimesResourceWithStreamingResponse,
 )
+from .executions import (
+    ExecutionsResource,
+    AsyncExecutionsResource,
+    ExecutionsResourceWithRawResponse,
+    AsyncExecutionsResourceWithRawResponse,
+    ExecutionsResourceWithStreamingResponse,
+    AsyncExecutionsResourceWithStreamingResponse,
+)
 
 __all__ = [
     "SecretsResource",
@@ -58,4 +66,10 @@ __all__ = [
     "AsyncRuntimesResourceWithRawResponse",
     "RuntimesResourceWithStreamingResponse",
     "AsyncRuntimesResourceWithStreamingResponse",
+    "ExecutionsResource",
+    "AsyncExecutionsResource",
+    "ExecutionsResourceWithRawResponse",
+    "AsyncExecutionsResourceWithRawResponse",
+    "ExecutionsResourceWithStreamingResponse",
+    "AsyncExecutionsResourceWithStreamingResponse",
 ]

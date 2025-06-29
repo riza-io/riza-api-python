@@ -6,6 +6,8 @@ from typing_extensions import Protocol, override, runtime_checkable
 from ._base_client import BasePage, PageInfo, BaseSyncPage, BaseAsyncPage
 
 __all__ = [
+    "SyncDefaultPagination",
+    "AsyncDefaultPagination",
     "SyncRuntimesPagination",
     "AsyncRuntimesPagination",
     "SyncToolsPagination",
@@ -15,6 +17,11 @@ __all__ = [
 ]
 
 _T = TypeVar("_T")
+
+
+@runtime_checkable
+class DefaultPaginationItem(Protocol):
+    id: str
 
 
 @runtime_checkable
@@ -30,6 +37,54 @@ class ToolsPaginationItem(Protocol):
 @runtime_checkable
 class SecretsPaginationItem(Protocol):
     id: str
+
+
+class SyncDefaultPagination(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
+    data: List[_T]
+
+    @override
+    def _get_page_items(self) -> List[_T]:
+        data = self.data
+        if not data:
+            return []
+        return data
+
+    @override
+    def next_page_info(self) -> Optional[PageInfo]:
+        data = self.data
+        if not data:
+            return None
+
+        item = cast(Any, data[-1])
+        if not isinstance(item, DefaultPaginationItem) or item.id is None:  # pyright: ignore[reportUnnecessaryComparison]
+            # TODO emit warning log
+            return None
+
+        return PageInfo(params={"starting_after": item.id})
+
+
+class AsyncDefaultPagination(BaseAsyncPage[_T], BasePage[_T], Generic[_T]):
+    data: List[_T]
+
+    @override
+    def _get_page_items(self) -> List[_T]:
+        data = self.data
+        if not data:
+            return []
+        return data
+
+    @override
+    def next_page_info(self) -> Optional[PageInfo]:
+        data = self.data
+        if not data:
+            return None
+
+        item = cast(Any, data[-1])
+        if not isinstance(item, DefaultPaginationItem) or item.id is None:  # pyright: ignore[reportUnnecessaryComparison]
+            # TODO emit warning log
+            return None
+
+        return PageInfo(params={"starting_after": item.id})
 
 
 class SyncRuntimesPagination(BaseSyncPage[_T], BasePage[_T], Generic[_T]):
