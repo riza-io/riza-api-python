@@ -1,5 +1,46 @@
 # Changelog
 
+## 0.12.0 (2025-06-29)
+
+Full Changelog: [v0.11.0...v0.12.0](https://github.com/riza-io/riza-api-python/compare/v0.11.0...v0.12.0)
+
+### Features
+
+* **api:** api update ([345e02a](https://github.com/riza-io/riza-api-python/commit/345e02a9e93c2ca9a26ce0f884dc9a018cd495cd))
+* **api:** api update ([54b8081](https://github.com/riza-io/riza-api-python/commit/54b808196ab410711a60e1e6eafc809045255580))
+* **api:** api update ([ab3a1f5](https://github.com/riza-io/riza-api-python/commit/ab3a1f5a2597a2407a96124c5bbd620eb61aed1a))
+* **api:** api update ([333d168](https://github.com/riza-io/riza-api-python/commit/333d1682a5d6f11000efba046a7874a156a6b4da))
+* **client:** add follow_redirects request option ([729c66e](https://github.com/riza-io/riza-api-python/commit/729c66e844308a7a56c4a7c56ce5af42f4abed0d))
+* **client:** add support for aiohttp ([b433926](https://github.com/riza-io/riza-api-python/commit/b433926d78e66e1234125f155aa6f2458be768ea))
+
+
+### Bug Fixes
+
+* **client:** correctly parse binary response | stream ([2b6e46f](https://github.com/riza-io/riza-api-python/commit/2b6e46ffc653e27831681d2a6e3719f6f2e79d4d))
+* **package:** support direct resource imports ([5a8f2bd](https://github.com/riza-io/riza-api-python/commit/5a8f2bd588ed788643b59c1f64bf88af21f8774e))
+* **tests:** fix: tests which call HTTP endpoints directly with the example parameters ([4ebdf17](https://github.com/riza-io/riza-api-python/commit/4ebdf17f9eba4d440261e307da12be148e4ab8c8))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([ce5b546](https://github.com/riza-io/riza-api-python/commit/ce5b546ced715900bff3f6d5a965ff482c20d46c))
+* **ci:** fix installation instructions ([dbfcc81](https://github.com/riza-io/riza-api-python/commit/dbfcc815e5022d343677c8eae511024949838c37))
+* **ci:** upload sdks to package manager ([6f15584](https://github.com/riza-io/riza-api-python/commit/6f15584c25e495105f80fe0728b693335a431355))
+* **docs:** grammar improvements ([8254ef9](https://github.com/riza-io/riza-api-python/commit/8254ef91bec882adfb05e4d86dfc13c0b0abcaca))
+* **docs:** remove reference to rye shell ([e7c147b](https://github.com/riza-io/riza-api-python/commit/e7c147beb4fc7f74c0e883389c53e2490863a8e2))
+* **docs:** remove unnecessary param examples ([5dc8d89](https://github.com/riza-io/riza-api-python/commit/5dc8d89c62b934da26ef8a588a26452e64aec895))
+* **internal:** avoid errors for isinstance checks on proxies ([df06fdf](https://github.com/riza-io/riza-api-python/commit/df06fdf1fd3534a47862a98e9df3868dc8813dd9))
+* **internal:** update conftest.py ([bd8931e](https://github.com/riza-io/riza-api-python/commit/bd8931e52ca3ae4591b692aafeded90dfc1d20fd))
+* **readme:** update badges ([9399af4](https://github.com/riza-io/riza-api-python/commit/9399af448b09b28392d91f980fbf2ef5f54b2364))
+* **tests:** add tests for httpx client instantiation & proxies ([81ec20b](https://github.com/riza-io/riza-api-python/commit/81ec20b4c46eacb48f8f715aa195d621e2e663de))
+* **tests:** run tests in parallel ([9c06af9](https://github.com/riza-io/riza-api-python/commit/9c06af9e919b3037638e51813d6172d6f5e9318e))
+* **tests:** skip some failing tests on the latest python versions ([afe509f](https://github.com/riza-io/riza-api-python/commit/afe509f0aad8d8e1f75a4a55af506f7ec178005a))
+
+
+### Documentation
+
+* **client:** fix httpx.Timeout documentation reference ([75b4f8d](https://github.com/riza-io/riza-api-python/commit/75b4f8d02e06917aa76e2321b65425aa59c7bf57))
+
 ## 0.11.0 (2025-04-24)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/riza-io/riza-api-python/compare/v0.10.0...v0.11.0)
