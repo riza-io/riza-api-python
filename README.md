@@ -85,7 +85,6 @@ pip install rizaio[aiohttp]
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
 
 ```python
-import os
 import asyncio
 from rizaio import DefaultAioHttpClient
 from rizaio import AsyncRiza
@@ -93,7 +92,7 @@ from rizaio import AsyncRiza
 
 async def main() -> None:
     async with AsyncRiza(
-        api_key=os.environ.get("RIZA_API_KEY"),  # This is the default and can be omitted
+        api_key="My API Key",
         http_client=DefaultAioHttpClient(),
     ) as client:
         response = await client.command.exec(
