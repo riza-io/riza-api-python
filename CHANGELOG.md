@@ -1,5 +1,39 @@
 # Changelog
 
+## 0.13.0 (2025-08-27)
+
+Full Changelog: [v0.12.0...v0.13.0](https://github.com/riza-io/riza-api-python/compare/v0.12.0...v0.13.0)
+
+### Features
+
+* **api:** api update ([382486c](https://github.com/riza-io/riza-api-python/commit/382486c74c65eea1194720b45ece9591d4d41af3))
+* clean up environment call outs ([8769bb2](https://github.com/riza-io/riza-api-python/commit/8769bb2c3c2c1f27f9b3376784e6aea508605f06))
+* **client:** support file upload requests ([1087c71](https://github.com/riza-io/riza-api-python/commit/1087c71fb0bf395b432d4fc431ee6603692e4136))
+
+
+### Bug Fixes
+
+* avoid newer type syntax ([9a18d40](https://github.com/riza-io/riza-api-python/commit/9a18d4006f1bf12a65155058c38a350d50f54c4d))
+* **client:** don't send Content-Type header on GET requests ([bd53e69](https://github.com/riza-io/riza-api-python/commit/bd53e69b195f87bde9d7fb9e5d0b53e1c6fe8115))
+* **parsing:** correctly handle nested discriminated unions ([8d47022](https://github.com/riza-io/riza-api-python/commit/8d47022a13eee3e79257a1b5f05fb5f1c011356d))
+* **parsing:** ignore empty metadata ([13c6372](https://github.com/riza-io/riza-api-python/commit/13c637238f21a0e1d107ef93ff68aa64544d80b4))
+* **parsing:** parse extra field types ([7d02baf](https://github.com/riza-io/riza-api-python/commit/7d02baf3b6f9b21004709680918f988e39b1c67e))
+
+
+### Chores
+
+* **ci:** change upload type ([d9528d6](https://github.com/riza-io/riza-api-python/commit/d9528d63ccb73418a25fd4faf7780503e59effb9))
+* **internal:** bump pinned h11 dep ([90fc2e5](https://github.com/riza-io/riza-api-python/commit/90fc2e5f508cfafe32e4c01aeb47ff48d2cf97a5))
+* **internal:** change ci workflow machines ([0d557ec](https://github.com/riza-io/riza-api-python/commit/0d557ec5e70c449738f311582b5816fc356baa47))
+* **internal:** fix ruff target version ([aa45f88](https://github.com/riza-io/riza-api-python/commit/aa45f883a7987c82ac55f32c0cd574df06e51a30))
+* **internal:** update comment in script ([0035775](https://github.com/riza-io/riza-api-python/commit/003577545ff551df4172905dba95d7375ef91416))
+* **internal:** update pyright exclude list ([e031abb](https://github.com/riza-io/riza-api-python/commit/e031abb28b1171dac9169607d11b7153a326fd95))
+* **package:** mark python 3.13 as supported ([05a0bcf](https://github.com/riza-io/riza-api-python/commit/05a0bcf5f142708df85b1cb43629440f17425286))
+* **project:** add settings file for vscode ([0166e57](https://github.com/riza-io/riza-api-python/commit/0166e5774e72bcea4a532baafecb1ad513883616))
+* **readme:** fix version rendering on pypi ([d5a15da](https://github.com/riza-io/riza-api-python/commit/d5a15daab691ce39320b92570cb03e05500f9553))
+* update @stainless-api/prism-cli to v5.15.0 ([bba0d03](https://github.com/riza-io/riza-api-python/commit/bba0d03cb1b6bdd875c1683073f1bd63211b7067))
+* update github action ([343e3ec](https://github.com/riza-io/riza-api-python/commit/343e3ec7a6bf8cb4bc9dccdae89a5e41d0fe178c))
+
 ## 0.12.0 (2025-06-29)
 
 Full Changelog: [v0.11.0...v0.12.0](https://github.com/riza-io/riza-api-python/compare/v0.11.0...v0.12.0)
